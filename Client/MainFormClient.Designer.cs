@@ -232,6 +232,7 @@
             this.chat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.chat.TabIndex = 0;
             this.chat.TabStop = false;
+            this.chat.Click += new System.EventHandler(this.chat_Click);
             // 
             // pnlMenu
             // 
@@ -252,6 +253,7 @@
             this.menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.menu.TabIndex = 0;
             this.menu.TabStop = false;
+            this.menu.Click += new System.EventHandler(this.menu_Click);
             // 
             // pnlLogout
             // 
@@ -294,6 +296,7 @@
             this.addMoney.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.addMoney.TabIndex = 0;
             this.addMoney.TabStop = false;
+            this.addMoney.Click += new System.EventHandler(this.addMoney_Click);
             // 
             // pnlAccount
             // 
@@ -314,7 +317,7 @@
             this.changePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.changePass.TabIndex = 0;
             this.changePass.TabStop = false;
-            this.changePass.Click += new System.EventHandler(this.Info_Click);
+            this.changePass.Click += new System.EventHandler(this.changePass_Click);
             // 
             // timerProgram
             // 

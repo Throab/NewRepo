@@ -32,9 +32,17 @@ namespace Server.BLL
         public void updateCurrentMoney(string username, double money)
         {
             string query = "update Member set CurrentMoney = '" + money + "' where AccountName = '" + username + "'";
-            if(DAL.runQuery(query))
+            if (DAL.runQuery(query))
             {
             }
+        }
+
+
+        public bool updateNewPass(string userName, string password)
+        {
+            string query = "update Member set Password = '" + password + "' where AccountName = '" + userName + "'";
+            if (DAL.runQuery(query)) return true;
+            return false;
         }
     }
 }

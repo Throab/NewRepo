@@ -28,7 +28,7 @@ namespace Client
         public const int PAYMENT = 103;
         public LoginFormClient lockScreen;
         public string userName = "";
-        public string message = "message";
+        public static string message;
         public double totalMoney;
         public double clientPrice;
         public ClientManager()
@@ -63,9 +63,8 @@ namespace Client
                 {
                     byte[] messageFromClient = new byte[maxGetByte];
                     client.Receive(messageFromClient);
-                    string message = CovertToMessage(messageFromClient).ToString();
-                    List<string> lstMessage = message.Split('|').ToList();
-                    this.message = "";
+                    string msg = CovertToMessage(messageFromClient).ToString();
+                    List<string> lstMessage = msg.Split('|').ToList();
                     if (lstMessage[request].Equals("UseClient"))
                     {
                         userName = "Customer";
@@ -87,20 +86,28 @@ namespace Client
                         this.totalMoney = double.Parse(lstMessage[2]);
                         this.clientPrice = double.Parse(lstMessage[3]);
                         requestServer = MEMBERLOGIN;
-                        this.message = "Login";
+                        message = "Login";
                         lockScreen.Visible = false;                        
                     }
                     if (lstMessage[request].Equals("Account not exist !! Or Wrong Username, Password"))
                     {
-                        this.message = "Account not exist !! Or Wrong Username, Password";
+                        message = "Login wrong";
                     }
                     if (lstMessage[request].Equals("Your account is exhausted.Recharge to use it!!!"))
                     {
                         lockScreen.Visible = true;
-                        this.message = "Your account is exhausted.Recharge to use it!!!";
+                        message = "Your account is exhausted.Recharge to use it!!!";
                     }
                     if (lstMessage[request].Equals("OKLogout")){
                         lockScreen.Visible = true; 
+                    }
+                    if (lstMessage[request].Equals("ChangePassSuccess"))
+                    {
+                        message = "Change pass success";
+                    }
+                    if (lstMessage[request].Equals("WrongCurrentPassword"))
+                    {
+                        message = "Wrong password";
                     }
                 }
             }
@@ -124,6 +131,10 @@ namespace Client
         public void showInfo(string userName)
         {
             client.Send(ConvertToByte("ShowInfo|" + userName + "|"));
+        }
+        public void changePass(string userName, string currentPass, string newPass)
+        {
+            client.Send(ConvertToByte("ChangePass|" + userName + "|" + currentPass + "|" + newPass + "|"));
         }
         byte[] ConvertToByte(object obj)
         {

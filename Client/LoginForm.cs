@@ -38,7 +38,6 @@ namespace Client
 
         private void LoginFormClient_Load(object sender, EventArgs e)
         {
-            label4.Text = clientManager.message;
             pnlLogin.Hide();
             Start();
         }
@@ -80,8 +79,17 @@ namespace Client
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            if(ClientManager.message == "Login")
+            {
+                ClientManager.message = "";
+                MessageBox.Show("Đăng nhập thành công.","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if(ClientManager.message == "Login wrong")
+            {
+                ClientManager.message = "";
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-        
+
     }
 }

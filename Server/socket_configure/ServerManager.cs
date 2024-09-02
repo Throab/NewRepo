@@ -123,6 +123,19 @@ namespace Server.socket_configure
                         currentClient.Send(ConvertToByte("OKLogout"));
                         ChangeStateClient(currentClient, "DISCONNECT", lstMessege[1]);
                     }
+                    if (lstMessege[request].Equals("ChangePass"))
+                    {
+                        if (ProcessMember.checkLoginMember(lstMessege[1], lstMessege[2])){
+                            if (ProcessMember.updateNewPass(lstMessege[1], lstMessege[3]))
+                            {
+                                currentClient.Send(ConvertToByte("ChangePassSuccess"));
+                            }
+                        }
+                        else
+                        {
+                            currentClient.Send(ConvertToByte("WrongCurrentPassword"));
+                        }
+                    }
                     
                 }
 

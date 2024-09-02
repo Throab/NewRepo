@@ -15,7 +15,7 @@ namespace Client
 {
     public partial class ClientForm : Form
     {
-        ClientManager clientManager;
+        public ClientManager clientManager;
         const int USECLIENT = 101;
         const int MEMBERLOGIN = 102;
         const int PAYMENT = 103;
@@ -64,7 +64,16 @@ namespace Client
         {
             try
             {
-
+                if (ClientManager.message == "Change pass success")
+                {
+                    ClientManager.message = "";
+                    MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if(ClientManager.message == "Wrong password")
+                {
+                    ClientManager.message = "";
+                    MessageBox.Show("Sai mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 if (ClientManager.requestServer != -1)
                 {
                     if (ClientManager.requestServer == MEMBERLOGIN)
@@ -86,10 +95,9 @@ namespace Client
                         txtUseTimeFee.Text = "0";
                         clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero));
                     }
-
                     MoneyCount(txtUsedTime.Text.ToString());
                 }
-            }catch (Exception ex) {
+            }catch{
                 Application.Exit();
             }
         }
@@ -168,9 +176,27 @@ namespace Client
             }
     }
         private string currencyFormat(double money) => string.Format(new CultureInfo("vi-VN"), "{0:C}", money);
-        private void Info_Click(object sender, EventArgs e)
+        
+
+        private void chat_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addMoney_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changePass_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm(this, this.clientManager);
+            changePasswordForm.ShowDialog();
         }
     }
 }
