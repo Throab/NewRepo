@@ -43,33 +43,33 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnlChat = new System.Windows.Forms.Panel();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlLogout = new System.Windows.Forms.Panel();
-            this.pnlCharge = new System.Windows.Forms.Panel();
-            this.pnlAccount = new System.Windows.Forms.Panel();
-            this.timerProgram = new System.Windows.Forms.Timer(this.components);
-            this.changePass = new System.Windows.Forms.PictureBox();
-            this.addMoney = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.Logout = new System.Windows.Forms.PictureBox();
-            this.menu = new System.Windows.Forms.PictureBox();
-            this.chat = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlChat = new System.Windows.Forms.Panel();
+            this.chat = new System.Windows.Forms.PictureBox();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.menu = new System.Windows.Forms.PictureBox();
+            this.pnlLogout = new System.Windows.Forms.Panel();
+            this.Logout = new System.Windows.Forms.PictureBox();
+            this.pnlCharge = new System.Windows.Forms.Panel();
+            this.addMoney = new System.Windows.Forms.PictureBox();
+            this.pnlAccount = new System.Windows.Forms.Panel();
+            this.changePass = new System.Windows.Forms.PictureBox();
+            this.timerProgram = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.grbUser.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlChat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chat)).BeginInit();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
             this.pnlLogout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logout)).BeginInit();
             this.pnlCharge.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addMoney)).BeginInit();
             this.pnlAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changePass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addMoney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Logout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // grbUser
@@ -203,6 +203,16 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "TRANG CHỦ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Client.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(85, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlChat
             // 
             this.pnlChat.Controls.Add(this.chat);
@@ -211,6 +221,18 @@
             this.pnlChat.Size = new System.Drawing.Size(75, 75);
             this.pnlChat.TabIndex = 2;
             // 
+            // chat
+            // 
+            this.chat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chat.Image = global::Client.Properties.Resources.chat;
+            this.chat.Location = new System.Drawing.Point(0, 0);
+            this.chat.Name = "chat";
+            this.chat.Size = new System.Drawing.Size(75, 75);
+            this.chat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.chat.TabIndex = 0;
+            this.chat.TabStop = false;
+            // 
             // pnlMenu
             // 
             this.pnlMenu.Controls.Add(this.menu);
@@ -218,6 +240,18 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(75, 75);
             this.pnlMenu.TabIndex = 3;
+            // 
+            // menu
+            // 
+            this.menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menu.Image = global::Client.Properties.Resources.menu;
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(75, 75);
+            this.menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.menu.TabIndex = 0;
+            this.menu.TabStop = false;
             // 
             // pnlLogout
             // 
@@ -228,6 +262,19 @@
             this.pnlLogout.TabIndex = 4;
             this.pnlLogout.Click += new System.EventHandler(this.pnlLogout_Click);
             // 
+            // Logout
+            // 
+            this.Logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Logout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Logout.Image = global::Client.Properties.Resources.logout;
+            this.Logout.Location = new System.Drawing.Point(0, 0);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(75, 75);
+            this.Logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Logout.TabIndex = 0;
+            this.Logout.TabStop = false;
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            // 
             // pnlCharge
             // 
             this.pnlCharge.Controls.Add(this.addMoney);
@@ -235,6 +282,18 @@
             this.pnlCharge.Name = "pnlCharge";
             this.pnlCharge.Size = new System.Drawing.Size(75, 75);
             this.pnlCharge.TabIndex = 4;
+            // 
+            // addMoney
+            // 
+            this.addMoney.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addMoney.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addMoney.Image = global::Client.Properties.Resources.money_bags;
+            this.addMoney.Location = new System.Drawing.Point(0, 0);
+            this.addMoney.Name = "addMoney";
+            this.addMoney.Size = new System.Drawing.Size(75, 75);
+            this.addMoney.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addMoney.TabIndex = 0;
+            this.addMoney.TabStop = false;
             // 
             // pnlAccount
             // 
@@ -244,12 +303,9 @@
             this.pnlAccount.Size = new System.Drawing.Size(75, 75);
             this.pnlAccount.TabIndex = 5;
             // 
-            // timerProgram
-            // 
-            this.timerProgram.Tick += new System.EventHandler(this.timerProgram_Tick);
-            // 
             // changePass
             // 
+            this.changePass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changePass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.changePass.Image = global::Client.Properties.Resources.changePass;
             this.changePass.Location = new System.Drawing.Point(0, 0);
@@ -260,16 +316,9 @@
             this.changePass.TabStop = false;
             this.changePass.Click += new System.EventHandler(this.Info_Click);
             // 
-            // addMoney
+            // timerProgram
             // 
-            this.addMoney.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addMoney.Image = global::Client.Properties.Resources.money_bags;
-            this.addMoney.Location = new System.Drawing.Point(0, 0);
-            this.addMoney.Name = "addMoney";
-            this.addMoney.Size = new System.Drawing.Size(75, 75);
-            this.addMoney.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.addMoney.TabIndex = 0;
-            this.addMoney.TabStop = false;
+            this.timerProgram.Tick += new System.EventHandler(this.timerProgram_Tick);
             // 
             // pictureBox5
             // 
@@ -281,50 +330,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
-            // 
-            // Logout
-            // 
-            this.Logout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Logout.Image = global::Client.Properties.Resources.logout;
-            this.Logout.Location = new System.Drawing.Point(0, 0);
-            this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(75, 75);
-            this.Logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Logout.TabIndex = 0;
-            this.Logout.TabStop = false;
-            this.Logout.Click += new System.EventHandler(this.Logout_Click);
-            // 
-            // menu
-            // 
-            this.menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu.Image = global::Client.Properties.Resources.menu;
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(75, 75);
-            this.menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.menu.TabIndex = 0;
-            this.menu.TabStop = false;
-            // 
-            // chat
-            // 
-            this.chat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chat.Image = global::Client.Properties.Resources.chat;
-            this.chat.Location = new System.Drawing.Point(0, 0);
-            this.chat.Name = "chat";
-            this.chat.Size = new System.Drawing.Size(75, 75);
-            this.chat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.chat.TabIndex = 0;
-            this.chat.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Client.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // ClientForm
             // 
@@ -349,18 +354,18 @@
             this.grbUser.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlChat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chat)).EndInit();
             this.pnlMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
             this.pnlLogout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Logout)).EndInit();
             this.pnlCharge.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addMoney)).EndInit();
             this.pnlAccount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.changePass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addMoney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Logout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

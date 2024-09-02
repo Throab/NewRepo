@@ -16,6 +16,8 @@ namespace Server
     {
         private LoginForm loginForm;
         private AdminForm adminForm;
+        Color blackGreenColor = Color.FromArgb(14, 60, 54);
+        Color themeColor = Color.FromArgb(14, 104, 54);
         public AdminPageForm()
         {
             InitializeComponent();
@@ -39,7 +41,9 @@ namespace Server
 
         private void AdminMainForm_Load(object sender, EventArgs e)
         {
-
+            pnlMainPage.BackColor = blackGreenColor;
+            ptbMainPage.BackColor = blackGreenColor;
+            lblMainPage.BackColor = blackGreenColor;
         }
 
         private void controlContainer_Paint(object sender, PaintEventArgs e)
@@ -47,15 +51,7 @@ namespace Server
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -65,45 +61,7 @@ namespace Server
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("a", "aa");
-        }
+        
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -122,22 +80,56 @@ namespace Server
 
         private void lblMainPage_Click(object sender, EventArgs e)
         {
+            resetColor();
             dashBoardControl.BringToFront();
+            pnlMainPage.BackColor = blackGreenColor;
+            lblMainPage.BackColor = blackGreenColor;
+            ptbMainPage.BackColor = blackGreenColor;
         }
 
         private void lblClientPage_Click(object sender, EventArgs e)
         {
+            resetColor ();
             clientControl.BringToFront();
+            pnlClient.BackColor = blackGreenColor;
+            lblClientPage.BackColor = blackGreenColor;
+            ptbClient.BackColor = blackGreenColor;
         }
 
         private void lblMember_Click(object sender, EventArgs e)
         {
+            resetColor ();
             memberControl.BringToFront();
+            pnlMember.BackColor = blackGreenColor;
+            lblMember.BackColor = blackGreenColor;
+            ptbMember.BackColor = blackGreenColor;
         }
 
         private void lblMenu_Click(object sender, EventArgs e)
         {
+            resetColor();
             menuControl.BringToFront();
+            pnlMenu.BackColor = blackGreenColor;
+            lblMenu.BackColor = blackGreenColor;
+            ptbMenu.BackColor = blackGreenColor;
+        }
+        private void resetColor()
+        {
+            pnlMainPage.BackColor = Color.Transparent;
+            pnlClient.BackColor = Color.Transparent;
+            pnlMember.BackColor = Color.Transparent;
+            pnlMenu.BackColor = Color.Transparent;
+            pnlPayment.BackColor = Color.Transparent;
+            lblMainPage.BackColor = Color.Transparent;
+            lblClientPage.BackColor = Color.Transparent;
+            lblMember.BackColor = Color.Transparent;
+            lblMenu.BackColor = Color.Transparent;
+            ptbMainPage.BackColor = Color.Transparent;
+            ptbPayment.BackColor = Color.Transparent;
+            ptbClient.BackColor = Color.Transparent;
+            ptbMember.BackColor = Color.Transparent;
+            ptbMenu.BackColor = Color.Transparent;
+
         }
     }
 }
