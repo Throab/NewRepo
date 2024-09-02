@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -70,7 +71,7 @@ namespace Client
                     {
                         this.Enabled = true;
                         grbUser.Text = "Người dùng: " + clientManager.userName;
-                        txtCurrentMoney.Text = clientManager.totalMoney.ToString();
+                        txtCurrentMoney.Text = currencyFormat(clientManager.totalMoney);
                         userName = clientManager.userName;
                         ClientManager.requestServer = -2;
                         min = 0;
@@ -81,7 +82,7 @@ namespace Client
                     {
                         use = TimeSpan.Parse(txtUsedTime.Text.ToString());
                         double remainingMoney = clientManager.totalMoney - money;
-                        txtRemainingMoney.Text = Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero).ToString();
+                        txtRemainingMoney.Text = currencyFormat(remainingMoney);
                         txtUseTimeFee.Text = "0";
                         clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero));
                     }
@@ -103,7 +104,7 @@ namespace Client
         private void MoneyCount(String useTime)
         {
             int time = ChangeUseTimeToMinutes(useTime);
-            txtUseTimeFee.Text = Math.Round(money, 3, MidpointRounding.AwayFromZero).ToString();
+            txtUseTimeFee.Text = currencyFormat(money);
             money += clientManager.clientPrice / 3600;
         }
         private int ChangeUseTimeToMinutes(String useTime)
@@ -166,7 +167,7 @@ namespace Client
                 clientManager.LogoutMember(userName);
             }
     }
-
+        private string currencyFormat(double money) => string.Format(new CultureInfo("vi-VN"), "{0:C}", money);
         private void Info_Click(object sender, EventArgs e)
         {
 

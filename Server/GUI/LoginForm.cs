@@ -1,4 +1,5 @@
 ﻿using Server.BLL;
+using Server.GUI;
 using Server.socket_configure;
 using System;
 using System.Collections.Generic;
@@ -72,10 +73,19 @@ namespace Server
             if (ProcessUser.checkLoginServer(txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                AdminMainForm adminMainForm = new AdminMainForm();
-                adminMainForm.ShowDialog();
-
+                this.Visible = false;
+                if (ProcessUser.checkIsAdmin(txtUsername.Text))
+                {
+                    AdminForm adminForm = new AdminForm(this);
+                    adminForm.ShowDialog();
+                }
+                else
+                {
+                    HomePageForm homePageForm = new HomePageForm();
+                    homePageForm.ShowDialog();
+                }
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
             else
             {

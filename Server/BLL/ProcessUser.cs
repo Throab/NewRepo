@@ -37,5 +37,17 @@ namespace Server.BLL
                 }).ToList();
             return usersList;
         }
+        public bool checkIsAdmin(string username)
+        {
+            string query = "select GroupUser from Users where UserName = '" + username + "'";
+            DataTable dt = DAL.getDataTable(query);
+            if(dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                string groupUser = row.Field<string>("GroupUser");
+                if (groupUser == "Manager") return true;
+            }
+            return false;
+        }
     }
 }
