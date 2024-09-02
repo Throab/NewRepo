@@ -36,6 +36,7 @@ namespace Client
             timerProgram.Enabled = true;
             timerProgram.Interval = 1000;
             timerProgram.Start();
+            this.Enabled = false;
         }
         public ClientForm(ClientManager x)
         {
@@ -63,11 +64,11 @@ namespace Client
             try
             {
 
-
                 if (ClientManager.requestServer != -1)
                 {
                     if (ClientManager.requestServer == MEMBERLOGIN)
                     {
+                        this.Enabled = true;
                         grbUser.Text = "Người dùng: " + clientManager.userName;
                         txtCurrentMoney.Text = clientManager.totalMoney.ToString();
                         userName = clientManager.userName;

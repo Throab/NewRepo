@@ -82,21 +82,6 @@ namespace Client
         {
             
         }
-        bool stop = true;
-        private int Login()
-        {
-            clientManager.Login(txtUsername.Text, txtPassword.Text);
-            if (clientManager.message.Equals("Login"))
-            {
-                return 1;
-            }
-            if (clientManager.message.Equals("Account not exist !! Or Wrong Username, Password"))
-            {
-                return 2;
-            }
-            return 0;
-
-
-        }
+        
     }
 }
