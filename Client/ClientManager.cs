@@ -33,7 +33,7 @@ namespace Client
         public double clientPrice;
         public ClientManager()
         {
-            Ip = new IPEndPoint(IPAddress.Parse("192.168.1.28"), portCode);
+            Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {

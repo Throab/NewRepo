@@ -89,6 +89,7 @@ namespace Client
                 }
             }catch (Exception ex) {
                 Application.Exit();
+                aaaaa
             }
         }
         private void ResetTime()
