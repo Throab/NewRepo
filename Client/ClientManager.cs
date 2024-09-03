@@ -113,7 +113,11 @@ namespace Client
             }
             catch
             {
-
+                if(MessageBox.Show("Mất kết nối với máy chủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+                
             }
         }
         public void Login(string userName, string passWord)
@@ -124,9 +128,9 @@ namespace Client
         {
             client.Send(ConvertToByte("LogOutPls!!|" + userName + "|"));
         }
-        public void updateMoney(string userName, double totalMoney)
+        public void updateMoney(string userName, double totalMoney, TimeSpan usedTime)
         {
-            client.Send(ConvertToByte("UpdateMoney|" + userName + "|" + totalMoney.ToString() + "|"));
+            client.Send(ConvertToByte("UpdateMoney|" + userName + "|" + totalMoney.ToString() + "|" + usedTime + "|"));
         }
         public void showInfo(string userName)
         {

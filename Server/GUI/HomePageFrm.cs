@@ -40,6 +40,10 @@ namespace Server.GUI
             {
                 back.Visible = false;
             }
+            ClientHomePageControl clientControl = new ClientHomePageControl(serverManager);
+            clientControl.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(clientControl);
+
         }
 
         private void back_Click(object sender, EventArgs e)

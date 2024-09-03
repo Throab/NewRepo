@@ -17,8 +17,7 @@ namespace Server.BLL
         {
             string query = "select * from Member where AccountName = '" + username + "' and Password = '" + password + "'";
             DataTable dt = DAL.getDataTable(query);
-            if (dt.Rows.Count > 0) return true;
-            return false;
+            return dt.Rows.Count > 0;
         }
         public double getTotalMoney(string username)
         {
@@ -43,6 +42,12 @@ namespace Server.BLL
             string query = "update Member set Password = '" + password + "' where AccountName = '" + userName + "'";
             if (DAL.runQuery(query)) return true;
             return false;
+        }
+
+        public bool checkValidMember(string username) {
+            string query = "select * from Member where AccountName = '" + username + "' and  CurrentMoney > 0";
+            DataTable dt = DAL.getDataTable(query);
+            return dt.Rows.Count > 0;
         }
     }
 }

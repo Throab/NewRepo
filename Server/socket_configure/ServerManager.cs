@@ -74,59 +74,74 @@ namespace Server.socket_configure
                     byte[] messegeFromClient = new byte[1024 * 5000];
                     currentClient.Receive(messegeFromClient);
                     string messege = (string)CovertToMessege(messegeFromClient);
-                    List<string> lstMessege = messege.Split('|').ToList();
+                    List<string> lstMessage = messege.Split('|').ToList();
                     IPEndPoint remoteEndPoint = (IPEndPoint)currentClient.RemoteEndPoint;
                     IPAddress clientIpAddress = remoteEndPoint.Address;
-                    if (lstMessege[request].Equals("ConnectWithMePls!!"))
+                    if (lstMessage[request].Equals("ConnectWithMePls!!"))
                     {
                         arrClient.Add(
                         new InfoClient()
                         {
                             clientIp = clientIpAddress.ToString(),
-                            stateClient = wait,
+                            stateClient = "WAITING",
                             client = currentClient,
-                            
+                            usedTime = TimeSpan.Zero                           
                         }) ;
                         refreshClient = change;
+                        ChangeStateClient(currentClient, "WAITING", "");
                     }
-                    if (lstMessege[request].Equals("AllowToLogInPls!!"))
+                    if (lstMessage[request].Equals("AllowToLogInPls!!"))
                     {
-                        if (ProcessMember.checkLoginMember(lstMessege[1], lstMessege[2]))
+                        if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2]))
                         {
-                            totalMoney = ProcessMember.getTotalMoney(lstMessege[1]);
-                            foreach (InfoClient cli in arrClient)
+                            if (ProcessMember.checkValidMember(lstMessage[1]))
                             {
-                                if (cli.client == currentClient)
+                                totalMoney = ProcessMember.getTotalMoney(lstMessage[1]);
+                                foreach (InfoClient cli in arrClient)
                                 {
-                                    string groupClientName = ProcessClient.getGroupName(cli);
-                                    this.clientPrice = ProcessGroupClient.getClientPrice(groupClientName);
+                                    if (cli.client == currentClient)
+                                    {
+                                        string groupClientName = ProcessClient.getGroupName(cli);
+                                        this.clientPrice = ProcessGroupClient.getClientPrice(groupClientName);
+                                    }
                                 }
+                                currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
+                                ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
                             }
-                            currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessege[1] + "|" + totalMoney + "|" + clientPrice + "|"));
-                            ChangeStateClient(currentClient, "MEMBER USING", lstMessege[1]);
+                            else
+                            {
+                                currentClient.Send(ConvertToByte("Your account is exhausted.Recharge to use it!!!"));
+                            }
 
                         }
                         else
                         {
                             currentClient.Send(ConvertToByte("Account not exist !! Or Wrong Username, Password"));
-                            ChangeStateClient(currentClient, "WAITING", lstMessege[1]);
+                            ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
                         }
 
 
                     }
-                    if (lstMessege[request].Equals("UpdateMoney"))
+                    if (lstMessage[request].Equals("UpdateMoney"))
                     {
-                        ProcessMember.updateCurrentMoney(lstMessege[1], double.Parse(lstMessege[2]));
+                        ProcessMember.updateCurrentMoney(lstMessage[1], double.Parse(lstMessage[2]));
+                        foreach (InfoClient cli in arrClient)
+                        {
+                            if (cli.client == currentClient)
+                            {
+                                cli.usedTime = TimeSpan.Parse(lstMessage[3]);
+                            }
+                        }
                     }
-                    if (lstMessege[request].Equals("LogOutPls!!"))
+                    if (lstMessage[request].Equals("LogOutPls!!"))
                     {
                         currentClient.Send(ConvertToByte("OKLogout"));
-                        ChangeStateClient(currentClient, "DISCONNECT", lstMessege[1]);
+                        ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
                     }
-                    if (lstMessege[request].Equals("ChangePass"))
+                    if (lstMessage[request].Equals("ChangePass"))
                     {
-                        if (ProcessMember.checkLoginMember(lstMessege[1], lstMessege[2])){
-                            if (ProcessMember.updateNewPass(lstMessege[1], lstMessege[3]))
+                        if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2])){
+                            if (ProcessMember.updateNewPass(lstMessage[1], lstMessage[3]))
                             {
                                 currentClient.Send(ConvertToByte("ChangePassSuccess"));
                             }
@@ -142,7 +157,15 @@ namespace Server.socket_configure
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                foreach (InfoClient cli in arrClient)
+                {
+                    if (cli.client == currentClient)
+                    {
+                        cli.stateClient = "DISCONNECT";
+                        cli.usedTime = TimeSpan.Zero;
+                        ProcessClient.changeStateClient(cli);
+                    }
+                }
             }
 
         }
@@ -152,6 +175,7 @@ namespace Server.socket_configure
             {
                 if (cli.client == client)
                 {
+                    cli.usedTime = TimeSpan.Zero;
                     cli.stateClient = state;
                     cli.memberName = userName;
                     ProcessClient.changeStateClient(cli);

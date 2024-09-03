@@ -84,7 +84,7 @@ namespace Client
                         double remainingMoney = clientManager.totalMoney - money;
                         txtRemainingMoney.Text = currencyFormat(remainingMoney);
                         txtUseTimeFee.Text = "0";
-                        clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero));
+                        clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero), use);
                     }
                     MoneyCount(txtUsedTime.Text.ToString());
                 }

@@ -44,5 +44,12 @@ namespace Server.BLL
                 }).ToList();
             return clientList;
         }
+        public string getClientName(string clientIp)
+        {
+            string query = "select ClientName from Client where ClientIP = '" + clientIp + "'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row.Field<string>("ClientName");
+        }
     }
 }

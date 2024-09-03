@@ -89,6 +89,11 @@ namespace Client
                 ClientManager.message = "";
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            if (ClientManager.message == "Your account is exhausted.Recharge to use it!!!")
+            {
+                ClientManager.message = "";
+                MessageBox.Show("Số tiền trong tài khoản của bạn đã hết.\nVui lòng nạp thêm tiền để tiếp tục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
     }
