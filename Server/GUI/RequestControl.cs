@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Server.GUI
 {
-    public partial class MemberControl : UserControl
+    public partial class RequestControl : UserControl
     {
-        public MemberControl()
+        public RequestControl()
         {
             InitializeComponent();
         }

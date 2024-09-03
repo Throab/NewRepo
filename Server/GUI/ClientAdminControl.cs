@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Server
+namespace Server.GUI
 {
-    public partial class HomePageForm : Form
+    public partial class ClientAdminControl : UserControl
     {
-        public HomePageForm()
+        public ClientAdminControl()
         {
             InitializeComponent();
         }

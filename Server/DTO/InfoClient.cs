@@ -11,7 +11,7 @@ namespace Server.DTO
     {
         public string clientIp { get; set; }
         public string stateClient { get; set; }
-        public DateTime startTime { get; set; }
+        public DateTime usedTime { get; set; }
         public string remainMoney { get; set; }
         public Socket client { get; set; }
         public string memberName { get; set; }

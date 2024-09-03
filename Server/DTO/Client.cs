@@ -8,15 +8,15 @@ namespace Server.DTO
 {
     public class Client
     {
-        private string clientId;
+        private string clientIp;
         private string clientName;
         private string groupClientName;
         private string statusClient;
         private string note;
-        public string ClientID
+        public string ClientIP
         {
-            get { return clientId; }
-            set { clientId = value; }
+            get { return clientIp; }
+            set { clientIp = value; }
         }
         public string ClientName
         {

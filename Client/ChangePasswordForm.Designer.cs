@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.ShowPassNewPass = new System.Windows.Forms.PictureBox();
             this.ShowPassConfirm = new System.Windows.Forms.PictureBox();
             this.HidePassConfirm = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HidePassCurrentPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowPassCurrentPass)).BeginInit();
@@ -246,6 +248,11 @@
             this.HidePassConfirm.Visible = false;
             this.HidePassConfirm.Click += new System.EventHandler(this.HidePassConfirm_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ChangePasswordForm
             // 
             this.AcceptButton = this.btnChangePass;
@@ -306,5 +313,6 @@
         private System.Windows.Forms.PictureBox ShowPassNewPass;
         private System.Windows.Forms.PictureBox ShowPassConfirm;
         private System.Windows.Forms.PictureBox HidePassConfirm;
+        private System.Windows.Forms.Timer timer1;
     }
 }

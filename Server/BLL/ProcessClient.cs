@@ -30,6 +30,19 @@ namespace Server.BLL
             return groupName;
         }
 
-        
+        public List<DTO.Client> getAllClient()
+        {
+            string query = "select * from Client";
+            DataTable dt = DAL.getDataTable(query);
+            List<DTO.Client> clientList = dt.AsEnumerable()
+                .Select(row => new Client
+                {
+                    ClientIP = row.Field<string>("ClientIP"),
+                    ClientName = row.Field<string>("ClientName"),
+                    GroupClientName = row.Field<string>("GroupClientName"),
+                    StatusClient = row.Field<string>("StatusClient"),
+                }).ToList();
+            return clientList;
+        }
     }
 }

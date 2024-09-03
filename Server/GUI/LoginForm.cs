@@ -73,7 +73,7 @@ namespace Server
             if (ProcessUser.checkLoginServer(txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Visible = false;
+                this.Hide();
                 if (ProcessUser.checkIsAdmin(txtUsername.Text))
                 {
                     AdminForm adminForm = new AdminForm(this);
@@ -81,8 +81,8 @@ namespace Server
                 }
                 else
                 {
-                    HomePageForm homePageForm = new HomePageForm();
-                    homePageForm.ShowDialog();
+                    HomePageFrm homePageFrm = new HomePageFrm(this);
+                    homePageFrm.ShowDialog();
                 }
                 txtUsername.Clear();
                 txtPassword.Clear();

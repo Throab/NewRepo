@@ -46,7 +46,6 @@ namespace Client
                 else
                 {
                     clientManager.changePass(lblUsername.Text, txtCurrentPassword.Text, txtNewPassword.Text);
-                    this.Close();
                 }
             }
             
@@ -98,6 +97,28 @@ namespace Client
             HidePassConfirm.Visible = true;
             ShowPassConfirm.Visible = false;
             TxtConfirmNewPass.PasswordChar = '\0';
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ClientManager.message == "Change pass success")
+                {
+                    ClientManager.message = "";
+                    MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                if (ClientManager.message == "Wrong password")
+                {
+                    ClientManager.message = "";
+                    MessageBox.Show("Sai mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+                this.Close();
+            }
         }
     }
 }

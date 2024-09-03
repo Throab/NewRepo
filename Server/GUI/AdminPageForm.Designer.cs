@@ -55,8 +55,8 @@
             this.dashBoardControl1 = new Server.GUI.DashBoardControl();
             this.dashBoardControl = new Server.GUI.DashBoardControl();
             this.menuControl = new Server.GUI.MenuControl();
-            this.memberControl = new Server.GUI.MemberControl();
-            this.clientControl = new Server.GUI.ClientControl();
+            this.memberControl = new Server.GUI.MemberAdminControl();
+            this.clientControl = new Server.GUI.ClientAdminControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbPayment)).BeginInit();
@@ -434,10 +434,10 @@
         private System.Windows.Forms.PictureBox ptbMember;
         private System.Windows.Forms.PictureBox ptbClient;
         private System.Windows.Forms.Label lblBack;
-        private GUI.ClientControl clientControl;
+        private GUI.ClientAdminControl clientControl;
         private GUI.DashBoardControl dashBoardControl;
         private GUI.MenuControl menuControl;
-        private GUI.MemberControl memberControl;
+        private GUI.MemberAdminControl memberControl;
         private System.Windows.Forms.Panel pnlMainPage;
         private System.Windows.Forms.Panel pnlClient;
         private System.Windows.Forms.Panel pnlMember;

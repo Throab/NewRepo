@@ -1,6 +1,6 @@
 ﻿namespace Server.GUI
 {
-    partial class ClientControl
+    partial class MemberAdminControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,18 +34,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 235);
+            this.label1.Location = new System.Drawing.Point(299, 157);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 20);
+            this.label1.Size = new System.Drawing.Size(202, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "này là trang quản lý máy";
+            this.label1.Text = "này là trang quản lý hội viên";
             // 
-            // ClientControl
+            // MemberControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ClientControl";
+            this.Name = "MemberControl";
             this.Size = new System.Drawing.Size(660, 497);
             this.ResumeLayout(false);
             this.PerformLayout();

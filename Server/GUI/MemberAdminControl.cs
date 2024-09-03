@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Server.GUI
 {
-    public partial class ClientControl : UserControl
+    public partial class MemberAdminControl : UserControl
     {
-        public ClientControl()
+        public MemberAdminControl()
         {
             InitializeComponent();
         }

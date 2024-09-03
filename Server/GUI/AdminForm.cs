@@ -33,14 +33,22 @@ namespace Server.GUI
 
         private void adminPage_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Hide();
             AdminPageForm adminPageForm = new AdminPageForm(loginForm, this);
             adminPageForm.ShowDialog();
+            
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void homePage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomePageFrm homePageFrm = new HomePageFrm(loginForm, this);
+            homePageFrm.ShowDialog();
         }
     }
 }

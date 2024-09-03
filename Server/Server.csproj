@@ -54,7 +54,25 @@
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\GroupClient.cs" />
-    <Compile Include="DTO\GroupUser.cs" />
+    <Compile Include="GUI\ChatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ChatControl.Designer.cs">
+      <DependentUpon>ChatControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ClientHomePageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ClientHomePageControl.Designer.cs">
+      <DependentUpon>ClientHomePageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ClientHomePageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ClientHomePageUserControl.Designer.cs">
+      <DependentUpon>ClientHomePageUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GroupUser.cs" />
     <Compile Include="DTO\InfoClient.cs" />
     <Compile Include="DTO\Member.cs" />
     <Compile Include="DTO\User.cs" />
@@ -70,11 +88,17 @@
     <Compile Include="GUI\AdminPageForm.Designer.cs">
       <DependentUpon>AdminPageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ClientControl.cs">
+    <Compile Include="GUI\HomePageFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HomePageFrm.Designer.cs">
+      <DependentUpon>HomePageFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ClientAdminControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\ClientControl.Designer.cs">
-      <DependentUpon>ClientControl.cs</DependentUpon>
+    <Compile Include="GUI\ClientAdminControl.Designer.cs">
+      <DependentUpon>ClientAdminControl.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LoginForm.cs">
       <SubType>Form</SubType>
@@ -88,11 +112,17 @@
     <Compile Include="GUI\DashBoardControl.Designer.cs">
       <DependentUpon>DashBoardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\MemberControl.cs">
+    <Compile Include="GUI\MemberAdminControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\MemberControl.Designer.cs">
-      <DependentUpon>MemberControl.cs</DependentUpon>
+    <Compile Include="GUI\MemberAdminControl.Designer.cs">
+      <DependentUpon>MemberAdminControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MemberHomePageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\MemberHomePageControl.Designer.cs">
+      <DependentUpon>MemberHomePageControl.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\MenuControl.cs">
       <SubType>UserControl</SubType>
@@ -100,11 +130,11 @@
     <Compile Include="GUI\MenuControl.Designer.cs">
       <DependentUpon>MenuControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomePageForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="GUI\RequestControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HomePageForm.Designer.cs">
-      <DependentUpon>HomePageForm.cs</DependentUpon>
+    <Compile Include="GUI\RequestControl.Designer.cs">
+      <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,8 +145,20 @@
     <EmbeddedResource Include="GUI\AdminPageForm.resx">
       <DependentUpon>AdminPageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ClientControl.resx">
-      <DependentUpon>ClientControl.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ChatControl.resx">
+      <DependentUpon>ChatControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ClientHomePageControl.resx">
+      <DependentUpon>ClientHomePageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ClientHomePageUserControl.resx">
+      <DependentUpon>ClientHomePageUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HomePageFrm.resx">
+      <DependentUpon>HomePageFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ClientAdminControl.resx">
+      <DependentUpon>ClientAdminControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DashBoardControl.resx">
       <DependentUpon>DashBoardControl.cs</DependentUpon>
@@ -124,11 +166,17 @@
     <EmbeddedResource Include="GUI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\MemberControl.resx">
-      <DependentUpon>MemberControl.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\MemberAdminControl.resx">
+      <DependentUpon>MemberAdminControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MemberHomePageControl.resx">
+      <DependentUpon>MemberHomePageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MenuControl.resx">
       <DependentUpon>MenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RequestControl.resx">
+      <DependentUpon>RequestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -198,5 +246,6 @@
   <ItemGroup>
     <None Include="resources\images\home-page %281%29.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

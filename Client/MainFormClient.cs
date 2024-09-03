@@ -64,16 +64,7 @@ namespace Client
         {
             try
             {
-                if (ClientManager.message == "Change pass success")
-                {
-                    ClientManager.message = "";
-                    MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                if(ClientManager.message == "Wrong password")
-                {
-                    ClientManager.message = "";
-                    MessageBox.Show("Sai mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                
                 if (ClientManager.requestServer != -1)
                 {
                     if (ClientManager.requestServer == MEMBERLOGIN)

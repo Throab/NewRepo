@@ -68,6 +68,7 @@
             this.homePage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.homePage.TabIndex = 1;
             this.homePage.TabStop = false;
+            this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
             // adminPage
             // 
