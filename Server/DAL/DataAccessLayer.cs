@@ -12,7 +12,7 @@ namespace Server.DAL
 
     internal class DataAccessLayer
     {
-        private string strconn = "Data Source=ROAB;Initial Catalog=QuanLyPhongMay;Integrated Security=True";
+        private string strconn = "Data Source=LAPTOP-44634RVO\\DAILE;Initial Catalog=QuanLyPhongMay;Integrated Security=True";
         private SqlConnection conn;
         public bool TestConnection()
         {
@@ -96,6 +96,15 @@ namespace Server.DAL
                 conn.Close();
             }
             return dt;
+        }
+        public bool checkField(string tableName, string fieldName, string value)
+        {
+            string sqlQuery = "select * from " + tableName + " where " + fieldName + "= '" + value + "'";
+            if (getDataTable(sqlQuery).Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

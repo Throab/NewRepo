@@ -77,7 +77,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(978, 78);
+            this.panel1.Size = new System.Drawing.Size(1125, 78);
             this.panel1.TabIndex = 0;
             // 
             // lblBack
@@ -87,9 +87,9 @@
             this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBack.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBack.Location = new System.Drawing.Point(12, 18);
+            this.lblBack.Location = new System.Drawing.Point(29, 9);
             this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(44, 42);
+            this.lblBack.Size = new System.Drawing.Size(58, 54);
             this.lblBack.TabIndex = 3;
             this.lblBack.Text = "◀";
             this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
@@ -101,9 +101,9 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(945, 9);
+            this.btnClose.Location = new System.Drawing.Point(1092, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(27, 25);
+            this.btnClose.Size = new System.Drawing.Size(33, 31);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -115,7 +115,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(351, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 36);
+            this.label1.Size = new System.Drawing.Size(342, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý phòng net";
             // 
@@ -143,7 +143,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 78);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(268, 497);
+            this.panel2.Size = new System.Drawing.Size(281, 574);
             this.panel2.TabIndex = 2;
             // 
             // ptbPayment
@@ -219,7 +219,7 @@
             this.lblPayment.ForeColor = System.Drawing.Color.White;
             this.lblPayment.Location = new System.Drawing.Point(74, 363);
             this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(166, 23);
+            this.lblPayment.Size = new System.Drawing.Size(225, 31);
             this.lblPayment.TabIndex = 8;
             this.lblPayment.Text = "Quản lý thanh toán";
             // 
@@ -232,7 +232,7 @@
             this.lblMainPage.ForeColor = System.Drawing.Color.White;
             this.lblMainPage.Location = new System.Drawing.Point(74, 161);
             this.lblMainPage.Name = "lblMainPage";
-            this.lblMainPage.Size = new System.Drawing.Size(130, 23);
+            this.lblMainPage.Size = new System.Drawing.Size(174, 31);
             this.lblMainPage.TabIndex = 7;
             this.lblMainPage.Text = "Quản lý chung";
             this.lblMainPage.Click += new System.EventHandler(this.lblMainPage_Click);
@@ -246,7 +246,7 @@
             this.lblMenu.ForeColor = System.Drawing.Color.White;
             this.lblMenu.Location = new System.Drawing.Point(74, 311);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(153, 23);
+            this.lblMenu.Size = new System.Drawing.Size(206, 31);
             this.lblMenu.TabIndex = 6;
             this.lblMenu.Text = "Quản lý thực đơn";
             this.lblMenu.Click += new System.EventHandler(this.lblMenu_Click);
@@ -260,7 +260,7 @@
             this.lblClientPage.ForeColor = System.Drawing.Color.White;
             this.lblClientPage.Location = new System.Drawing.Point(74, 211);
             this.lblClientPage.Name = "lblClientPage";
-            this.lblClientPage.Size = new System.Drawing.Size(114, 23);
+            this.lblClientPage.Size = new System.Drawing.Size(153, 31);
             this.lblClientPage.TabIndex = 5;
             this.lblClientPage.Text = "Quản lý máy";
             this.lblClientPage.Click += new System.EventHandler(this.lblClientPage_Click);
@@ -274,7 +274,7 @@
             this.lblMember.ForeColor = System.Drawing.Color.White;
             this.lblMember.Location = new System.Drawing.Point(74, 261);
             this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(147, 23);
+            this.lblMember.Size = new System.Drawing.Size(195, 31);
             this.lblMember.TabIndex = 3;
             this.lblMember.Text = "Quản lý hội viên";
             this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
@@ -332,9 +332,9 @@
             this.controlContainer.Controls.Add(this.memberControl);
             this.controlContainer.Controls.Add(this.clientControl);
             this.controlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlContainer.Location = new System.Drawing.Point(268, 78);
+            this.controlContainer.Location = new System.Drawing.Point(281, 78);
             this.controlContainer.Name = "controlContainer";
-            this.controlContainer.Size = new System.Drawing.Size(710, 497);
+            this.controlContainer.Size = new System.Drawing.Size(844, 574);
             this.controlContainer.TabIndex = 3;
             this.controlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.controlContainer_Paint);
             // 
@@ -345,7 +345,7 @@
             this.dashBoardControl1.Location = new System.Drawing.Point(0, 0);
             this.dashBoardControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dashBoardControl1.Name = "dashBoardControl1";
-            this.dashBoardControl1.Size = new System.Drawing.Size(710, 497);
+            this.dashBoardControl1.Size = new System.Drawing.Size(844, 574);
             this.dashBoardControl1.TabIndex = 4;
             // 
             // dashBoardControl
@@ -355,7 +355,7 @@
             this.dashBoardControl.Location = new System.Drawing.Point(0, 0);
             this.dashBoardControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dashBoardControl.Name = "dashBoardControl";
-            this.dashBoardControl.Size = new System.Drawing.Size(710, 497);
+            this.dashBoardControl.Size = new System.Drawing.Size(844, 574);
             this.dashBoardControl.TabIndex = 0;
             // 
             // menuControl
@@ -364,7 +364,7 @@
             this.menuControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuControl.Location = new System.Drawing.Point(0, 0);
             this.menuControl.Name = "menuControl";
-            this.menuControl.Size = new System.Drawing.Size(710, 497);
+            this.menuControl.Size = new System.Drawing.Size(844, 574);
             this.menuControl.TabIndex = 3;
             // 
             // memberControl
@@ -373,7 +373,7 @@
             this.memberControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberControl.Location = new System.Drawing.Point(0, 0);
             this.memberControl.Name = "memberControl";
-            this.memberControl.Size = new System.Drawing.Size(710, 497);
+            this.memberControl.Size = new System.Drawing.Size(844, 574);
             this.memberControl.TabIndex = 2;
             // 
             // clientControl
@@ -382,13 +382,13 @@
             this.clientControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientControl.Location = new System.Drawing.Point(0, 0);
             this.clientControl.Name = "clientControl";
-            this.clientControl.Size = new System.Drawing.Size(710, 497);
+            this.clientControl.Size = new System.Drawing.Size(844, 574);
             this.clientControl.TabIndex = 1;
             // 
             // AdminPageForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(978, 575);
+            this.ClientSize = new System.Drawing.Size(1125, 652);
             this.ControlBox = false;
             this.Controls.Add(this.controlContainer);
             this.Controls.Add(this.panel2);
