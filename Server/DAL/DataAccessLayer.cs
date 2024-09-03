@@ -97,5 +97,14 @@ namespace Server.DAL
             }
             return dt;
         }
+        public bool checkField(string tableName, string fieldName, string value)
+        {
+            string sqlQuery = "select * from " + tableName + " where " + fieldName + "= '" + value + "'";
+            if (getDataTable(sqlQuery).Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
