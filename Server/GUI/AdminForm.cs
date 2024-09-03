@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.socket_configure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace Server.GUI
     public partial class AdminForm : Form
     {
         private LoginForm loginForm;
+        ServerManager serverManager;
         public AdminForm()
         {
             InitializeComponent();
         }
-        public AdminForm(LoginForm loginForm)
+        public AdminForm(LoginForm loginForm, ServerManager serverManager)
         {
             InitializeComponent();
             this.loginForm = loginForm;
+            this.serverManager = serverManager;
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace Server.GUI
         private void adminPage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AdminPageForm adminPageForm = new AdminPageForm(loginForm, this);
+            AdminPageForm adminPageForm = new AdminPageForm(loginForm, this, serverManager);
             adminPageForm.ShowDialog();
             
         }
@@ -47,7 +50,7 @@ namespace Server.GUI
         private void homePage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HomePageFrm homePageFrm = new HomePageFrm(loginForm, this);
+            HomePageFrm homePageFrm = new HomePageFrm(loginForm, this, serverManager);
             homePageFrm.ShowDialog();
         }
     }

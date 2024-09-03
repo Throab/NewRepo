@@ -1,4 +1,5 @@
 ﻿using Server.GUI;
+using Server.socket_configure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,15 +19,17 @@ namespace Server
         private AdminForm adminForm;
         Color blackGreenColor = Color.FromArgb(14, 60, 54);
         Color themeColor = Color.FromArgb(14, 104, 54);
+        ServerManager serverManager;
         public AdminPageForm()
         {
             InitializeComponent();
         }
-        public AdminPageForm(LoginForm loginForm, AdminForm adminForm)
+        public AdminPageForm(LoginForm loginForm, AdminForm adminForm, ServerManager serverManager)
         {
             InitializeComponent();
             this.loginForm = loginForm;
             this.adminForm = adminForm;
+            this.serverManager = serverManager;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -129,6 +132,16 @@ namespace Server
             ptbClient.BackColor = Color.Transparent;
             ptbMember.BackColor = Color.Transparent;
             ptbMenu.BackColor = Color.Transparent;
+
+        }
+
+        private void dashBoardControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashBoardControl1_Load_1(object sender, EventArgs e)
+        {
 
         }
     }

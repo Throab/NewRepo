@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.socket_configure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,20 +15,23 @@ namespace Server.GUI
     {
         LoginForm loginForm = null;
         AdminForm adminForm = null;
+        ServerManager serverManager;
         public HomePageFrm()
         {
             InitializeComponent();
         }
-        public HomePageFrm(LoginForm loginForm,AdminForm adminForm)
+        public HomePageFrm(LoginForm loginForm,AdminForm adminForm, ServerManager serverManager)
         {
             InitializeComponent();
             this.loginForm = loginForm;
             this.adminForm = adminForm;
+            this.serverManager = serverManager;
         }
-        public HomePageFrm(LoginForm loginForm)
+        public HomePageFrm(LoginForm loginForm, ServerManager serverManager)
         {
             InitializeComponent();
             this.loginForm = loginForm;
+            this.serverManager = serverManager;
         }
 
         private void HomePageFrm_Load(object sender, EventArgs e)
@@ -56,22 +60,22 @@ namespace Server.GUI
 
         private void clientManage_Click(object sender, EventArgs e)
         {
-            clientHomePageControl1.BringToFront();
+            
         }
 
         private void MemberManage_Click(object sender, EventArgs e)
         {
-            memberHomePageControl1.BringToFront();
+            
         }
 
         private void Request_Click(object sender, EventArgs e)
         {
-            requestControl1.BringToFront();
+            
         }
 
         private void Chat_Click(object sender, EventArgs e)
         {
-            chatControl1.BringToFront();
+            
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -79,6 +83,11 @@ namespace Server.GUI
             if(MessageBox.Show("Bạn có chắc chắn thoát.","Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { 
                 Application.Exit();
             }
+        }
+
+        private void pnlContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

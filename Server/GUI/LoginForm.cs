@@ -76,12 +76,12 @@ namespace Server
                 this.Hide();
                 if (ProcessUser.checkIsAdmin(txtUsername.Text))
                 {
-                    AdminForm adminForm = new AdminForm(this);
+                    AdminForm adminForm = new AdminForm(this, serverManager);
                     adminForm.ShowDialog();
                 }
                 else
                 {
-                    HomePageFrm homePageFrm = new HomePageFrm(this);
+                    HomePageFrm homePageFrm = new HomePageFrm(this, serverManager);
                     homePageFrm.ShowDialog();
                 }
                 txtUsername.Clear();
