@@ -176,7 +176,8 @@ namespace Client
 
         private void addMoney_Click(object sender, EventArgs e)
         {
-
+            AddMoneyForm addMoneyForm = new AddMoneyForm(this, clientManager);
+            addMoneyForm.ShowDialog();
         }
 
         private void menu_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace Server
     {
         ProcessUser ProcessUser = new ProcessUser();
         ServerManager serverManager;
+        public string userName;
         public LoginForm()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace Server
             if (ProcessUser.checkLoginServer(txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ServerManager.userName = txtUsername.Text;
                 this.Hide();
                 if (ProcessUser.checkIsAdmin(txtUsername.Text))
                 {
@@ -91,6 +94,11 @@ namespace Server
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LoginForm_Shown(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMoneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMoneyForm.Designer.cs">
+      <DependentUpon>AddMoneyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMoneyForm.resx">
+      <DependentUpon>AddMoneyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>

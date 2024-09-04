@@ -31,9 +31,12 @@ namespace Server.socket_configure
         public double totalMoney;
         public List<Socket> clientList;
         public double clientPrice;
+        public static string userName = "";
+        public AddMoneyTransaction addMoneyTransaction;
         private ProcessMember ProcessMember = new ProcessMember();
         private ProcessClient ProcessClient = new ProcessClient();
         private ProcessGroupClient ProcessGroupClient = new ProcessGroupClient();
+        private ProcessAddMoney ProcessAddMoney = new ProcessAddMoney();
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -151,12 +154,33 @@ namespace Server.socket_configure
                             currentClient.Send(ConvertToByte("WrongCurrentPassword"));
                         }
                     }
+                    if (lstMessage[request].Equals("AddMoney"))
+                    {
+                        addMoneyTransaction = new AddMoneyTransaction();
+                        string currentTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                        foreach(InfoClient info in arrClient)
+                        {
+                            if (info.client == currentClient)
+                            {
+                                addMoneyTransaction.ClientIP = info.clientIp;
+                            }
+                        }
+                        addMoneyTransaction.TransacDate = DateTime.Now;
+                        addMoneyTransaction.Status = "WAITING";
+                        addMoneyTransaction.UserName = userName;
+                        addMoneyTransaction.MemberName = lstMessage[1];
+                        addMoneyTransaction.AddMoney = double.Parse(lstMessage[2]);
+                        if (ProcessAddMoney.insertAddMoney(addMoneyTransaction)){
+                            
+                        }
+                    }
                     
                 }
 
             }
             catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 foreach (InfoClient cli in arrClient)
                 {
                     if (cli.client == currentClient)

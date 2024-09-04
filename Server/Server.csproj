@@ -47,13 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ProcessAddMoney.cs" />
     <Compile Include="BLL\ProcessClient.cs" />
     <Compile Include="BLL\ProcessGroupClient.cs" />
     <Compile Include="BLL\ProcessMember.cs" />
     <Compile Include="BLL\ProcessUser.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="DTO\AddMoneyTransaction.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\GroupClient.cs" />
+    <Compile Include="GUI\AddMoneyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\AddMoneyControl.Designer.cs">
+      <DependentUpon>AddMoneyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AddMoneyRequestItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\AddMoneyRequestItem.Designer.cs">
+      <DependentUpon>AddMoneyRequestItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ChatControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +159,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="socket_configure\ServerManager.cs" />
+    <EmbeddedResource Include="GUI\AddMoneyControl.resx">
+      <DependentUpon>AddMoneyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddMoneyRequestItem.resx">
+      <DependentUpon>AddMoneyRequestItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,6 +16,8 @@ namespace Server.GUI
         LoginForm loginForm = null;
         AdminForm adminForm = null;
         ServerManager serverManager;
+        ClientHomePageControl clientControl;
+        AddMoneyControl addMoneyControl;
         public HomePageFrm()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Server.GUI
             InitializeComponent();
             this.loginForm = loginForm;
             this.serverManager = serverManager;
+            
         }
 
         private void HomePageFrm_Load(object sender, EventArgs e)
@@ -40,10 +43,12 @@ namespace Server.GUI
             {
                 back.Visible = false;
             }
-            ClientHomePageControl clientControl = new ClientHomePageControl(serverManager);
+            clientControl = new ClientHomePageControl(serverManager);
+            addMoneyControl = new AddMoneyControl();
             clientControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(clientControl);
-
+            addMoneyControl.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(addMoneyControl);
         }
 
         private void back_Click(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace Server.GUI
 
         private void clientManage_Click(object sender, EventArgs e)
         {
-            
+            clientControl.BringToFront();
         }
 
         private void MemberManage_Click(object sender, EventArgs e)
@@ -92,6 +97,11 @@ namespace Server.GUI
         private void pnlContainer_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void AddMoney_Click(object sender, EventArgs e)
+        {
+            addMoneyControl.BringToFront();
         }
     }
 }

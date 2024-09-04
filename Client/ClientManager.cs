@@ -109,6 +109,10 @@ namespace Client
                     {
                         message = "Wrong password";
                     }
+                    if (lstMessage[request].Equals("AddMoneySuccess"))
+                    {
+                        message = "Add money success";
+                    }
                 }
             }
             catch
@@ -139,6 +143,9 @@ namespace Client
         public void changePass(string userName, string currentPass, string newPass)
         {
             client.Send(ConvertToByte("ChangePass|" + userName + "|" + currentPass + "|" + newPass + "|"));
+        }
+        public void addMoney(string userName, double money){
+            client.Send(ConvertToByte("AddMoney|" + userName + "|" + money.ToString() + "|"));
         }
         byte[] ConvertToByte(object obj)
         {
