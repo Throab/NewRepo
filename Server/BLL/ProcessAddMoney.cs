@@ -22,13 +22,13 @@ namespace Server.BLL
 
         public DataTable getRequest()
         {
-            string query = "select * from AddMoneyTransaction where TransacStatus = 'WAITING'";
+            string query = "select * from AddMoneyTransaction where TransacStatus = 'WAITING' ORDER BY TransacDate DESC";
             return DAL.getDataTable(query);
         }
 
         public List<AddMoneyTransaction> getRequestList()
         {
-            string query = "select * from AddMoneyTransaction where TransacStatus = 'WAITING'";
+            string query = "select * from AddMoneyTransaction where TransacStatus = 'WAITING' ORDER BY TransacDate DESC";
             DataTable dt = DAL.getDataTable(query);
             List<DTO.AddMoneyTransaction> transacList = dt.AsEnumerable()
                 .Select(row => new AddMoneyTransaction

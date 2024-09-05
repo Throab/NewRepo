@@ -176,6 +176,11 @@ namespace Server.socket_configure
                             currentClient.Send(ConvertToByte("WaitForAdding"));
                         }
                     }
+                    if(addMoney == 1)
+                    {
+                        addMoney = 0;
+                        currentClient.Send(ConvertToByte("AddMoneySuccess"));
+                    }
                     
                     
                 }

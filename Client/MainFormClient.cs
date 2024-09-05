@@ -16,6 +16,7 @@ namespace Client
     public partial class ClientForm : Form
     {
         public ClientManager clientManager;
+        private AddMoneyForm addMoneyForm;
         const int USECLIENT = 101;
         const int MEMBERLOGIN = 102;
         const int PAYMENT = 103;
@@ -38,6 +39,7 @@ namespace Client
             timerProgram.Interval = 1000;
             timerProgram.Start();
             this.Enabled = false;
+            addMoneyForm = new AddMoneyForm(this, clientManager);
         }
         public ClientForm(ClientManager x)
         {
@@ -176,8 +178,7 @@ namespace Client
 
         private void addMoney_Click(object sender, EventArgs e)
         {
-            AddMoneyForm addMoneyForm = new AddMoneyForm(this, clientManager);
-            addMoneyForm.ShowDialog();
+            addMoneyForm.Show();
         }
 
         private void menu_Click(object sender, EventArgs e)

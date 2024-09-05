@@ -31,7 +31,14 @@ namespace Client
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (btnAddMoney.Text == "WAITING...")
+            {
+                this.Hide();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void txtMoney_TextChanged(object sender, EventArgs e)
@@ -41,14 +48,27 @@ namespace Client
 
         private void btnAddMoney_Click(object sender, EventArgs e)
         {
+            
             if(txtMoney.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập số tiền cần nạp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                clientManager.addMoney(clientManager.userName, double.Parse(txtMoney.Text));
-                btnAddMoney.Text = "WAITING...";
+                if(btnAddMoney.Text == "Hoàn thành")
+                {
+                    this.Close();
+                }
+                else
+                {
+                    clientManager.addMoney(clientManager.userName, double.Parse(txtMoney.Text));
+                    btnAddMoney.Text = "WAITING...";
+                    btnAddMoney.ForeColor = Color.White;
+                    btnAddMoney.Enabled = false;
+                    ptbWaiting.Visible = true;
+                    txtMoney.Enabled = false;
+                }
+                
             }
             
         }
@@ -58,8 +78,12 @@ namespace Client
             if(ClientManager.message == "Add money success")
             {
                 ClientManager.message = "";
-                MessageBox.Show("Add success");
-                this.Close();
+                ptbWaiting.Visible=false;
+                ptbDone.Visible = true;
+                btnAddMoney.Text = "Hoàn thành";
+                btnAddMoney.ForeColor = Color.White;
+                btnAddMoney.Enabled = true;
+                btnClose.Visible = false;
             }
         }
     }

@@ -40,7 +40,7 @@ namespace Server.GUI
         {
             if (processAddMoney.checkDone(this.transaction))
             {
-                ServerManager.addMoney = 0;
+                ServerManager.addMoney = 1;
             }
         }
     }

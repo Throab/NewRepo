@@ -36,6 +36,11 @@ namespace Server.BLL
             }
         }
 
+        public bool addMoney(AddMoneyTransaction transaction)
+        {
+            double money = getTotalMoney(transaction.MemberName) + transaction.AddMoney;
+            string 
+        }
 
         public bool updateNewPass(string userName, string password)
         {

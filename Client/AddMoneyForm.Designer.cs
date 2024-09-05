@@ -38,8 +38,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbWaiting = new System.Windows.Forms.PictureBox();
+            this.ptbDone = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDone)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,6 +121,18 @@
             this.ptbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbWaiting.TabIndex = 5;
             this.ptbWaiting.TabStop = false;
+            this.ptbWaiting.Visible = false;
+            // 
+            // ptbDone
+            // 
+            this.ptbDone.Image = ((System.Drawing.Image)(resources.GetObject("ptbDone.Image")));
+            this.ptbDone.Location = new System.Drawing.Point(178, 159);
+            this.ptbDone.Name = "ptbDone";
+            this.ptbDone.Size = new System.Drawing.Size(74, 73);
+            this.ptbDone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbDone.TabIndex = 6;
+            this.ptbDone.TabStop = false;
+            this.ptbDone.Visible = false;
             // 
             // AddMoneyForm
             // 
@@ -127,6 +141,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(421, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.ptbDone);
             this.Controls.Add(this.ptbWaiting);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddMoney);
@@ -142,6 +157,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDone)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +173,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox ptbWaiting;
+        private System.Windows.Forms.PictureBox ptbDone;
     }
 }
