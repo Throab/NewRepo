@@ -80,13 +80,19 @@ namespace Client
                         ResetTime();
                     }
                     TimeCount();
-                    if (ClientManager.requestServer == -2)
+                    if (ClientManager.requestServer == -2 && ClientManager.checkAddMoney == -1)
                     {
                         use = TimeSpan.Parse(txtUsedTime.Text.ToString());
                         double remainingMoney = clientManager.totalMoney - money;
                         txtRemainingMoney.Text = currencyFormat(remainingMoney);
                         txtUseTimeFee.Text = "0";
                         clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero), use);
+                    }else if(ClientManager.checkAddMoney == 1)
+                    {
+                        ClientManager.checkAddMoney = -1;
+                        txtCurrentMoney.Text = currencyFormat(clientManager.totalMoney);
+                        min = 0;
+                        ResetTime();
                     }
                     MoneyCount(txtUsedTime.Text.ToString());
                 }
@@ -178,7 +184,16 @@ namespace Client
 
         private void addMoney_Click(object sender, EventArgs e)
         {
-            addMoneyForm.Show();
+            if(addMoneyForm.Visible == false)
+            {
+                addMoneyForm.Show();
+            }
+            else
+            {
+                addMoneyForm = new AddMoneyForm(this, clientManager);
+                addMoneyForm.Show();
+            }
+            
         }
 
         private void menu_Click(object sender, EventArgs e)

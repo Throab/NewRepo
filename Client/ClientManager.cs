@@ -31,9 +31,10 @@ namespace Client
         public static string message;
         public double totalMoney;
         public double clientPrice;
+        public static int checkAddMoney = -1;
         public ClientManager()
         {
-            Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
+            Ip = new IPEndPoint(IPAddress.Parse("192.168.1.32"), portCode);
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -112,6 +113,8 @@ namespace Client
                     if (lstMessage[request].Equals("AddMoneySuccess"))
                     {
                         message = "Add money success";
+                        totalMoney = double.Parse(lstMessage[1]);
+                        checkAddMoney = 1;
                     }
                 }
             }

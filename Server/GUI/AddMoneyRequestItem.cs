@@ -18,6 +18,7 @@ namespace Server.GUI
         private AddMoneyTransaction transaction;
         private ProcessClient processClient = new ProcessClient();
         private ProcessAddMoney processAddMoney = new ProcessAddMoney();    
+        ProcessMember processMember = new ProcessMember();  
         private ServerManager serverManager;  
         public AddMoneyRequestItem(ServerManager serverManager)
         {
@@ -38,10 +39,17 @@ namespace Server.GUI
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (processAddMoney.checkDone(this.transaction))
+            try
             {
-                ServerManager.addMoney = 1;
+                if (processAddMoney.checkDone(this.transaction))
+                {
+                    ServerManager.addMoney = this.transaction.AddMoney;
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+            
         }
     }
 }

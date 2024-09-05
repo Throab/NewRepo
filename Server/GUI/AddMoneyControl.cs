@@ -41,11 +41,12 @@ namespace Server.GUI
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(ServerManager.addMoney == 0)
+            if (ServerManager.addMoney == 0)
             {
                 ServerManager.addMoney = -1;
                 loadData();
             }
+
         }
     }
 }

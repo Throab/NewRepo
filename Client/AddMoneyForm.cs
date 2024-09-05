@@ -33,7 +33,7 @@ namespace Client
         {
             if (btnAddMoney.Text == "WAITING...")
             {
-                this.Hide();
+                this.Visible = false;
             }
             else
             {

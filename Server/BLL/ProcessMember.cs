@@ -36,10 +36,12 @@ namespace Server.BLL
             }
         }
 
-        public bool addMoney(AddMoneyTransaction transaction)
+        public bool addMoney(double money, string userName)
         {
-            double money = getTotalMoney(transaction.MemberName) + transaction.AddMoney;
-            string 
+            money = money + getTotalMoney(userName);
+            string query = "update Member set CurrentMoney = '"+money+"' where AccountName = '"+userName+"'";
+            if (DAL.runQuery(query)) return true;
+            return false;
         }
 
         public bool updateNewPass(string userName, string password)

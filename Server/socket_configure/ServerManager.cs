@@ -31,7 +31,7 @@ namespace Server.socket_configure
         public double totalMoney;
         public List<Socket> clientList;
         public double clientPrice;
-        public static int addMoney = -1;
+        public static double addMoney = -1;
         public static string userName = "";
         public AddMoneyTransaction addMoneyTransaction;
         private ProcessMember ProcessMember = new ProcessMember();
@@ -176,10 +176,21 @@ namespace Server.socket_configure
                             currentClient.Send(ConvertToByte("WaitForAdding"));
                         }
                     }
-                    if(addMoney == 1)
+                    if(addMoney != 0)
                     {
+                        
+                        foreach(InfoClient info in arrClient)
+                        {
+                            if (info.client == currentClient)
+                            {
+                                if (ProcessMember.addMoney(addMoney, info.memberName))
+                                {
+                                    totalMoney = ProcessMember.getTotalMoney(info.memberName);
+                                }                               
+                            }
+                        }
+                        currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
                         addMoney = 0;
-                        currentClient.Send(ConvertToByte("AddMoneySuccess"));
                     }
                     
                     
@@ -188,7 +199,7 @@ namespace Server.socket_configure
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Thong bao ket noi");
                 foreach (InfoClient cli in arrClient)
                 {
                     if (cli.client == currentClient)
