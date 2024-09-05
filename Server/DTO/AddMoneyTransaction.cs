@@ -8,12 +8,19 @@ namespace Server.DTO
 {
     public class AddMoneyTransaction
     {
+        private int _id;
         private string clientIp;
         private string userName;
         private string memberName;
         private DateTime transacDate;
         private double addMoney;
         private string status;
+
+        public int TransactionID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public string ClientIP
         {
             get

@@ -44,7 +44,7 @@ namespace Server.GUI
                 back.Visible = false;
             }
             clientControl = new ClientHomePageControl(serverManager);
-            addMoneyControl = new AddMoneyControl();
+            addMoneyControl = new AddMoneyControl(serverManager);
             clientControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(clientControl);
             addMoneyControl.Dock = DockStyle.Fill;

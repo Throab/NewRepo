@@ -31,6 +31,7 @@ namespace Server.socket_configure
         public double totalMoney;
         public List<Socket> clientList;
         public double clientPrice;
+        public static int addMoney = -1;
         public static string userName = "";
         public AddMoneyTransaction addMoneyTransaction;
         private ProcessMember ProcessMember = new ProcessMember();
@@ -171,9 +172,11 @@ namespace Server.socket_configure
                         addMoneyTransaction.MemberName = lstMessage[1];
                         addMoneyTransaction.AddMoney = double.Parse(lstMessage[2]);
                         if (ProcessAddMoney.insertAddMoney(addMoneyTransaction)){
-                            
+                            addMoney = 0;
+                            currentClient.Send(ConvertToByte("WaitForAdding"));
                         }
                     }
+                    
                     
                 }
 

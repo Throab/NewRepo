@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlRequestContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(417, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 36);
+            this.label1.Size = new System.Drawing.Size(107, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Yêu cầu";
             // 
@@ -65,6 +67,12 @@
             this.pnlRequestContainer.TabIndex = 1;
             this.pnlRequestContainer.WrapContents = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // AddMoneyControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -84,5 +92,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel pnlRequestContainer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

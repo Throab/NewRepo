@@ -48,7 +48,7 @@ namespace Client
             else
             {
                 clientManager.addMoney(clientManager.userName, double.Parse(txtMoney.Text));
-                btnAddMoney.Text = "<<<<<WAITING>>>>>";
+                btnAddMoney.Text = "WAITING...";
             }
             
         }

@@ -33,6 +33,7 @@ namespace Server.BLL
             List<DTO.AddMoneyTransaction> transacList = dt.AsEnumerable()
                 .Select(row => new AddMoneyTransaction
                 {
+                    TransactionID = row.Field<int>("AddMoneyTransactionId"),
                     ClientIP = row.Field<string>("ClientIP"),
                     UserName = row.Field<string>("UserName"),
                     MemberName = row.Field<string>("MemberName"),
@@ -41,6 +42,12 @@ namespace Server.BLL
                     Status = row.Field<string>("TransacStatus")
                 }).ToList();
             return transacList;
+        }
+        public bool checkDone(AddMoneyTransaction x)
+        {
+            string query = "update AddMoneyTransaction set TransacStatus = 'SUCCESS' where AddMoneyTransactionId = '"+x.TransactionID+"'";
+            if (DAL.runQuery(query)) return true;
+            return false;
         }
     }
 }
