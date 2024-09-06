@@ -45,11 +45,12 @@ namespace Server.GUI
                 {
                     ServerManager.addMoney = this.transaction.AddMoney;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
     }
 }

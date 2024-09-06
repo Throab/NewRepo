@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Server.BLL;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Security.Cryptography;
 
 namespace Server.socket_configure
 {
@@ -176,24 +177,24 @@ namespace Server.socket_configure
                             currentClient.Send(ConvertToByte("WaitForAdding"));
                         }
                     }
-                    if(addMoney != 0)
+                    if (addMoney != 0 && addMoney != -1)
                     {
                         
-                        foreach(InfoClient info in arrClient)
+                        foreach (InfoClient info in arrClient)
                         {
                             if (info.client == currentClient)
                             {
                                 if (ProcessMember.addMoney(addMoney, info.memberName))
                                 {
                                     totalMoney = ProcessMember.getTotalMoney(info.memberName);
-                                }                               
+                                }
                             }
                         }
                         currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
                         addMoney = 0;
                     }
-                    
-                    
+
+
                 }
 
             }

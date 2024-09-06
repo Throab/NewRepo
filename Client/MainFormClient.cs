@@ -28,6 +28,8 @@ namespace Client
         TimeSpan use;
         TimeSpan remain;
         string userName = "";
+        public static int check = -1;
+        public static int check2 = 0;
         public ClientForm()
         {
             InitializeComponent();
@@ -66,7 +68,16 @@ namespace Client
         {
             try
             {
-                
+                if(check2 == 1)
+                {
+                    check2 = 0;
+                    addMoney.Enabled = false;
+                }
+                else if(check2 == -1)
+                {
+                    check2 = 0;
+                    addMoney.Enabled = true;
+                }
                 if (ClientManager.requestServer != -1)
                 {
                     if (ClientManager.requestServer == MEMBERLOGIN)
@@ -184,8 +195,10 @@ namespace Client
 
         private void addMoney_Click(object sender, EventArgs e)
         {
-            if(addMoneyForm.Visible == false)
+            check2 = 1;
+            if(check == 1)
             {
+                check = -1;
                 addMoneyForm.Show();
             }
             else

@@ -39,7 +39,8 @@ create table Client
 	GroupClientName varchar(30) references GroupClient(GroupName),
 	StatusClient varchar(50),
 )
-
+ 
+ go
 
 create table Member
 (
@@ -48,6 +49,20 @@ create table Member
 	GroupUser nvarchar(30) references GroupUser(GroupName),
 	CurrentMoney float,
 )
+
+go
+
+create table AddMoneyTransaction
+(
+	AddMoneyTransactionId int identity primary key,
+	ClientIP varchar(20) references Client(ClientIP),
+	UserName varchar(60) references Users(UserName),
+	MemberName varchar(30) references Member(AccountName),
+	TransacDate datetime,
+	AddMoney float,
+	TransacStatus varchar(20)
+)
+
 --Nhom nguoi dung
 insert into GroupUser values ('Member')
 insert into GroupUser values ('Staff')

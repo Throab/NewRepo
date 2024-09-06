@@ -26,17 +26,20 @@ namespace Client
 
         private void AddMoneyForm_Load(object sender, EventArgs e)
         {
-
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width - clientForm.Width, 0);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ClientForm.check2 = -1;
             if (btnAddMoney.Text == "WAITING...")
             {
-                this.Visible = false;
+                this.Hide();
+                ClientForm.check = 1;
             }
             else
             {
+                ClientForm.check = -1;
                 this.Close();
             }
         }
