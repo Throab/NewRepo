@@ -73,7 +73,7 @@ namespace Client
                     check2 = 0;
                     addMoney.Enabled = false;
                 }
-                else if(check2 == -1)
+                if(check2 == -1)
                 {
                     check2 = 0;
                     addMoney.Enabled = true;

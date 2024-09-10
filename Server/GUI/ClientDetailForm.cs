@@ -58,5 +58,11 @@ namespace Server.GUI
         {
 
         }
+
+        private void btnAddMoney_Click(object sender, EventArgs e)
+        {
+            AddMoney_ClientDetailForm addMoneyForm = new AddMoney_ClientDetailForm(infoClient);
+            addMoneyForm.ShowDialog();
+        }
     }
 }

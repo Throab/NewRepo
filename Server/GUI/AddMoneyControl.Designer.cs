@@ -40,11 +40,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(417, 71);
+            this.label1.Location = new System.Drawing.Point(355, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 29);
+            this.label1.Size = new System.Drawing.Size(254, 36);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Yêu cầu";
+            this.label1.Text = "Yêu cầu nạp tiền";
             // 
             // panel1
             // 
@@ -61,7 +61,7 @@
             this.pnlRequestContainer.AutoScroll = true;
             this.pnlRequestContainer.BackColor = System.Drawing.SystemColors.Control;
             this.pnlRequestContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlRequestContainer.Location = new System.Drawing.Point(57, 122);
+            this.pnlRequestContainer.Location = new System.Drawing.Point(57, 93);
             this.pnlRequestContainer.Name = "pnlRequestContainer";
             this.pnlRequestContainer.Size = new System.Drawing.Size(850, 300);
             this.pnlRequestContainer.TabIndex = 1;

@@ -13,7 +13,8 @@ go
 
 create table Users
 (
-	UserName varchar(60) primary key,
+	UserID int identity primary key,
+	UserName varchar(60) unique,
 	FullName nvarchar(60),
 	GroupUser nvarchar(30) references GroupUser(GroupName),
 	PhoneNumber varchar(11),
@@ -34,8 +35,9 @@ go
 
 create table Client
 (
-	ClientIP varchar(20) primary key,
-	ClientName varchar(30),
+	ClientID int identity primary key,
+	ClientIP varchar(20) unique,
+	ClientName varchar(30) unique,
 	GroupClientName varchar(30) references GroupClient(GroupName),
 	StatusClient varchar(50),
 )
@@ -44,7 +46,8 @@ create table Client
 
 create table Member
 (
-	AccountName varchar(30) primary key,
+	MemberID int identity primary key,
+	AccountName varchar(30) unique,
 	Password varchar(30),
 	GroupUser nvarchar(30) references GroupUser(GroupName),
 	CurrentMoney float,
@@ -61,6 +64,17 @@ create table AddMoneyTransaction
 	TransacDate datetime,
 	AddMoney float,
 	TransacStatus varchar(20)
+)
+
+go
+
+create table Chat
+(
+	ChatID bigint identity primary key,
+	MemberID int references Member(MemberID),
+	UserID int references Users(UserID),
+	ClientID int references Client(ClientID),
+	CreatedAt datetime
 )
 
 --Nhom nguoi dung
@@ -98,3 +112,4 @@ insert into Category values(N'Nước Ngọt')
 insert into Category values(N'Trà')
 insert into Category values(N'Bia')
 insert into Category values(N'Rượu')
+select * from AddMoneyTransaction

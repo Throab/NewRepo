@@ -19,6 +19,12 @@ namespace Server.BLL
             if(DAL.runQuery(query)) return true;
             return false;
         }
+        public bool addMoney(AddMoneyTransaction x)
+        {
+            string query = "insert into AddMoneyTransaction values('" + x.ClientIP + "', '" + x.UserName + "', '" + x.MemberName + "','" + x.TransacDate + "', " + x.AddMoney + ",'"+x.Status+"')";
+            if(DAL.runQuery(query)) return true;
+            return false;
+        }
 
         public DataTable getRequest()
         {

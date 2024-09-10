@@ -60,6 +60,7 @@ namespace Client
             {
                 if(btnAddMoney.Text == "Hoàn thành")
                 {
+                    ClientForm.check2 = -1;
                     this.Close();
                 }
                 else

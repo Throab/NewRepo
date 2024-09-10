@@ -117,6 +117,7 @@
             this.btnAddMoney.TabIndex = 7;
             this.btnAddMoney.Text = "Nạp tiền";
             this.btnAddMoney.UseVisualStyleBackColor = true;
+            this.btnAddMoney.Click += new System.EventHandler(this.btnAddMoney_Click);
             // 
             // btnClose
             // 

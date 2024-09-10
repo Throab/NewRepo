@@ -68,6 +68,12 @@
     <Compile Include="GUI\AddMoneyRequestItem.Designer.cs">
       <DependentUpon>AddMoneyRequestItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\AddMoney_ClientDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddMoney_ClientDetailForm.Designer.cs">
+      <DependentUpon>AddMoney_ClientDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ChatControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\AddMoneyRequestItem.resx">
       <DependentUpon>AddMoneyRequestItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddMoney_ClientDetailForm.resx">
+      <DependentUpon>AddMoney_ClientDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
