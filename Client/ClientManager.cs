@@ -29,7 +29,7 @@ namespace Client
         public LoginFormClient lockScreen;
         public string userName = "";
         public static string message;
-        public double totalMoney;
+        public double totalMoney = -1;
         public double clientPrice;
         public static int checkAddMoney = -1;
         public ClientManager()

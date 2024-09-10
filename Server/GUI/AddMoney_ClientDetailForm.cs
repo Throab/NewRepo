@@ -19,7 +19,6 @@ namespace Server.GUI
         private InfoClient infoClient;
         private AddMoneyTransaction addMoney;
         private ProcessAddMoney processAddMoney = new ProcessAddMoney();
-        private ProcessMember processMember = new ProcessMember();  
         public AddMoney_ClientDetailForm(InfoClient infoClient)
         {
             InitializeComponent();
@@ -50,6 +49,8 @@ namespace Server.GUI
                     UserName = ServerManager.userName,
                 };
                 processAddMoney.insertAddMoney(this.addMoney);
+                MessageBox.Show("Nạp tiền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
 
         }
