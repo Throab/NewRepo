@@ -58,7 +58,7 @@ namespace Client
             }
             else
             {
-                if(btnAddMoney.Text == "Hoàn thành")
+                if(btnAddMoney.Text == "Hoàn thành" || btnAddMoney.Text == "Không thành công")
                 {
                     ClientForm.check2 = -1;
                     this.Close();
@@ -96,7 +96,7 @@ namespace Client
                 ptbDeny.Visible = true;
                 btnAddMoney.Text = "Không thành công";
                 btnAddMoney.ForeColor = Color.White;
-                btnAddMoney.BackColor = Color.Red;
+                btnAddMoney.BackColor = Color.OrangeRed;
                 btnAddMoney.Enabled = true;
                 btnClose.Visible = false;
             }

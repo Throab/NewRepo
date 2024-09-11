@@ -24,6 +24,8 @@ namespace Server.GUI
             InitializeComponent();
             this.infoClient = info;
             this.serverManager = serverManager;
+            lsvMessage.Columns.Add("", -2, HorizontalAlignment.Left);
+
         }
         public MemberChatControl()
         {
@@ -44,8 +46,9 @@ namespace Server.GUI
             List<string> messages = processMessage.getMessages(infoClient.memberName);
             foreach(string message in messages)
             {
-                lsvMessage.Items.Add(new ListViewItem() { Text = message});
+                lsvMessage.Items.Add(new ListViewItem(message));               
             }
+            lsvMessage.EnsureVisible(lsvMessage.Items.Count - 1);
         }
 
         private void MemberChatControl_Load(object sender, EventArgs e)

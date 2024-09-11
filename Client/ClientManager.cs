@@ -104,7 +104,7 @@ namespace Client
                     }
                     if (lstMessage[request].Equals("AddMoneyDenied"))
                     {
-                        checkAddMoney = 0;
+                        checkAddMoney = -1;
                         message = "Add money denied";
                     }
                     if (lstMessage[request].Equals("No Money, Log out"))

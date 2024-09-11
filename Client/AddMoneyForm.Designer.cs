@@ -89,9 +89,9 @@
             this.btnAddMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddMoney.Location = new System.Drawing.Point(137, 242);
+            this.btnAddMoney.Location = new System.Drawing.Point(118, 242);
             this.btnAddMoney.Name = "btnAddMoney";
-            this.btnAddMoney.Size = new System.Drawing.Size(148, 34);
+            this.btnAddMoney.Size = new System.Drawing.Size(187, 34);
             this.btnAddMoney.TabIndex = 3;
             this.btnAddMoney.Text = "Xác nhận";
             this.btnAddMoney.UseVisualStyleBackColor = false;

@@ -38,6 +38,8 @@
             // 
             this.lsvMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsvMessage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvMessage.GridLines = true;
+            this.lsvMessage.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lsvMessage.HideSelection = false;
             this.lsvMessage.Location = new System.Drawing.Point(4, 55);
             this.lsvMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -45,7 +47,7 @@
             this.lsvMessage.Size = new System.Drawing.Size(712, 298);
             this.lsvMessage.TabIndex = 0;
             this.lsvMessage.UseCompatibleStateImageBehavior = false;
-            this.lsvMessage.View = System.Windows.Forms.View.List;
+            this.lsvMessage.View = System.Windows.Forms.View.Details;
             // 
             // txtMessage
             // 
