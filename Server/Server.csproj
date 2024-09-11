@@ -51,11 +51,13 @@
     <Compile Include="BLL\ProcessClient.cs" />
     <Compile Include="BLL\ProcessGroupClient.cs" />
     <Compile Include="BLL\ProcessMember.cs" />
+    <Compile Include="BLL\ProcessMessage.cs" />
     <Compile Include="BLL\ProcessUser.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="DTO\AddMoneyTransaction.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\GroupClient.cs" />
+    <Compile Include="DTO\Message.cs" />
     <Compile Include="GUI\AddMoneyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,6 +75,12 @@
     </Compile>
     <Compile Include="GUI\AddMoney_ClientDetailForm.Designer.cs">
       <DependentUpon>AddMoney_ClientDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChatClientItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ChatClientItem.Designer.cs">
+      <DependentUpon>ChatClientItem.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ChatControl.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +152,12 @@
     <Compile Include="GUI\MemberAdminControl.Designer.cs">
       <DependentUpon>MemberAdminControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MemberChatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\MemberChatControl.Designer.cs">
+      <DependentUpon>MemberChatControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MemberHomePageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +194,9 @@
     <EmbeddedResource Include="GUI\AdminPageForm.resx">
       <DependentUpon>AdminPageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChatClientItem.resx">
+      <DependentUpon>ChatClientItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ChatControl.resx">
       <DependentUpon>ChatControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MemberAdminControl.resx">
       <DependentUpon>MemberAdminControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MemberChatControl.resx">
+      <DependentUpon>MemberChatControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MemberHomePageControl.resx">
       <DependentUpon>MemberHomePageControl.cs</DependentUpon>

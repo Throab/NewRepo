@@ -40,17 +40,20 @@
             this.btnAddMoney = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClientName
             // 
-            this.lblClientName.AutoSize = true;
+            this.lblClientName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientName.Location = new System.Drawing.Point(135, 26);
+            this.lblClientName.Location = new System.Drawing.Point(0, 0);
             this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(81, 29);
+            this.lblClientName.Size = new System.Drawing.Size(367, 56);
             this.lblClientName.TabIndex = 0;
             this.lblClientName.Text = "MAY1";
+            this.lblClientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUsername
             // 
@@ -135,11 +138,21 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblClientName);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(367, 56);
+            this.panel1.TabIndex = 10;
+            // 
             // ClientDetailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(367, 351);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddMoney);
             this.Controls.Add(this.lblUsedTime);
@@ -148,12 +161,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.lblClientName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientDetailForm";
             this.Load += new System.EventHandler(this.ClientDetailForm_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +184,6 @@
         private System.Windows.Forms.Button btnAddMoney;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

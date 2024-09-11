@@ -17,9 +17,9 @@ namespace Client
     {
         public ClientManager clientManager;
         private AddMoneyForm addMoneyForm;
-        const int USECLIENT = 101;
+        const int LOGOUT = 103;
         const int MEMBERLOGIN = 102;
-        const int PAYMENT = 103;
+
         int hour = 0;
         int min = 0;
         int sec = 0;
@@ -30,6 +30,7 @@ namespace Client
         string userName = "";
         public static int check = -1;
         public static int check2 = 0;
+        ChatForm chatForm;
         public ClientForm()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace Client
             timerProgram.Start();
             this.Enabled = false;
             addMoneyForm = new AddMoneyForm(this, clientManager);
+            chatForm = new ChatForm(this, clientManager);
         }
         public ClientForm(ClientManager x)
         {
@@ -68,19 +70,7 @@ namespace Client
         {
             try
             {
-                if(clientManager.totalMoney == 0)
-                {
-                    MessageBox.Show("Số tiền trong tài khoản đã hết.\nVui lòng nạp thêm tiền để tiếp tục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    timerProgram.Start();
-                    txtCurrentMoney.Clear();
-                    txtRemainingMoney.Clear();
-                    txtServiceFee.Clear();
-                    txtUsedTime.Clear();
-                    txtUseTimeFee.Clear();
-                    grbUser.Text = "Username";
-                    ClientManager.requestServer = -1;
-                    clientManager.LogoutMember(userName);
-                }
+                
                 if(check2 == 1)
                 {
                     check2 = 0;
@@ -93,6 +83,7 @@ namespace Client
                 }
                 if (ClientManager.requestServer != -1)
                 {
+                    
                     if (ClientManager.requestServer == MEMBERLOGIN)
                     {
                         this.Enabled = true;
@@ -119,6 +110,19 @@ namespace Client
                         ResetTime();
                     }
                     MoneyCount(txtUsedTime.Text.ToString());
+                    if (ClientManager.requestServer == LOGOUT)
+                    {
+                        ClientManager.requestServer = -1;
+                        timerProgram.Start();
+                        txtCurrentMoney.Clear();
+                        txtRemainingMoney.Clear();
+                        txtServiceFee.Clear();
+                        txtUsedTime.Clear();
+                        txtUseTimeFee.Clear();
+                        grbUser.Text = "Username";
+                        MessageBox.Show("Số tiền trong tài khoản quý khách đã hết.\nVui lòng nạp thêm tiền để tiếp tục", "Thông báo" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        clientManager.LogoutMember(userName);
+                    }
                 }
             }catch{
                 Application.Exit();
@@ -203,7 +207,7 @@ namespace Client
 
         private void chat_Click(object sender, EventArgs e)
         {
-
+            chatForm.Show();
         }
 
         private void addMoney_Click(object sender, EventArgs e)

@@ -49,5 +49,14 @@ namespace Server.BLL
             }
             return false;
         }
+        public int getUserId(string username)
+        {
+            string query = "select UserID from Users where UserName = '" + username + "'";
+            DataTable dt = DAL.getDataTable(query);
+            if (dt == null) return 0;
+            DataRow row = dt.Rows[0];
+            int id = row.Field<int>("UserID");
+            return id;
+        }
     }
 }

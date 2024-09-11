@@ -23,15 +23,15 @@ namespace Client
         public const int change = -1;
         const int request = 0;
         public static int requestServer = -1;
-        const int USECLIENT = 101;
         public const int MEMBERLOGIN = 102;
-        public const int PAYMENT = 103;
+        public const int LOGOUT = 103;
         public LoginFormClient lockScreen;
         public string userName = "";
         public static string message;
         public double totalMoney = -1;
         public double clientPrice;
         public static int checkAddMoney = -1;
+        public static string recieveMessage = "";
         public ClientManager()
         {
             Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
@@ -66,21 +66,6 @@ namespace Client
                     client.Receive(messageFromClient);
                     string msg = CovertToMessage(messageFromClient).ToString();
                     List<string> lstMessage = msg.Split('|').ToList();
-                    if (lstMessage[request].Equals("UseClient"))
-                    {
-                        userName = "Customer";
-                        requestServer = USECLIENT;
-                        lockScreen.Visible = false;
-                    }
-                    if (lstMessage[request].Equals("PAYMENT"))
-                    {
-                        lockScreen.Visible = true;
-                        requestServer = PAYMENT;
-                    }
-                    if (lstMessage[request].Equals("LockClient!"))
-                    {
-                        lockScreen.Visible = true;
-                    }
                     if (lstMessage[request].Equals("OkePlayGo"))
                     {
                         this.userName = lstMessage[1];
@@ -117,6 +102,14 @@ namespace Client
                         totalMoney = double.Parse(lstMessage[1]);
                         
                     }
+                    if (lstMessage[request].Equals("No Money, Log out"))
+                    {
+                        requestServer = LOGOUT;
+                    }
+                    if (lstMessage[request].Equals("Server send message"))
+                    {
+                        recieveMessage = lstMessage[1];
+                    }
                 }
             }
             catch
@@ -150,6 +143,10 @@ namespace Client
         }
         public void addMoney(string userName, double money){
             client.Send(ConvertToByte("AddMoney|" + userName + "|" + money.ToString() + "|"));
+        }
+        public void sendMessage(string userName, string message)
+        {
+            client.Send(ConvertToByte("Message|" + userName + "|" + message));
         }
         byte[] ConvertToByte(object obj)
         {

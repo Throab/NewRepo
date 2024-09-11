@@ -34,11 +34,14 @@ namespace Server.socket_configure
         public double clientPrice;
         public static double addMoney = -1;
         public static string userName = "";
+        public static int sendMess = -1;
+        public static string sendMessage = "";
         public AddMoneyTransaction addMoneyTransaction;
         private ProcessMember ProcessMember = new ProcessMember();
         private ProcessClient ProcessClient = new ProcessClient();
         private ProcessGroupClient ProcessGroupClient = new ProcessGroupClient();
         private ProcessAddMoney ProcessAddMoney = new ProcessAddMoney();
+        private ProcessMessage ProcessMessage = new ProcessMessage();
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -97,7 +100,7 @@ namespace Server.socket_configure
                     }
                     if (lstMessage[request].Equals("AllowToLogInPls!!"))
                     {
-                        if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2]))
+                        /*if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2]))
                         {
                             if (ProcessMember.checkValidMember(lstMessage[1]))
                             {
@@ -123,6 +126,43 @@ namespace Server.socket_configure
                         {
                             currentClient.Send(ConvertToByte("Account not exist !! Or Wrong Username, Password"));
                             ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
+                        }*/
+                        foreach(InfoClient cli in arrClient)
+                        {
+                            if(cli.memberName == lstMessage[1])
+                            {
+                                currentClient.Send(ConvertToByte("Loged In Another Client|"));
+                            }
+                            else
+                            {
+                                if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2]))
+                                {
+                                    if (ProcessMember.checkValidMember(lstMessage[1]))
+                                    {
+                                        totalMoney = ProcessMember.getTotalMoney(lstMessage[1]);
+                                        foreach (InfoClient cli1 in arrClient)
+                                        {
+                                            if (cli1.client == currentClient)
+                                            {
+                                                string groupClientName = ProcessClient.getGroupName(cli);
+                                                this.clientPrice = ProcessGroupClient.getClientPrice(groupClientName);
+                                            }
+                                        }
+                                        currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
+                                        ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
+                                        sendMess = 1;
+                                    }
+                                    else
+                                    {
+                                        currentClient.Send(ConvertToByte("Your account is exhausted.Recharge to use it!!!"));
+                                    }
+                                }
+                                else
+                                {
+                                    currentClient.Send(ConvertToByte("Account not exist !! Or Wrong Username, Password"));
+                                    ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
+                                }
+                            }
                         }
 
 
@@ -137,11 +177,17 @@ namespace Server.socket_configure
                                 cli.usedTime = TimeSpan.Parse(lstMessage[3]);
                             }
                         }
+                        if (double.Parse(lstMessage[2]) == 0)
+                        {
+                            currentClient.Send(ConvertToByte("No Money, Log out|"));
+                        }
                     }
                     if (lstMessage[request].Equals("LogOutPls!!"))
                     {
+
                         currentClient.Send(ConvertToByte("OKLogout"));
-                        ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
+                        ChangeStateClient(currentClient, "WAITING", "");
+                        sendMess = 1;
                     }
                     if (lstMessage[request].Equals("ChangePass"))
                     {
@@ -175,6 +221,26 @@ namespace Server.socket_configure
                         if (ProcessAddMoney.insertAddMoney(addMoneyTransaction)){
                             addMoney = 0;
                             currentClient.Send(ConvertToByte("WaitForAdding"));
+                        }
+                    }
+                    if (lstMessage[request].Equals("Message"))
+                    {
+                        arrClient = infoClients(lstMessage[1]);
+                        if(ProcessMessage.insertMessage(arrClient.ElementAt(0), userName, lstMessage[2], "member"))
+                        {
+                            sendMess = 1;
+                        }
+                        
+
+                    }
+                    if(sendMess == 2)
+                    {
+                        arrClient = infoClients(lstMessage[1]);
+                        if (ProcessMessage.insertMessage(arrClient.ElementAt(0), userName, sendMessage ,"server"))
+                        {
+                            sendMess = 1;
+                            currentClient.Send(ConvertToByte("Server send message|" + sendMessage));
+                            sendMessage = "";
                         }
                     }
                     if (addMoney != 0 && addMoney != -1)
@@ -226,6 +292,15 @@ namespace Server.socket_configure
                 }
             }
         }
+
+        public List<InfoClient> infoClients(string memberName)
+        {
+            InfoClient newestChatClient = arrClient.Find(x => x.memberName == memberName);
+            arrClient.RemoveAll(x => x.memberName == memberName);
+            arrClient.Insert(0, newestChatClient);
+            return arrClient;
+        }
+
         byte[] ConvertToByte(object obj)
         {
             MemoryStream memoryStream = new MemoryStream();
