@@ -55,5 +55,11 @@ namespace Server.BLL
             if (DAL.runQuery(query)) return true;
             return false;
         }
+        public bool deny(AddMoneyTransaction x)
+        {
+            string query = "update AddMoneyTransaction set TransacStatus = 'DENIED' where AddMoneyTransactionId = '" + x.TransactionID + "'";
+            if (DAL.runQuery(query)) return true;
+            return false;
+        }
     }
 }

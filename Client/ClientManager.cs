@@ -102,6 +102,11 @@ namespace Client
                         totalMoney = double.Parse(lstMessage[1]);
                         
                     }
+                    if (lstMessage[request].Equals("AddMoneyDenied"))
+                    {
+                        checkAddMoney = 0;
+                        message = "Add money denied";
+                    }
                     if (lstMessage[request].Equals("No Money, Log out"))
                     {
                         requestServer = LOGOUT;

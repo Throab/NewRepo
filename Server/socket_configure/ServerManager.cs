@@ -245,18 +245,25 @@ namespace Server.socket_configure
                     }
                     if (addMoney != 0 && addMoney != -1)
                     {
-                        
-                        foreach (InfoClient info in arrClient)
+
+                        if(addMoney == -2)
                         {
-                            if (info.client == currentClient)
+                            currentClient.Send(ConvertToByte("AddMoneyDenied|"));
+                        }
+                        else
+                        {
+                            foreach (InfoClient info in arrClient)
                             {
-                                if (ProcessMember.addMoney(addMoney, info.memberName))
+                                if (info.client == currentClient)
                                 {
-                                    totalMoney = ProcessMember.getTotalMoney(info.memberName);
+                                    if (ProcessMember.addMoney(addMoney, info.memberName))
+                                    {
+                                        totalMoney = ProcessMember.getTotalMoney(info.memberName);
+                                    }
                                 }
                             }
-                        }
-                        currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
+                            currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
+                        }                       
                         addMoney = 0;
                     }
 

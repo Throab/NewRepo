@@ -128,6 +128,7 @@
             this.btnDeny.TabIndex = 4;
             this.btnDeny.Text = "Từ chối";
             this.btnDeny.UseVisualStyleBackColor = false;
+            this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click);
             // 
             // AddMoneyRequestItem
             // 

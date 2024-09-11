@@ -52,5 +52,20 @@ namespace Server.GUI
             }
 
         }
+
+        private void btnDeny_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (processAddMoney.deny(this.transaction))
+                {
+                    ServerManager.addMoney = -2;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

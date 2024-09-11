@@ -51,7 +51,6 @@ create table Member
 	Password varchar(30),
 	GroupUser nvarchar(30) references GroupUser(GroupName),
 	CurrentMoney float,
-	CreatedAt datetime,
 	MemberStatus varchar(10)
 )
 
@@ -90,11 +89,11 @@ insert into Users values ('admin',N'Nguyễn Thanh Bảo','Manager','0961563202'
 insert into Users values ('user1',N'Phạm Phú An','Staff','0123456789','phuanpham@gmail.com','user1')
 insert into Users values ('user2',N'Lê Văn Đại','Staff','097851364','daile123@gmail.com','user2')
 --Thanh Vien
-insert into Member values ('Seraphim','123','Member',50000,null, 'ALLOW')
-insert into Member values ('abc','123','Member',0, null, 'ALLOW')
-insert into Member values ('xyz','123','Member',60000, null, 'ALLOW')
-insert into Member values ('123','123','Member',1000, null, 'ALLOW')
-insert into Member values ('1237','123','Member',10, null, 'ALLOW')
+insert into Member values ('Seraphim','123','Member',50000, 'ALLOW')
+insert into Member values ('abc','123','Member',0, 'ALLOW')
+insert into Member values ('xyz','123','Member',60000, 'ALLOW')
+insert into Member values ('123','123','Member',1000, 'ALLOW')
+insert into Member values ('1237','123','Member',10, 'ALLOW')
 --Nhom may tram
 insert into GroupClient values ('basic',N'Phòng máy thường',6000)
 insert into GroupClient values ('VIP',N'Phòng máy lạnh',10000)

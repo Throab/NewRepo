@@ -89,6 +89,17 @@ namespace Client
                 btnAddMoney.Enabled = true;
                 btnClose.Visible = false;
             }
+            if(ClientManager.message == "Add money denied")
+            {
+                ClientManager.message = "";
+                ptbWaiting.Visible=false;
+                ptbDeny.Visible = true;
+                btnAddMoney.Text = "Không thành công";
+                btnAddMoney.ForeColor = Color.White;
+                btnAddMoney.BackColor = Color.Red;
+                btnAddMoney.Enabled = true;
+                btnClose.Visible = false;
+            }
         }
     }
 }
