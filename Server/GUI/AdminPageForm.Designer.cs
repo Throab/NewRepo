@@ -34,37 +34,39 @@
             this.btnClose = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ptbPayment = new System.Windows.Forms.PictureBox();
+            this.ptbUserCtr = new System.Windows.Forms.PictureBox();
             this.ptbMenu = new System.Windows.Forms.PictureBox();
             this.ptbMember = new System.Windows.Forms.PictureBox();
             this.ptbClient = new System.Windows.Forms.PictureBox();
             this.ptbMainPage = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.lblPayment = new System.Windows.Forms.Label();
+            this.lblUserCtr = new System.Windows.Forms.Label();
             this.lblMainPage = new System.Windows.Forms.Label();
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblClientPage = new System.Windows.Forms.Label();
-            this.lblMember = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMainPage = new System.Windows.Forms.Panel();
             this.pnlClient = new System.Windows.Forms.Panel();
             this.pnlMember = new System.Windows.Forms.Panel();
+            this.lblMember = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlPayment = new System.Windows.Forms.Panel();
+            this.pnlUserCtr = new System.Windows.Forms.Panel();
             this.controlContainer = new System.Windows.Forms.Panel();
             this.dashBoardControl1 = new Server.GUI.DashBoardControl();
             this.dashBoardControl = new Server.GUI.DashBoardControl();
             this.menuControl = new Server.GUI.MenuControl();
             this.memberControl = new Server.GUI.MemberAdminControl();
             this.clientControl = new Server.GUI.ClientAdminControl();
+            this.userAdminPageControl1 = new Server.GUI.UserAdminPageControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbUserCtr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMember)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMainPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlMember.SuspendLayout();
             this.controlContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(978, 78);
+            this.panel1.Size = new System.Drawing.Size(1078, 78);
             this.panel1.TabIndex = 0;
             // 
             // lblBack
@@ -87,9 +89,9 @@
             this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBack.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBack.Location = new System.Drawing.Point(12, 18);
+            this.lblBack.Location = new System.Drawing.Point(29, 9);
             this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(44, 42);
+            this.lblBack.Size = new System.Drawing.Size(58, 54);
             this.lblBack.TabIndex = 3;
             this.lblBack.Text = "◀";
             this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
@@ -101,9 +103,9 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(945, 9);
+            this.btnClose.Location = new System.Drawing.Point(1045, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(27, 25);
+            this.btnClose.Size = new System.Drawing.Size(33, 31);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -113,9 +115,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(351, 22);
+            this.label1.Location = new System.Drawing.Point(422, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 36);
+            this.label1.Size = new System.Drawing.Size(342, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý phòng net";
             // 
@@ -123,38 +125,37 @@
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
-            this.panel2.Controls.Add(this.ptbPayment);
+            this.panel2.Controls.Add(this.ptbUserCtr);
             this.panel2.Controls.Add(this.ptbMenu);
             this.panel2.Controls.Add(this.ptbMember);
             this.panel2.Controls.Add(this.ptbClient);
             this.panel2.Controls.Add(this.ptbMainPage);
             this.panel2.Controls.Add(this.btnLogout);
-            this.panel2.Controls.Add(this.lblPayment);
+            this.panel2.Controls.Add(this.lblUserCtr);
             this.panel2.Controls.Add(this.lblMainPage);
             this.panel2.Controls.Add(this.lblMenu);
             this.panel2.Controls.Add(this.lblClientPage);
-            this.panel2.Controls.Add(this.lblMember);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pnlMainPage);
             this.panel2.Controls.Add(this.pnlClient);
             this.panel2.Controls.Add(this.pnlMember);
             this.panel2.Controls.Add(this.pnlMenu);
-            this.panel2.Controls.Add(this.pnlPayment);
+            this.panel2.Controls.Add(this.pnlUserCtr);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 78);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(268, 497);
+            this.panel2.Size = new System.Drawing.Size(268, 561);
             this.panel2.TabIndex = 2;
             // 
-            // ptbPayment
+            // ptbUserCtr
             // 
-            this.ptbPayment.Image = global::Server.Properties.Resources.bill;
-            this.ptbPayment.Location = new System.Drawing.Point(38, 356);
-            this.ptbPayment.Name = "ptbPayment";
-            this.ptbPayment.Size = new System.Drawing.Size(30, 30);
-            this.ptbPayment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbPayment.TabIndex = 15;
-            this.ptbPayment.TabStop = false;
+            this.ptbUserCtr.Image = global::Server.Properties.Resources.bill;
+            this.ptbUserCtr.Location = new System.Drawing.Point(38, 356);
+            this.ptbUserCtr.Name = "ptbUserCtr";
+            this.ptbUserCtr.Size = new System.Drawing.Size(30, 30);
+            this.ptbUserCtr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbUserCtr.TabIndex = 15;
+            this.ptbUserCtr.TabStop = false;
             // 
             // ptbMenu
             // 
@@ -210,18 +211,19 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // lblPayment
+            // lblUserCtr
             // 
-            this.lblPayment.AutoSize = true;
-            this.lblPayment.BackColor = System.Drawing.Color.Transparent;
-            this.lblPayment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblPayment.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPayment.ForeColor = System.Drawing.Color.White;
-            this.lblPayment.Location = new System.Drawing.Point(74, 363);
-            this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(159, 23);
-            this.lblPayment.TabIndex = 8;
-            this.lblPayment.Text = "Quản lý nhân viên";
+            this.lblUserCtr.AutoSize = true;
+            this.lblUserCtr.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserCtr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUserCtr.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserCtr.ForeColor = System.Drawing.Color.White;
+            this.lblUserCtr.Location = new System.Drawing.Point(74, 363);
+            this.lblUserCtr.Name = "lblUserCtr";
+            this.lblUserCtr.Size = new System.Drawing.Size(214, 31);
+            this.lblUserCtr.TabIndex = 8;
+            this.lblUserCtr.Text = "Quản lý nhân viên";
+            this.lblUserCtr.Click += new System.EventHandler(this.lblPayment_Click);
             // 
             // lblMainPage
             // 
@@ -232,7 +234,7 @@
             this.lblMainPage.ForeColor = System.Drawing.Color.White;
             this.lblMainPage.Location = new System.Drawing.Point(74, 161);
             this.lblMainPage.Name = "lblMainPage";
-            this.lblMainPage.Size = new System.Drawing.Size(130, 23);
+            this.lblMainPage.Size = new System.Drawing.Size(174, 31);
             this.lblMainPage.TabIndex = 7;
             this.lblMainPage.Text = "Quản lý chung";
             this.lblMainPage.Click += new System.EventHandler(this.lblMainPage_Click);
@@ -246,7 +248,7 @@
             this.lblMenu.ForeColor = System.Drawing.Color.White;
             this.lblMenu.Location = new System.Drawing.Point(74, 311);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(153, 23);
+            this.lblMenu.Size = new System.Drawing.Size(206, 31);
             this.lblMenu.TabIndex = 6;
             this.lblMenu.Text = "Quản lý thực đơn";
             this.lblMenu.Click += new System.EventHandler(this.lblMenu_Click);
@@ -260,24 +262,10 @@
             this.lblClientPage.ForeColor = System.Drawing.Color.White;
             this.lblClientPage.Location = new System.Drawing.Point(74, 211);
             this.lblClientPage.Name = "lblClientPage";
-            this.lblClientPage.Size = new System.Drawing.Size(114, 23);
+            this.lblClientPage.Size = new System.Drawing.Size(153, 31);
             this.lblClientPage.TabIndex = 5;
             this.lblClientPage.Text = "Quản lý máy";
             this.lblClientPage.Click += new System.EventHandler(this.lblClientPage_Click);
-            // 
-            // lblMember
-            // 
-            this.lblMember.AutoSize = true;
-            this.lblMember.BackColor = System.Drawing.Color.Transparent;
-            this.lblMember.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMember.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMember.ForeColor = System.Drawing.Color.White;
-            this.lblMember.Location = new System.Drawing.Point(74, 261);
-            this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(147, 23);
-            this.lblMember.TabIndex = 3;
-            this.lblMember.Text = "Quản lý hội viên";
-            this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
             // 
             // pictureBox1
             // 
@@ -305,10 +293,25 @@
             // 
             // pnlMember
             // 
+            this.pnlMember.Controls.Add(this.lblMember);
             this.pnlMember.Location = new System.Drawing.Point(0, 246);
             this.pnlMember.Name = "pnlMember";
             this.pnlMember.Size = new System.Drawing.Size(268, 51);
             this.pnlMember.TabIndex = 18;
+            // 
+            // lblMember
+            // 
+            this.lblMember.AutoSize = true;
+            this.lblMember.BackColor = System.Drawing.Color.Transparent;
+            this.lblMember.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMember.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMember.ForeColor = System.Drawing.Color.White;
+            this.lblMember.Location = new System.Drawing.Point(73, 8);
+            this.lblMember.Name = "lblMember";
+            this.lblMember.Size = new System.Drawing.Size(195, 31);
+            this.lblMember.TabIndex = 3;
+            this.lblMember.Text = "Quản lý hội viên";
+            this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
             // 
             // pnlMenu
             // 
@@ -317,12 +320,12 @@
             this.pnlMenu.Size = new System.Drawing.Size(268, 51);
             this.pnlMenu.TabIndex = 19;
             // 
-            // pnlPayment
+            // pnlUserCtr
             // 
-            this.pnlPayment.Location = new System.Drawing.Point(0, 346);
-            this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(268, 51);
-            this.pnlPayment.TabIndex = 20;
+            this.pnlUserCtr.Location = new System.Drawing.Point(0, 346);
+            this.pnlUserCtr.Name = "pnlUserCtr";
+            this.pnlUserCtr.Size = new System.Drawing.Size(268, 51);
+            this.pnlUserCtr.TabIndex = 20;
             // 
             // controlContainer
             // 
@@ -331,10 +334,11 @@
             this.controlContainer.Controls.Add(this.menuControl);
             this.controlContainer.Controls.Add(this.memberControl);
             this.controlContainer.Controls.Add(this.clientControl);
+            this.controlContainer.Controls.Add(this.userAdminPageControl1);
             this.controlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlContainer.Location = new System.Drawing.Point(268, 78);
             this.controlContainer.Name = "controlContainer";
-            this.controlContainer.Size = new System.Drawing.Size(710, 497);
+            this.controlContainer.Size = new System.Drawing.Size(810, 561);
             this.controlContainer.TabIndex = 3;
             this.controlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.controlContainer_Paint);
             // 
@@ -345,7 +349,7 @@
             this.dashBoardControl1.Location = new System.Drawing.Point(0, 0);
             this.dashBoardControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dashBoardControl1.Name = "dashBoardControl1";
-            this.dashBoardControl1.Size = new System.Drawing.Size(710, 497);
+            this.dashBoardControl1.Size = new System.Drawing.Size(810, 561);
             this.dashBoardControl1.TabIndex = 4;
             this.dashBoardControl1.Load += new System.EventHandler(this.dashBoardControl1_Load_1);
             // 
@@ -356,7 +360,7 @@
             this.dashBoardControl.Location = new System.Drawing.Point(0, 0);
             this.dashBoardControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dashBoardControl.Name = "dashBoardControl";
-            this.dashBoardControl.Size = new System.Drawing.Size(710, 497);
+            this.dashBoardControl.Size = new System.Drawing.Size(810, 561);
             this.dashBoardControl.TabIndex = 0;
             // 
             // menuControl
@@ -365,7 +369,7 @@
             this.menuControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuControl.Location = new System.Drawing.Point(0, 0);
             this.menuControl.Name = "menuControl";
-            this.menuControl.Size = new System.Drawing.Size(710, 497);
+            this.menuControl.Size = new System.Drawing.Size(810, 561);
             this.menuControl.TabIndex = 3;
             // 
             // memberControl
@@ -374,7 +378,7 @@
             this.memberControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberControl.Location = new System.Drawing.Point(0, 0);
             this.memberControl.Name = "memberControl";
-            this.memberControl.Size = new System.Drawing.Size(710, 497);
+            this.memberControl.Size = new System.Drawing.Size(810, 561);
             this.memberControl.TabIndex = 2;
             // 
             // clientControl
@@ -383,13 +387,22 @@
             this.clientControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientControl.Location = new System.Drawing.Point(0, 0);
             this.clientControl.Name = "clientControl";
-            this.clientControl.Size = new System.Drawing.Size(710, 497);
+            this.clientControl.Size = new System.Drawing.Size(810, 561);
             this.clientControl.TabIndex = 1;
+            // 
+            // userAdminPageControl1
+            // 
+            this.userAdminPageControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userAdminPageControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userAdminPageControl1.Location = new System.Drawing.Point(0, 0);
+            this.userAdminPageControl1.Name = "userAdminPageControl1";
+            this.userAdminPageControl1.Size = new System.Drawing.Size(810, 561);
+            this.userAdminPageControl1.TabIndex = 5;
             // 
             // AdminPageForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(978, 575);
+            this.ClientSize = new System.Drawing.Size(1078, 639);
             this.ControlBox = false;
             this.Controls.Add(this.controlContainer);
             this.Controls.Add(this.panel2);
@@ -404,12 +417,14 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbUserCtr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMember)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMainPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlMember.ResumeLayout(false);
+            this.pnlMember.PerformLayout();
             this.controlContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -426,11 +441,11 @@
         private System.Windows.Forms.Panel controlContainer;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Label lblClientPage;
-        private System.Windows.Forms.Label lblPayment;
+        private System.Windows.Forms.Label lblUserCtr;
         private System.Windows.Forms.Label lblMainPage;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox ptbMainPage;
-        private System.Windows.Forms.PictureBox ptbPayment;
+        private System.Windows.Forms.PictureBox ptbUserCtr;
         private System.Windows.Forms.PictureBox ptbMenu;
         private System.Windows.Forms.PictureBox ptbMember;
         private System.Windows.Forms.PictureBox ptbClient;
@@ -439,11 +454,13 @@
         private GUI.DashBoardControl dashBoardControl;
         private GUI.MenuControl menuControl;
         private GUI.MemberAdminControl memberControl;
+        private GUI.UserAdminPageControl userControl;
         private System.Windows.Forms.Panel pnlMainPage;
         private System.Windows.Forms.Panel pnlClient;
         private System.Windows.Forms.Panel pnlMember;
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Panel pnlPayment;
+        private System.Windows.Forms.Panel pnlUserCtr;
         private GUI.DashBoardControl dashBoardControl1;
+        private GUI.UserAdminPageControl userAdminPageControl1;
     }
 }

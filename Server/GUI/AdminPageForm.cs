@@ -122,13 +122,14 @@ namespace Server
             pnlClient.BackColor = Color.Transparent;
             pnlMember.BackColor = Color.Transparent;
             pnlMenu.BackColor = Color.Transparent;
-            pnlPayment.BackColor = Color.Transparent;
+            pnlUserCtr.BackColor = Color.Transparent;
             lblMainPage.BackColor = Color.Transparent;
             lblClientPage.BackColor = Color.Transparent;
             lblMember.BackColor = Color.Transparent;
             lblMenu.BackColor = Color.Transparent;
+            lblUserCtr.BackColor = Color.Transparent;
             ptbMainPage.BackColor = Color.Transparent;
-            ptbPayment.BackColor = Color.Transparent;
+            ptbUserCtr.BackColor = Color.Transparent;
             ptbClient.BackColor = Color.Transparent;
             ptbMember.BackColor = Color.Transparent;
             ptbMenu.BackColor = Color.Transparent;
@@ -143,6 +144,15 @@ namespace Server
         private void dashBoardControl1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblPayment_Click(object sender, EventArgs e)
+        {
+            resetColor();
+            userAdminPageControl1.BringToFront();
+            pnlUserCtr.BackColor = blackGreenColor;
+            lblUserCtr.BackColor = blackGreenColor;
+            ptbUserCtr.BackColor = blackGreenColor;
         }
     }
 }

@@ -82,8 +82,8 @@ namespace Server.BLL
         }
         public void updateMember(Member member)
         {
-            string sqlQuery = "Update Member set Password='" + member.Password + "', GroupUser = '" + member.GroupUser + "', CurrentMoney = '" + member.CurrentMoney + "', StatusAccount = '" + member.StatusAccount + "'" +
-                " where AccountName ='" + member.AccountName + "'";
+            string sqlQuery = "Update Member set Password='" + member.Password + "', GroupUser = '" + member.GroupUser + "', CurrentMoney = '" + member.CurrentMoney + "', MemberStatus = '" + member.StatusAccount + "'" +
+                " where MemberID ='" + member.Id + "'";
             if (DAL.runQuery(sqlQuery))
             {
                 MessageBox.Show("Sửa thành công thành viên!!", "Thông báo");
@@ -91,15 +91,20 @@ namespace Server.BLL
         }
         public void deleteMember(Member member)
         {
-            string sqlQuery = "Delete from Member where AccountName ='" + member.AccountName + "'";
-            if (DAL.runQuery(sqlQuery))
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công", "Thông báo");
+                string sqlQuery = "Delete from Member where MemberID ='" + member.Id + "'";
+
+                if (DAL.runQuery(sqlQuery))
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi", "Thông báo");
+                }
             }
-            else
-            {
-                MessageBox.Show("Lỗi", "Thông báo");
-            }
+                
         }
         public bool checkFieldData(string accountName)
         {
@@ -115,6 +120,7 @@ namespace Server.BLL
                 MessageBox.Show("Đã tồn tại hội viên", "Thông báo");
                 return false;
             }
+            
             if (member.AccountName.Equals(""))
             {
                 MessageBox.Show("Tên tài khoản không được để trống ", "Thông báo");
