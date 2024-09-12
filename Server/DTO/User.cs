@@ -9,12 +9,19 @@ namespace Server.DTO
 {
     public class User
     {
+        private int id;
         private string userName;
         private string fullName;
         private string groupUser;
         private string phoneNumber;
         private string email;
         private string password;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string UserName
         {
             get { return userName; }

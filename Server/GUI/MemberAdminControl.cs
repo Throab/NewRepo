@@ -25,7 +25,7 @@ namespace Server.GUI
         {
             
             member.Id = int.Parse(txtMemberID.Text);
-            member.AccountName = txtAccountName.Text;
+            member.AccountName = txtAccountName.Text; 
             member.Password = txtPassword.Text;
             member.GroupUser = "Member";
             member.CurrentMoney = float.Parse(nbMoney.Value.ToString());
