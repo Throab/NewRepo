@@ -32,6 +32,7 @@ namespace Client
         public double clientPrice;
         public static int checkAddMoney = -1;
         public static string recieveMessage = "";
+        public List<Product> productList = new List<Product>();
         public ClientManager()
         {
             Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);

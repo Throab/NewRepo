@@ -15,8 +15,10 @@ namespace Client
 {
     public partial class ClientForm : Form
     {
-        public ClientManager clientManager;
+        private ClientManager clientManager;
         private AddMoneyForm addMoneyForm;
+        private MenuForm menuForm;
+        private 
         const int LOGOUT = 103;
         const int MEMBERLOGIN = 102;
 
@@ -44,6 +46,8 @@ namespace Client
             this.Enabled = false;
             addMoneyForm = new AddMoneyForm(this, clientManager);
             chatForm = new ChatForm(this, clientManager);
+            menuForm = new MenuForm();
+
         }
         public ClientForm(ClientManager x)
         {
@@ -227,7 +231,7 @@ namespace Client
 
         private void menu_Click(object sender, EventArgs e)
         {
-
+            menuForm.ShowDialog();
         }
 
         private void changePass_Click(object sender, EventArgs e)

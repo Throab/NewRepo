@@ -89,7 +89,7 @@
             this.lblBack.ForeColor = System.Drawing.SystemColors.Control;
             this.lblBack.Location = new System.Drawing.Point(12, 18);
             this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(58, 54);
+            this.lblBack.Size = new System.Drawing.Size(44, 42);
             this.lblBack.TabIndex = 3;
             this.lblBack.Text = "◀";
             this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
@@ -103,7 +103,7 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
             this.btnClose.Location = new System.Drawing.Point(945, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 31);
+            this.btnClose.Size = new System.Drawing.Size(27, 25);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -115,7 +115,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(351, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 45);
+            this.label1.Size = new System.Drawing.Size(273, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý phòng net";
             // 
@@ -219,9 +219,9 @@
             this.lblPayment.ForeColor = System.Drawing.Color.White;
             this.lblPayment.Location = new System.Drawing.Point(74, 363);
             this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(225, 31);
+            this.lblPayment.Size = new System.Drawing.Size(159, 23);
             this.lblPayment.TabIndex = 8;
-            this.lblPayment.Text = "Quản lý thanh toán";
+            this.lblPayment.Text = "Quản lý nhân viên";
             // 
             // lblMainPage
             // 
@@ -232,7 +232,7 @@
             this.lblMainPage.ForeColor = System.Drawing.Color.White;
             this.lblMainPage.Location = new System.Drawing.Point(74, 161);
             this.lblMainPage.Name = "lblMainPage";
-            this.lblMainPage.Size = new System.Drawing.Size(174, 31);
+            this.lblMainPage.Size = new System.Drawing.Size(130, 23);
             this.lblMainPage.TabIndex = 7;
             this.lblMainPage.Text = "Quản lý chung";
             this.lblMainPage.Click += new System.EventHandler(this.lblMainPage_Click);
@@ -246,7 +246,7 @@
             this.lblMenu.ForeColor = System.Drawing.Color.White;
             this.lblMenu.Location = new System.Drawing.Point(74, 311);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(206, 31);
+            this.lblMenu.Size = new System.Drawing.Size(153, 23);
             this.lblMenu.TabIndex = 6;
             this.lblMenu.Text = "Quản lý thực đơn";
             this.lblMenu.Click += new System.EventHandler(this.lblMenu_Click);
@@ -260,7 +260,7 @@
             this.lblClientPage.ForeColor = System.Drawing.Color.White;
             this.lblClientPage.Location = new System.Drawing.Point(74, 211);
             this.lblClientPage.Name = "lblClientPage";
-            this.lblClientPage.Size = new System.Drawing.Size(153, 31);
+            this.lblClientPage.Size = new System.Drawing.Size(114, 23);
             this.lblClientPage.TabIndex = 5;
             this.lblClientPage.Text = "Quản lý máy";
             this.lblClientPage.Click += new System.EventHandler(this.lblClientPage_Click);
@@ -274,7 +274,7 @@
             this.lblMember.ForeColor = System.Drawing.Color.White;
             this.lblMember.Location = new System.Drawing.Point(74, 261);
             this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(195, 31);
+            this.lblMember.Size = new System.Drawing.Size(147, 23);
             this.lblMember.TabIndex = 3;
             this.lblMember.Text = "Quản lý hội viên";
             this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
