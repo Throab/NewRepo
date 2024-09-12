@@ -106,8 +106,7 @@ namespace Client
                     {
                         ClientManager.checkAddMoney = -1;
                         txtCurrentMoney.Text = currencyFormat(clientManager.totalMoney);
-                        min = 0;
-                        ResetTime();
+                        
                     }
                     MoneyCount(txtUsedTime.Text.ToString());
                     if (ClientManager.requestServer == LOGOUT)

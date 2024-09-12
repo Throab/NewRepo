@@ -52,12 +52,7 @@ namespace Client
         private void btnAddMoney_Click(object sender, EventArgs e)
         {
             
-            if(txtMoney.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập số tiền cần nạp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+            
                 if(btnAddMoney.Text == "Hoàn thành" || btnAddMoney.Text == "Không thành công")
                 {
                     ClientForm.check2 = -1;
@@ -72,8 +67,6 @@ namespace Client
                     ptbWaiting.Visible = true;
                     txtMoney.Enabled = false;
                 }
-                
-            }
             
         }
 

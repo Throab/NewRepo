@@ -48,7 +48,10 @@ namespace Server.GUI
             {
                 lsvMessage.Items.Add(new ListViewItem(message));               
             }
-            lsvMessage.EnsureVisible(lsvMessage.Items.Count - 1);
+            if(lsvMessage.Items.Count > 0)
+            {
+                lsvMessage.EnsureVisible(lsvMessage.Items.Count - 1);
+            }           
         }
 
         private void MemberChatControl_Load(object sender, EventArgs e)

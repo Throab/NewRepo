@@ -30,10 +30,11 @@
         {
             this.gbMember = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMoney = new System.Windows.Forms.TextBox();
             this.btnAddMoney = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.txtMoney = new System.Windows.Forms.NumericUpDown();
             this.gbMember.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoney)).BeginInit();
             this.SuspendLayout();
             // 
             // gbMember
@@ -56,13 +57,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Số tiền cần nạp";
             // 
-            // txtMoney
-            // 
-            this.txtMoney.Location = new System.Drawing.Point(148, 37);
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(209, 26);
-            this.txtMoney.TabIndex = 1;
-            // 
             // btnAddMoney
             // 
             this.btnAddMoney.Location = new System.Drawing.Point(98, 145);
@@ -83,6 +77,23 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // txtMoney
+            // 
+            this.txtMoney.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtMoney.Location = new System.Drawing.Point(163, 37);
+            this.txtMoney.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(120, 26);
+            this.txtMoney.TabIndex = 2;
+            // 
             // AddMoney_ClientDetailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -97,6 +108,7 @@
             this.Load += new System.EventHandler(this.AddMoney_ClientDetailForm_Load);
             this.gbMember.ResumeLayout(false);
             this.gbMember.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoney)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,9 +116,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbMember;
-        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddMoney;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.NumericUpDown txtMoney;
     }
 }

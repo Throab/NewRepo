@@ -33,17 +33,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMoney = new System.Windows.Forms.TextBox();
             this.btnAddMoney = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbWaiting = new System.Windows.Forms.PictureBox();
             this.ptbDone = new System.Windows.Forms.PictureBox();
             this.ptbDeny = new System.Windows.Forms.PictureBox();
+            this.txtMoney = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoney)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,14 +75,6 @@
             this.label2.Size = new System.Drawing.Size(163, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nhập số tiền cần nạp:";
-            // 
-            // txtMoney
-            // 
-            this.txtMoney.Location = new System.Drawing.Point(210, 115);
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(175, 26);
-            this.txtMoney.TabIndex = 2;
-            this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             // 
             // btnAddMoney
             // 
@@ -147,6 +140,23 @@
             this.ptbDeny.TabStop = false;
             this.ptbDeny.Visible = false;
             // 
+            // txtMoney
+            // 
+            this.txtMoney.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtMoney.Location = new System.Drawing.Point(196, 114);
+            this.txtMoney.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(120, 26);
+            this.txtMoney.TabIndex = 8;
+            // 
             // AddMoneyForm
             // 
             this.AcceptButton = this.btnAddMoney;
@@ -154,12 +164,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(421, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.ptbDeny);
             this.Controls.Add(this.ptbDone);
             this.Controls.Add(this.ptbWaiting);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddMoney);
-            this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoney)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,12 +195,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Button btnAddMoney;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox ptbWaiting;
         private System.Windows.Forms.PictureBox ptbDone;
         private System.Windows.Forms.PictureBox ptbDeny;
+        private System.Windows.Forms.NumericUpDown txtMoney;
     }
 }
