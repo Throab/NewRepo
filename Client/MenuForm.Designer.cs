@@ -215,6 +215,7 @@
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Đặt hàng";
             this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // timer1
             // 

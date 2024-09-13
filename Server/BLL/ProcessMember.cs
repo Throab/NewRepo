@@ -139,5 +139,12 @@ namespace Server.BLL
 
             return true;
         }
+        public int getMemberID(string memberName)
+        {
+            string query = "select * from Member where AccountName = '" + memberName + "'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row.Field<int>("MemberID");
+        }
     }
 }

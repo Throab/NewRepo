@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Client
@@ -95,6 +96,32 @@ namespace Client
         private void pnlCart_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            foreach(CartItem item in pnlCart.Controls)
+            {
+                foreach(Cart cart in listCart)
+                {
+                    if(cart.Product.ProductID == item.Cart.Product.ProductID)
+                    {
+                        cart.Quantity = item.getQuantity();
+                    }
+                }
+            }
+            clientManager.sendOrder(orderToString(listCart));
+            BillForm billForm = new BillForm();
+            billForm.Show();
+        }
+        private string orderToString(List<Cart> carts)
+        {
+            string str = "";
+            foreach(Cart cart in carts)
+            {
+                str += "|" + cart.Product.ProductID.ToString() + "|" + cart.Quantity.ToString();
+            }
+            return str;
         }
     }
 }

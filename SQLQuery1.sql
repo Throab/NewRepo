@@ -96,9 +96,30 @@ create table Product
 	ProductName nvarchar(30),
 	Type int,
 	CategoryName nvarchar(60) references Category(CategoryName),
-	Price int,
+	Price float,
 	InventoryNumber int,
 	ImageUrl varchar(100),
+)
+
+go 
+
+create table Bill
+(
+	BillID int primary key identity,
+	UserID int references Users(UserID),
+	MemberID int references Member(MemberID),
+	CreatedAt datetime,
+	TotalPrice float,
+	Status varchar(10)
+)
+
+go 
+
+create table Bill_Item
+(
+	BillID int references Bill(BillID),
+	ProductID int references Product(ProductID),
+	Quantity int
 )
 
 --Nhom nguoi dung
@@ -150,6 +171,3 @@ insert into Product values (N'Sting đỏ', 1, N'Nước Ngọt',20000,20,'https
 insert into Product values (N'Sting vàng', 1, N'Nước ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/izwfivsbe8rncrmcdglg.jpg')
 insert into Product values (N'Bò húc', 1, N'Nước Ngọt',15000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/wsoozm11e7nsrd8jkzn9.jpg')
 insert into Product values (N'Aquafina', 1, N'Nước suối',10000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/bpl5aniijvddgsrg33ug.jpg')
-select * from product
-
-

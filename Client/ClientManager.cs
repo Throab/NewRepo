@@ -179,6 +179,11 @@ namespace Client
         {
             client.Send(ConvertToByte("Message|" + userName + "|" + message));
         }
+        public void sendOrder(string order)
+        {
+            DateTime now = DateTime.Now;
+            client.Send(ConvertToByte("Send Order|" + now.ToString() + order));
+        }
         byte[] ConvertToByte(object obj)
         {
             MemoryStream memoryStream = new MemoryStream();

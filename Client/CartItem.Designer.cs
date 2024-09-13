@@ -78,6 +78,7 @@
             this.ptbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbDelete.TabIndex = 0;
             this.ptbDelete.TabStop = false;
+            this.ptbDelete.Click += new System.EventHandler(this.ptbDelete_Click);
             // 
             // panel4
             // 

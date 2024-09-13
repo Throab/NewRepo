@@ -29,5 +29,16 @@ namespace Client
                 nudQuantity.Maximum = cart.Product.InventoryNumber;
             }
         }
+
+        private void ptbDelete_Click(object sender, EventArgs e)
+        {
+            MenuForm.listCart.Remove(cart);
+            MenuForm.listId.Remove(cart.Product.ProductID);
+            MenuForm.checkClick = 1;
+        }
+        public int getQuantity()
+        {
+            return int.Parse(nudQuantity.Text);
+        }
     }
 }

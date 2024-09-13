@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ProcessAddMoney.cs" />
+    <Compile Include="BLL\ProcessBill.cs" />
     <Compile Include="BLL\ProcessClient.cs" />
     <Compile Include="BLL\ProcessGroupClient.cs" />
     <Compile Include="BLL\ProcessMember.cs" />
@@ -56,9 +57,12 @@
     <Compile Include="BLL\ProcessUser.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="DTO\AddMoneyTransaction.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\Bill_Item.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\GroupClient.cs" />
     <Compile Include="DTO\Message.cs" />
+    <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="GUI\AddMoneyControl.cs">
       <SubType>UserControl</SubType>

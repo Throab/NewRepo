@@ -43,8 +43,12 @@ namespace Server.socket_configure
         private ProcessAddMoney ProcessAddMoney = new ProcessAddMoney();
         private ProcessMessage ProcessMessage = new ProcessMessage();
         private ProcessProduct ProcessProduct = new ProcessProduct();
+        private ProcessBill ProcessBill = new ProcessBill();
+        private ProcessUser ProcessUser = new ProcessUser();
         public List<DTO.Product> listProduct;
         public List<string> listCategory = new List<string>();
+        public List<Order> orders = new List<Order>();
+        public string memberName;
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -248,6 +252,43 @@ namespace Server.socket_configure
                         }                       
                         addMoney = 0;
                     }
+                    if (lstMessage[request].Equals("Send Order")){
+                        DateTime createdAt = DateTime.Parse(lstMessage[1]);
+                        for(int i = 2; i < lstMessage.Count; i+=2) {
+                            int id = int.Parse(lstMessage[i]);
+                            int quantity = int.Parse(lstMessage[i + 1]);
+                            Order order = new Order { 
+                                Product = ProcessProduct.getProduct(id),
+                                Quantity = quantity
+                            };
+                            orders.Add(order);
+                        }
+                        foreach(InfoClient info in arrClient)
+                        {
+                            if (info.client == currentClient)
+                            {
+                                 memberName = info.memberName;
+                            }
+                        }
+                        try
+                        {
+                            Bill bill = new Bill
+                            {
+                                MemberID = ProcessMember.getMemberID(memberName),
+                                UserID = ProcessUser.getUserId(userName),
+                                CreatedAt = createdAt,
+                                TotalPrice = getTotalPrice(orders),
+                            };
+                            if (ProcessBill.insertBillItem(ProcessBill.insertBill(bill), orders))
+                            {
+                            }
+                            
+                        }
+                        catch (Exception e) {
+                        }
+                        
+                        
+                    }
 
 
                 }
@@ -255,7 +296,6 @@ namespace Server.socket_configure
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message,"Thong bao ket noi");
                 foreach (InfoClient cli in arrClient)
                 {
                     if (cli.client == currentClient)
@@ -338,6 +378,15 @@ namespace Server.socket_configure
 
             }
             return null;
+        }
+        public double getTotalPrice(List<Order> orders)
+        {
+            double totalPrice = 0;
+            foreach(Order order in orders)
+            {
+                totalPrice = totalPrice + (order.Product.Price * order.Quantity);
+            }
+            return totalPrice;
         }
     }
 }
