@@ -42,6 +42,9 @@ namespace Server.socket_configure
         private ProcessGroupClient ProcessGroupClient = new ProcessGroupClient();
         private ProcessAddMoney ProcessAddMoney = new ProcessAddMoney();
         private ProcessMessage ProcessMessage = new ProcessMessage();
+        private ProcessProduct ProcessProduct = new ProcessProduct();
+        public List<DTO.Product> listProduct;
+        public List<string> listCategory = new List<string>();
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -97,36 +100,14 @@ namespace Server.socket_configure
                         }) ;
                         refreshClient = change;
                         ChangeStateClient(currentClient, "WAITING", "");
+                        List<Client> list  = ProcessClient.getAllClient();
+                        listProduct = ProcessProduct.getAllProducts();
+                        listCategory = ProcessProduct.getAllCategory();
+                        currentClient.Send(ConvertToByte("Send Category" + listCategoryToString(listCategory)));
+                        currentClient.Send(ConvertToByte("Send Menu" + listProductsToString(listProduct)));
                     }
                     if (lstMessage[request].Equals("AllowToLogInPls!!"))
                     {
-                        /*if (ProcessMember.checkLoginMember(lstMessage[1], lstMessage[2]))
-                        {
-                            if (ProcessMember.checkValidMember(lstMessage[1]))
-                            {
-                                totalMoney = ProcessMember.getTotalMoney(lstMessage[1]);
-                                foreach (InfoClient cli in arrClient)
-                                {
-                                    if (cli.client == currentClient)
-                                    {
-                                        string groupClientName = ProcessClient.getGroupName(cli);
-                                        this.clientPrice = ProcessGroupClient.getClientPrice(groupClientName);
-                                    }
-                                }
-                                currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
-                                ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
-                            }
-                            else
-                            {
-                                currentClient.Send(ConvertToByte("Your account is exhausted.Recharge to use it!!!"));
-                            }
-
-                        }
-                        else
-                        {
-                            currentClient.Send(ConvertToByte("Account not exist !! Or Wrong Username, Password"));
-                            ChangeStateClient(currentClient, "WAITING", lstMessage[1]);
-                        }*/
                         foreach(InfoClient cli in arrClient)
                         {
                             if(cli.memberName == lstMessage[1])
@@ -151,6 +132,7 @@ namespace Server.socket_configure
                                         currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
                                         ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
                                         sendMess = 1;
+                                        
                                     }
                                     else
                                     {
@@ -321,7 +303,30 @@ namespace Server.socket_configure
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             return binaryFormatter.Deserialize(memoryStream);
         }
+        public string listProductsToString(List<Product> products)
+        {
+            string str = "";
+            foreach (Product product in products)
+            {
+                str += "|" + product.ProductID.ToString() + 
+                    "|" + product.ProductName + 
+                    "|" + product.Category + 
+                    "|" + product.Price.ToString() + 
+                    "|" + product.InventoryNumber.ToString() + 
+                    "|" + product.ImageUrl;
+            }
+            return str;
+        }
 
+        public string listCategoryToString(List<string> list)
+        {
+            string str = "";
+            foreach (string category in list)
+            {
+                str += "|" + category;
+            }
+            return str;
+        }
         public InfoClient GetInfoClient(string nameClient, string contraint)
         {
             foreach (InfoClient infoClient in arrClient)

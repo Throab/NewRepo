@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client
+namespace Server.DTO
 {
     public class Product
     {
@@ -15,7 +15,7 @@ namespace Client
         public string category;
         public double price;
         public int iventory;
-        public Image img;
+        public string url;
         public int ProductID
         {
             get { return id; }
@@ -41,10 +41,10 @@ namespace Client
             get { return price; }
             set { price = value; }
         }
-        public Image Image
+        public string ImageUrl
         {
-            get { return img; }
-            set { img = value; }
+            get { return url; }
+            set {url = value; }
         }
         public int InventoryNumber
         {

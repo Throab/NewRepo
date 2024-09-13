@@ -31,7 +31,6 @@ namespace Client
         TimeSpan remain;
         string userName = "";
         public static int check = -1;
-        public static int check2 = 0;
         ChatForm chatForm;
         public ClientForm()
         {
@@ -46,7 +45,7 @@ namespace Client
             this.Enabled = false;
             addMoneyForm = new AddMoneyForm(this, clientManager);
             chatForm = new ChatForm(this, clientManager);
-            menuForm = new MenuForm();
+            menuForm = new MenuForm(this, clientManager);
 
         }
         public ClientForm(ClientManager x)
@@ -74,17 +73,6 @@ namespace Client
         {
             try
             {
-                
-                if(check2 == 1)
-                {
-                    check2 = 0;
-                    addMoney.Enabled = false;
-                }
-                if(check2 == -1)
-                {
-                    check2 = 0;
-                    addMoney.Enabled = true;
-                }
                 if (ClientManager.requestServer != -1)
                 {
                     
@@ -215,16 +203,15 @@ namespace Client
 
         private void addMoney_Click(object sender, EventArgs e)
         {
-            check2 = 1;
             if(check == 1)
             {
                 check = -1;
-                addMoneyForm.Show();
+                addMoneyForm.ShowDialog();
             }
             else
             {
                 addMoneyForm = new AddMoneyForm(this, clientManager);
-                addMoneyForm.Show();
+                addMoneyForm.ShowDialog();
             }
             
         }

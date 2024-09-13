@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Client
 {
@@ -33,6 +35,7 @@ namespace Client
         public static int checkAddMoney = -1;
         public static string recieveMessage = "";
         public List<Product> productList = new List<Product>();
+        public List<string> categoryList = new List<string>();
         public ClientManager()
         {
             Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
@@ -116,6 +119,28 @@ namespace Client
                     {
                         recieveMessage = lstMessage[1];
                     }
+                    if (lstMessage[request].Equals("Send Menu"))
+                    {
+                        for(int i = 1; i <  lstMessage.Count; i = i + 6)
+                        {
+                            Product p = new Product {
+                                ProductID = int.Parse(lstMessage[i]),
+                                ProductName = lstMessage[i + 1],
+                                Category = lstMessage[i + 2],
+                                Price = double.Parse(lstMessage[i + 3]),
+                                InventoryNumber = int.Parse(lstMessage[i + 4]),
+                                Image = getImageByUrl(lstMessage[i + 5]),
+                            };
+                            productList.Add(p);
+                        }
+                    }
+                    if (lstMessage[request].Equals("Send Category"))
+                    {
+                        for(int i = 1; i < lstMessage.Count; i++)
+                        {
+                            categoryList.Add(lstMessage[i]);
+                        }
+                    }
                 }
             }
             catch
@@ -167,7 +192,13 @@ namespace Client
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             return binaryFormatter.Deserialize(memoryStream);
         }
-        
+        public Image getImageByUrl(string url)
+        {
+            WebClient webClient = new WebClient();
+            Stream stream = webClient.OpenRead(url);
+            Bitmap bitmap = new Bitmap(stream);
+            return bitmap;
+        }
 
     }
 }

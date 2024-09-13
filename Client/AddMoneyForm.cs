@@ -31,7 +31,6 @@ namespace Client
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            ClientForm.check2 = -1;
             if (btnAddMoney.Text == "WAITING...")
             {
                 this.Hide();
@@ -55,7 +54,6 @@ namespace Client
             
                 if(btnAddMoney.Text == "Hoàn thành" || btnAddMoney.Text == "Không thành công")
                 {
-                    ClientForm.check2 = -1;
                     this.Close();
                 }
                 else
