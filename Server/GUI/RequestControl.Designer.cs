@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlRequestContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlDetailContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,19 +53,11 @@
             this.pnlRequestContainer.AutoScroll = true;
             this.pnlRequestContainer.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.pnlRequestContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlRequestContainer.Location = new System.Drawing.Point(3, 131);
+            this.pnlRequestContainer.Location = new System.Drawing.Point(193, 131);
             this.pnlRequestContainer.Name = "pnlRequestContainer";
             this.pnlRequestContainer.Size = new System.Drawing.Size(610, 308);
             this.pnlRequestContainer.TabIndex = 0;
             this.pnlRequestContainer.WrapContents = false;
-            // 
-            // pnlDetailContainer
-            // 
-            this.pnlDetailContainer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetailContainer.Location = new System.Drawing.Point(619, 0);
-            this.pnlDetailContainer.Name = "pnlDetailContainer";
-            this.pnlDetailContainer.Size = new System.Drawing.Size(346, 442);
-            this.pnlDetailContainer.TabIndex = 1;
             // 
             // panel1
             // 
@@ -74,14 +65,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 69);
+            this.panel1.Size = new System.Drawing.Size(965, 69);
             this.panel1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(168, 25);
+            this.label1.Location = new System.Drawing.Point(350, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(265, 31);
             this.label1.TabIndex = 0;
@@ -91,7 +82,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(3, 79);
+            this.panel2.Location = new System.Drawing.Point(193, 79);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(142, 50);
             this.panel2.TabIndex = 3;
@@ -101,7 +92,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(143, 79);
+            this.panel3.Location = new System.Drawing.Point(333, 79);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 50);
             this.panel3.TabIndex = 4;
@@ -111,7 +102,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(292, 79);
+            this.panel4.Location = new System.Drawing.Point(482, 79);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(153, 50);
             this.panel4.TabIndex = 5;
@@ -121,7 +112,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(441, 79);
+            this.panel5.Location = new System.Drawing.Point(631, 79);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(153, 50);
             this.panel5.TabIndex = 6;
@@ -188,7 +179,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlDetailContainer);
             this.Controls.Add(this.pnlRequestContainer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RequestControl";
@@ -207,7 +197,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel pnlRequestContainer;
-        private System.Windows.Forms.Panel pnlDetailContainer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
