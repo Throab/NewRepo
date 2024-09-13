@@ -71,6 +71,13 @@ namespace Server.BLL
             };
             return product;
         }
+        public double getPrice(int productID)
+        {
+            string query = "select Price from Product where ProductID = '"+productID+"'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow dr = dt.Rows[0];
+            return dr.Field<double>("Price");
+        }
 
     }
 }

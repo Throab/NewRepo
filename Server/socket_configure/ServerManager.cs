@@ -47,8 +47,9 @@ namespace Server.socket_configure
         private ProcessUser ProcessUser = new ProcessUser();
         public List<DTO.Product> listProduct;
         public List<string> listCategory = new List<string>();
-        public List<Order> orders = new List<Order>();
+        public List<Bill_Item> listItems = new List<Bill_Item>();
         public string memberName;
+        public static int checkRequest = -1;
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -257,11 +258,11 @@ namespace Server.socket_configure
                         for(int i = 2; i < lstMessage.Count; i+=2) {
                             int id = int.Parse(lstMessage[i]);
                             int quantity = int.Parse(lstMessage[i + 1]);
-                            Order order = new Order { 
-                                Product = ProcessProduct.getProduct(id),
+                            Bill_Item item = new Bill_Item {
+                                ProductID = id,
                                 Quantity = quantity
                             };
-                            orders.Add(order);
+                            listItems.Add(item);
                         }
                         foreach(InfoClient info in arrClient)
                         {
@@ -277,20 +278,18 @@ namespace Server.socket_configure
                                 MemberID = ProcessMember.getMemberID(memberName),
                                 UserID = ProcessUser.getUserId(userName),
                                 CreatedAt = createdAt,
-                                TotalPrice = getTotalPrice(orders),
+                                TotalPrice = getTotalPrice(listItems),
                             };
-                            if (ProcessBill.insertBillItem(ProcessBill.insertBill(bill), orders))
+                            if (ProcessBill.insertBillItem(ProcessBill.insertBill(bill), listItems))
                             {
+                                listItems.Clear();
+                                checkRequest = 1;
                             }
                             
                         }
                         catch (Exception e) {
-                        }
-                        
-                        
+                        }                                               
                     }
-
-
                 }
 
             }
@@ -379,12 +378,12 @@ namespace Server.socket_configure
             }
             return null;
         }
-        public double getTotalPrice(List<Order> orders)
+        public double getTotalPrice(List<Bill_Item> list)
         {
             double totalPrice = 0;
-            foreach(Order order in orders)
+            foreach(Bill_Item item in list)
             {
-                totalPrice = totalPrice + (order.Product.Price * order.Quantity);
+                totalPrice = totalPrice + ( ProcessProduct.getPrice(item.ProductID) * item.Quantity);
             }
             return totalPrice;
         }

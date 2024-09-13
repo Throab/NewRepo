@@ -62,7 +62,6 @@
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\GroupClient.cs" />
     <Compile Include="DTO\Message.cs" />
-    <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="GUI\AddMoneyControl.cs">
       <SubType>UserControl</SubType>
@@ -182,6 +181,12 @@
     <Compile Include="GUI\RequestControl.Designer.cs">
       <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\RequestMenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\RequestMenuItem.Designer.cs">
+      <DependentUpon>RequestMenuItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UserAdminPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RequestControl.resx">
       <DependentUpon>RequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RequestMenuItem.resx">
+      <DependentUpon>RequestMenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserAdminPageControl.resx">
       <DependentUpon>UserAdminPageControl.cs</DependentUpon>

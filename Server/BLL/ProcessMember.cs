@@ -146,5 +146,13 @@ namespace Server.BLL
             DataRow row = dt.Rows[0];
             return row.Field<int>("MemberID");
         }
+
+        public string getMemberName(int id) 
+        {
+            string query = "select AccountName from Member where MemberID = '" + id.ToString() + "'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row.Field<string>("AccountName");
+        }
     }
 }

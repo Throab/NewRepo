@@ -33,14 +33,31 @@ namespace Server.BLL
             DataRow row = dt.Rows[0];
             return row.Field<int>("BillID");
         }
-        public bool insertBillItem(int billId, List<Order> orderList)
+        public bool insertBillItem(int billId, List<Bill_Item> itemsList)
         {
-            foreach(Order order in orderList)
+            foreach(Bill_Item item in itemsList)
             {
-                string query = "insert into Bill_Item values('" + billId.ToString() + "','" + order.Product.ProductID + "','" + order.Quantity.ToString() + "')";
+                string query = "insert into Bill_Item values('" + billId.ToString() + "','" + item.ProductID + "','" + item.Quantity.ToString() + "')";
                 if (!DAL.runQuery(query)) return false;
             }
             return true;
+        }
+
+        public List<Bill> getBillList()
+        {
+            string query = "select * from Bill where Status = 'WAITING'";
+            DataTable dt = DAL.getDataTable(query);
+            List<DTO.Bill> billList = dt.AsEnumerable()
+                .Select(row => new Bill
+                {
+                    BillID = row.Field<int>("BillID"),
+                    UserID = row.Field<int>("UserID"),
+                    MemberID = row.Field<int>("MemberID"),
+                    Status = row.Field<string>("Status"),
+                    CreatedAt = row.Field<DateTime>("CreatedAt"),
+                    TotalPrice = row.Field<double>("TotalPrice")
+                }).ToList();
+            return billList;
         }
     }
 }

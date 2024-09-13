@@ -19,6 +19,7 @@ namespace Server.GUI
         ClientHomePageControl clientControl;
         AddMoneyControl addMoneyControl;
         ChatControl chatControl;
+        RequestControl requestControl;
         public HomePageFrm()
         {
             InitializeComponent();
@@ -47,12 +48,15 @@ namespace Server.GUI
             clientControl = new ClientHomePageControl(serverManager);
             addMoneyControl = new AddMoneyControl(serverManager);
             chatControl = new ChatControl(serverManager);
+            requestControl = new RequestControl(serverManager);
             clientControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(clientControl);
             addMoneyControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(addMoneyControl);
             chatControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(chatControl);
+            requestControl.Dock = DockStyle .Fill;
+            pnlContainer.Controls .Add(requestControl);
 
         }
 
@@ -84,7 +88,7 @@ namespace Server.GUI
 
         private void Request_Click(object sender, EventArgs e)
         {
-            
+            requestControl.BringToFront();
         }
 
         private void Chat_Click(object sender, EventArgs e)

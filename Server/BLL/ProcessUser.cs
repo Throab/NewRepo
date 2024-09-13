@@ -20,6 +20,7 @@ namespace Server.BLL
             if (dt.Rows.Count > 0) return true;
             return false;
         }
+
         public List<DTO.User> getAllUser()
         {
             string query = "select * from Users";
