@@ -8,12 +8,18 @@ namespace Server.DTO
 {
     public class Member
     {
+        private int id;
         private string accountName;
         private string password;
         private string groupUser;
         private float currentMoney;
         private string statusAccount;
-        
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string AccountName
         {
             get { return accountName; }
