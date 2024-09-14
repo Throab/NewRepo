@@ -110,8 +110,9 @@ namespace Client
                     }
                 }
             }
-            clientManager.sendOrder(orderToString(listCart));
-            BillForm billForm = new BillForm();
+            DateTime time = DateTime.Now;
+            clientManager.sendOrder(time, orderToString(listCart));
+            BillForm billForm = new BillForm(clientManager, time);
             billForm.Show();
         }
         private string orderToString(List<Cart> carts)

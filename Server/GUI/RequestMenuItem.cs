@@ -16,9 +16,9 @@ namespace Server.GUI
     public partial class RequestMenuItem : UserControl
     {
         private Bill bill = new Bill();
-        private InfoClient cli = new InfoClient();
         private ProcessMember processMember = new ProcessMember();
-        private ProcessClient processClient = new ProcessClient();  
+        private ProcessClient processClient = new ProcessClient();
+        private RequestControl requestControl;
         public RequestMenuItem()
         {
             InitializeComponent();
@@ -29,21 +29,19 @@ namespace Server.GUI
             set 
             { 
                 bill = value;
+                lblBillID.Text = bill.BillID.ToString();
                 lblMemberName.Text = processMember.getMemberName(bill.MemberID);
                 lblTime.Text = bill.CreatedAt.ToString();
                 lblTotalPrice.Text = currencyFormat(bill.TotalPrice);
             }
         }
-        public InfoClient InfoClient
-        {
-            get { return cli;}
-            set 
-            { 
-                cli = value;
-                lblClientName.Text = processClient.getClientName(cli.clientIp);
-            }
-        }
 
         private string currencyFormat(double money) => string.Format(new CultureInfo("vi-VN"), "{0:C}", money);
+
+        private void lblBillID_Click(object sender, EventArgs e)
+        {
+            BillDetailFrm billDetailFrm = new BillDetailFrm(bill);
+            billDetailFrm.ShowDialog();
+        }
     }
 }

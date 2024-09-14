@@ -171,3 +171,6 @@ insert into Product values (N'Sting đỏ', 1, N'Nước Ngọt',20000,20,'https
 insert into Product values (N'Sting vàng', 1, N'Nước ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/izwfivsbe8rncrmcdglg.jpg')
 insert into Product values (N'Bò húc', 1, N'Nước Ngọt',15000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/wsoozm11e7nsrd8jkzn9.jpg')
 insert into Product values (N'Aquafina', 1, N'Nước suối',10000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/bpl5aniijvddgsrg33ug.jpg')
+delete from Bill
+insert into Bill values(1,0,'19:20:30 10/07/2024',2000,'SUCCESS')
+select * from Bill

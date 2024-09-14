@@ -48,7 +48,7 @@ namespace Server.socket_configure
         public List<DTO.Product> listProduct;
         public List<string> listCategory = new List<string>();
         public List<Bill_Item> listItems = new List<Bill_Item>();
-        public string memberName;
+        public static string memberName = "";
         public static int checkRequest = -1;
         public ServerManager()
         {
@@ -137,7 +137,7 @@ namespace Server.socket_configure
                                         currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
                                         ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
                                         sendMess = 1;
-                                        
+                                        MessageBox.Show("send login");
                                     }
                                     else
                                     {
@@ -258,7 +258,8 @@ namespace Server.socket_configure
                         for(int i = 2; i < lstMessage.Count; i+=2) {
                             int id = int.Parse(lstMessage[i]);
                             int quantity = int.Parse(lstMessage[i + 1]);
-                            Bill_Item item = new Bill_Item {
+                            Bill_Item item = new Bill_Item
+                            {
                                 ProductID = id,
                                 Quantity = quantity
                             };
@@ -288,7 +289,21 @@ namespace Server.socket_configure
                             
                         }
                         catch (Exception e) {
-                        }                                               
+                        }
+                        memberName = "";
+                    }
+                    if(checkRequest != -1 && checkRequest != 1)
+                    {
+                        int id = checkRequest;                        
+                        foreach(InfoClient info in arrClient)
+                        {
+                            if(info.memberName == ProcessMember.getMemberName(id) && info.client == currentClient)
+                            {
+                                checkRequest = 1;
+                                currentClient.Send(ConvertToByte("Order Success|" + userName));
+                            }
+                        }
+                        
                     }
                 }
 

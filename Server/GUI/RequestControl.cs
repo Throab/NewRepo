@@ -19,12 +19,10 @@ namespace Server.GUI
         private ProcessBill processBill = new ProcessBill();
         private ProcessMember processMember = new ProcessMember();  
         private List<Bill> billList;
-        private List<InfoClient> listInfo;
         public RequestControl(ServerManager serverManager)
         {
             InitializeComponent();
             this.serverManager = serverManager;
-            listInfo = serverManager.arrClient;
         }
         public void loadBill()
         {
@@ -34,13 +32,6 @@ namespace Server.GUI
             {
                 RequestMenuItem menuItem = new RequestMenuItem();
                 menuItem.Bill = bill;
-                foreach(InfoClient client in listInfo)
-                {
-                    if(client.memberName == processMember.getMemberName(bill.MemberID))
-                    {
-                        menuItem.InfoClient = client;
-                    }
-                }
                 pnlRequestContainer.Controls.Add(menuItem);
             }
         }

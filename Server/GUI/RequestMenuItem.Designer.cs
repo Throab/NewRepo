@@ -32,7 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblClientName = new System.Windows.Forms.Label();
+            this.lblBillID = new System.Windows.Forms.Label();
             this.lblMemberName = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.lblClientName);
+            this.panel1.Controls.Add(this.lblBillID);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -82,15 +82,16 @@
             this.panel4.Size = new System.Drawing.Size(159, 54);
             this.panel4.TabIndex = 3;
             // 
-            // lblClientName
+            // lblBillID
             // 
-            this.lblClientName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblClientName.Location = new System.Drawing.Point(0, 0);
-            this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(115, 54);
-            this.lblClientName.TabIndex = 0;
-            this.lblClientName.Text = "TENMAY";
-            this.lblClientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBillID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBillID.Location = new System.Drawing.Point(0, 0);
+            this.lblBillID.Name = "lblBillID";
+            this.lblBillID.Size = new System.Drawing.Size(115, 54);
+            this.lblBillID.TabIndex = 0;
+            this.lblBillID.Text = "BillID";
+            this.lblBillID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBillID.Click += new System.EventHandler(this.lblBillID_Click);
             // 
             // lblMemberName
             // 
@@ -101,6 +102,7 @@
             this.lblMemberName.TabIndex = 1;
             this.lblMemberName.Text = "TenHoiVien";
             this.lblMemberName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMemberName.Click += new System.EventHandler(this.lblBillID_Click);
             // 
             // lblTime
             // 
@@ -111,6 +113,7 @@
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "00:00:00";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTime.Click += new System.EventHandler(this.lblBillID_Click);
             // 
             // lblTotalPrice
             // 
@@ -122,6 +125,7 @@
             this.lblTotalPrice.TabIndex = 3;
             this.lblTotalPrice.Text = "10000";
             this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalPrice.Click += new System.EventHandler(this.lblBillID_Click);
             // 
             // RequestMenuItem
             // 
@@ -144,7 +148,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblClientName;
+        private System.Windows.Forms.Label lblBillID;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblMemberName;
         private System.Windows.Forms.Panel panel3;

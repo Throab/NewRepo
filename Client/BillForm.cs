@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +14,22 @@ namespace Client
     public partial class BillForm : Form
     {
         List<Cart> listCart;
-        public BillForm()
+        ClientManager clientManager;
+        DateTime time;
+        public BillForm(ClientManager clientManager, DateTime time)
         {
             InitializeComponent();
-            
+            this.clientManager = clientManager;
+            this.time = time;
+            listCart = MenuForm.listCart;
+
         }
-        
+
         private void BillForm_Load(object sender, EventArgs e)
         {
+            lblMemberName.Text = clientManager.userName; 
+            lblTime.Text = time.ToString();
+            lblTotalPrice.Text = currencyFormat(getTotalPrice(listCart));
             Label lbl1 = new Label() { Text = "STT", TextAlign = ContentAlignment.MiddleCenter};
             Label lbl2 = new Label() { Text = "Tên món", TextAlign = ContentAlignment.MiddleCenter};
             Label lbl3 = new Label() { Text = "Số lượng", TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
@@ -29,8 +38,6 @@ namespace Client
             tableLayoutPanel1.Controls.Add(lbl2, 1, 0);
             tableLayoutPanel1.Controls.Add(lbl3, 2, 0);
             tableLayoutPanel1.Controls.Add(lbl4, 3, 0);
-
-            listCart = MenuForm.listCart;
             tableLayoutPanel1.RowCount = listCart.Count;
             MessageBox.Show(tableLayoutPanel1.RowCount.ToString());
             for(int i = 1; i <= listCart.Count; i++)
@@ -53,7 +60,16 @@ namespace Client
                 tableLayoutPanel1.Controls.Add(money, 3, i);
             }
         }
-
+        private string currencyFormat(double money) => string.Format(new CultureInfo("vi-VN"), "{0:C}", money);
+        private double getTotalPrice(List<Cart> list)
+        {
+            double s = 0;
+            foreach (Cart cart in list)
+            {
+                s += (cart.Product.Price * cart.Quantity);
+            }
+            return s;
+        }
         private void lblClose_Click(object sender, EventArgs e)
         {
             this.Close();

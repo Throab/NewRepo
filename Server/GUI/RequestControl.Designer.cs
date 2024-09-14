@@ -33,12 +33,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -88,35 +88,6 @@
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(333, 79);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(150, 50);
-            this.panel3.TabIndex = 4;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(482, 79);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(153, 50);
-            this.panel4.TabIndex = 5;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(631, 79);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(153, 50);
-            this.panel5.TabIndex = 6;
-            // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,8 +97,18 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 50);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Tên máy";
+            this.label2.Text = "Mã hóa đơn";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(333, 79);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(150, 50);
+            this.panel3.TabIndex = 4;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label3
             // 
@@ -141,6 +122,16 @@
             this.label3.Text = "Hội viên";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(482, 79);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(153, 50);
+            this.panel4.TabIndex = 5;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -152,6 +143,15 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Thời gian";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(631, 79);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(153, 50);
+            this.panel5.TabIndex = 6;
             // 
             // label5
             // 

@@ -36,6 +36,8 @@ namespace Client
         public static string recieveMessage = "";
         public List<Product> productList = new List<Product>();
         public List<string> categoryList = new List<string>();
+        public string staffName;
+        public static int checkOrder = -1;
         public ClientManager()
         {
             Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
@@ -77,7 +79,8 @@ namespace Client
                         this.clientPrice = double.Parse(lstMessage[3]);
                         requestServer = MEMBERLOGIN;
                         message = "Login";
-                        lockScreen.Visible = false;                        
+                        lockScreen.Visible = false;
+                        MessageBox.Show("login go");
                     }
                     if (lstMessage[request].Equals("Account not exist !! Or Wrong Username, Password"))
                     {
@@ -119,7 +122,7 @@ namespace Client
                     {
                         recieveMessage = lstMessage[1];
                     }
-                    if (lstMessage[request].Equals("Send Menu"))
+                    /*if (lstMessage[request].Equals("Send Menu"))
                     {
                         for(int i = 1; i <  lstMessage.Count; i = i + 6)
                         {
@@ -133,13 +136,20 @@ namespace Client
                             };
                             productList.Add(p);
                         }
-                    }
+                        MessageBox.Show("Menu success");
+                    }*/
                     if (lstMessage[request].Equals("Send Category"))
                     {
                         for(int i = 1; i < lstMessage.Count; i++)
                         {
                             categoryList.Add(lstMessage[i]);
                         }
+                    }
+                    if (lstMessage[request].Equals("Order Success"))
+                    {
+                        checkOrder = 1;
+                        message = "Order success";
+                        staffName = lstMessage[1];
                     }
                 }
             }
@@ -155,6 +165,7 @@ namespace Client
         public void Login(string userName, string passWord)
         {
             client.Send(ConvertToByte("AllowToLogInPls!!|" + userName + "|" + passWord + "|"));
+            MessageBox.Show("login plss");
         }
         public void LogoutMember(string userName)
         {
@@ -179,10 +190,9 @@ namespace Client
         {
             client.Send(ConvertToByte("Message|" + userName + "|" + message));
         }
-        public void sendOrder(string order)
+        public void sendOrder(DateTime time, string order)
         {
-            DateTime now = DateTime.Now;
-            client.Send(ConvertToByte("Send Order|" + now.ToString() + order));
+            client.Send(ConvertToByte("Send Order|" + time.ToString() + order));
         }
         byte[] ConvertToByte(object obj)
         {

@@ -27,12 +27,6 @@ namespace Server.BLL
             if (DAL.runQuery(query)) return true;
             return false;
         }
-        public int getRecentBillID() {
-            string query = "select BillID from Bill where BillID = SCOPE_IDENTITY()";
-            DataTable dt = DAL.getDataTable(query);
-            DataRow row = dt.Rows[0];
-            return row.Field<int>("BillID");
-        }
         public bool insertBillItem(int billId, List<Bill_Item> itemsList)
         {
             foreach(Bill_Item item in itemsList)
@@ -58,6 +52,19 @@ namespace Server.BLL
                     TotalPrice = row.Field<double>("TotalPrice")
                 }).ToList();
             return billList;
+        }
+        public List<Bill_Item> getBillItemsList(int billId)
+        {
+            string query = "select * from Bill_Item where BillID = '"+billId+"'";
+            DataTable dt = DAL.getDataTable(query);
+            List<DTO.Bill_Item> billItemsList = dt.AsEnumerable()
+                .Select(row => new Bill_Item
+                {
+                    BillID = row.Field<int>("BillID"),
+                    ProductID = row.Field<int>("ProductID"),
+                    Quantity = row.Field<int>("Quantity")
+                }).ToList();
+            return billItemsList;
         }
     }
 }

@@ -78,6 +78,12 @@ namespace Server.BLL
             DataRow dr = dt.Rows[0];
             return dr.Field<double>("Price");
         }
-
+        public string getProductName(int productID)
+        {
+            string query = "select ProductName from Product where ProductID = '" + productID + "'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow dr = dt.Rows[0];
+            return dr.Field<string>("ProductName");
+        }
     }
 }
