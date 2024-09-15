@@ -59,7 +59,7 @@ go
 create table AddMoneyTransaction
 (
 	AddMoneyTransactionId int identity primary key,
-	ClientIP varchar(20) references Client(ClientIP),
+	ClientIP varchar(20) references Client(ClientIP) default null,
 	UserName varchar(60) references Users(UserName),
 	MemberName varchar(30) references Member(AccountName),
 	TransacDate datetime,
@@ -130,7 +130,7 @@ insert into Users values ('admin',N'Nguyễn Thanh Bảo','Manager','0961563202'
 insert into Users values ('user1',N'Phạm Phú An','Staff','0123456789','phuanpham@gmail.com','user1')
 insert into Users values ('user2',N'Lê Văn Đại','Staff','097851364','daile123@gmail.com','user2')
 --Thanh Vien
-insert into Member values ('Seraphim','123','Member',50000, 'ALLOW')
+insert into Member values ('seraphim','123','Member',50000, 'ALLOW')
 insert into Member values ('abc','123','Member',0, 'ALLOW')
 insert into Member values ('xyz','123','Member',60000, 'ALLOW')
 insert into Member values ('account1','123','Member',10000,'ALLOW')
@@ -148,7 +148,6 @@ insert into Client values ('192.168.1.4','MAY4','basic','DISCONNECT')
 insert into Client values ('192.168.1.5','MAY-VIP-1','VIP','DISCONNECT')
 insert into Client values ('192.168.1.6','MAY-VIP-2','VIP','DISCONNECT')
 insert into Client values ('192.168.1.7','MAY-SVIP-1','SVIP','DISCONNECT')
-insert into Client values ('192.168.243.136','MAY-PA','SVIP','DISCONNECT')
 --danh Muc
 insert into Category values(N'Mì gói')
 insert into Category values(N'Cơm')
