@@ -27,6 +27,7 @@ namespace Client
 
         private void BillForm_Load(object sender, EventArgs e)
         {
+            ClientForm.checkOrderStatus = 1;
             lblMemberName.Text = clientManager.userName; 
             lblTime.Text = time.ToString();
             lblTotalPrice.Text = currencyFormat(getTotalPrice(listCart));
@@ -39,7 +40,6 @@ namespace Client
             tableLayoutPanel1.Controls.Add(lbl3, 2, 0);
             tableLayoutPanel1.Controls.Add(lbl4, 3, 0);
             tableLayoutPanel1.RowCount = listCart.Count;
-            MessageBox.Show(tableLayoutPanel1.RowCount.ToString());
             for(int i = 1; i <= listCart.Count; i++)
             {
                 Label stt = new Label();
@@ -70,8 +70,32 @@ namespace Client
             }
             return s;
         }
-        private void lblClose_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            if(ClientManager.message == "Order success")
+            {
+                ClientManager.serviceFee += getTotalPrice(listCart);
+                ClientManager.message = "";
+                ptbWaiting.Visible = false;
+                ptbSuccess.Visible = true;
+                lblStaff.Text = clientManager.staffName;
+                lblStatus.Text = "Đã hoàn thành";
+                btnAccept.Visible = true;
+            }
+            if(ClientManager.message == "Order Denied")
+            {
+                ClientManager.message = "";
+                ptbDeny.Visible = true;
+                ptbWaiting.Visible = false;
+                lblStaff.Text = clientManager.staffName;
+                lblStatus.Text = "Giao dịch thất bại";
+                btnAccept.Visible = true;
+            }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            ClientForm.checkOrderStatus = 0;
             this.Close();
         }
     }

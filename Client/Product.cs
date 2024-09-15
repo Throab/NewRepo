@@ -11,7 +11,6 @@ namespace Client
     {
         public int id;
         public string name;
-        public int type;
         public string category;
         public double price;
         public int iventory;
@@ -26,11 +25,7 @@ namespace Client
             get { return name; }
             set { name = value; }
         }
-        public int ProductType
-        {
-            get { return type; }
-            set { type = value; }
-        }
+
         public string Category
         {
             get { return category; }

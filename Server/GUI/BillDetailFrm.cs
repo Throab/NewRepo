@@ -94,6 +94,17 @@ namespace Server.GUI
             ServerManager.checkRequest = bill.MemberID;
             this.Close();
             ProcessBill.updateBill(bill, "SUCCESS");
+            foreach(Bill_Item item in items) {
+                ProcessProduct.updateProductInventory(item.ProductID, item.Quantity);
+            }
+            
+        }
+
+        private void btnDeny_Click(object sender, EventArgs e)
+        {
+            ServerManager.checkRequest = bill.MemberID * (-1) - 1;
+            this.Close();
+            ProcessBill.updateBill(bill, "FAILED");
         }
     }
 }

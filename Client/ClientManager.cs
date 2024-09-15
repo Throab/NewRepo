@@ -37,7 +37,7 @@ namespace Client
         public List<Product> productList = new List<Product>();
         public List<string> categoryList = new List<string>();
         public string staffName;
-        public static int checkOrder = -1;
+        public static double serviceFee = 0;
         public ClientManager()
         {
             Ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), portCode);
@@ -80,7 +80,6 @@ namespace Client
                         requestServer = MEMBERLOGIN;
                         message = "Login";
                         lockScreen.Visible = false;
-                        MessageBox.Show("login go");
                     }
                     if (lstMessage[request].Equals("Account not exist !! Or Wrong Username, Password"))
                     {
@@ -107,7 +106,6 @@ namespace Client
                         checkAddMoney = 1;
                         message = "Add money success";
                         totalMoney = double.Parse(lstMessage[1]);
-                        
                     }
                     if (lstMessage[request].Equals("AddMoneyDenied"))
                     {
@@ -122,11 +120,13 @@ namespace Client
                     {
                         recieveMessage = lstMessage[1];
                     }
-                    /*if (lstMessage[request].Equals("Send Menu"))
+                    if (lstMessage[request].Equals("Send Menu"))
                     {
-                        for(int i = 1; i <  lstMessage.Count; i = i + 6)
+                        productList.Clear();
+                        for (int i = 1; i < lstMessage.Count; i = i + 6)
                         {
-                            Product p = new Product {
+                            Product p = new Product
+                            {
                                 ProductID = int.Parse(lstMessage[i]),
                                 ProductName = lstMessage[i + 1],
                                 Category = lstMessage[i + 2],
@@ -136,25 +136,31 @@ namespace Client
                             };
                             productList.Add(p);
                         }
-                        MessageBox.Show("Menu success");
-                    }*/
+                    }
                     if (lstMessage[request].Equals("Send Category"))
                     {
+                        categoryList.Clear();
                         for(int i = 1; i < lstMessage.Count; i++)
                         {
                             categoryList.Add(lstMessage[i]);
                         }
+                        categoryList.Insert(0, "Tất cả");
                     }
                     if (lstMessage[request].Equals("Order Success"))
                     {
-                        checkOrder = 1;
                         message = "Order success";
+                        staffName = lstMessage[1];
+                    }
+                    if (lstMessage[request].Equals("Order Denied"))
+                    {
+                        message = "Order Denied";
                         staffName = lstMessage[1];
                     }
                 }
             }
-            catch
+            catch(Exception e) 
             {
+                MessageBox.Show(e.Message);
                 if(MessageBox.Show("Mất kết nối với máy chủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     Application.Exit();
@@ -165,7 +171,6 @@ namespace Client
         public void Login(string userName, string passWord)
         {
             client.Send(ConvertToByte("AllowToLogInPls!!|" + userName + "|" + passWord + "|"));
-            MessageBox.Show("login plss");
         }
         public void LogoutMember(string userName)
         {

@@ -26,7 +26,6 @@ namespace Server.BLL
                 {
                     ProductID = row.Field<int>("ProductID"),
                     ProductName = row.Field<string>("ProductName"),
-                    ProductType = row.Field<int>("Type"),
                     Category = row.Field<string>("CategoryName"),
                     Price = row.Field<double>("Price"),
                     InventoryNumber = row.Field<int>("InventoryNumber"),
@@ -47,10 +46,10 @@ namespace Server.BLL
             }
             return list;
         }
-        public bool updateProductInventory(Product product, int quantity)
+        public bool updateProductInventory(int productId, int quantity)
         {
-            int m = product.InventoryNumber - quantity;
-            string query = "update Product set InventoryNumber = '" + m.ToString() + "' where ProductID = '" + product.ProductID.ToString() + "'";
+            int m = getProduct(productId).InventoryNumber - quantity;
+            string query = "update Product set InventoryNumber = '" + m.ToString() + "' where ProductID = '" + productId.ToString() + "'";
             if (DAL.runQuery(query)) return true;
             return false;
         }
@@ -63,7 +62,6 @@ namespace Server.BLL
             {
                 ProductID = row.Field<int>("ProductID"),
                 ProductName = row.Field<string>("ProductName"),
-                ProductType = row.Field<int>("Type"),
                 Category = row.Field<string>("CategoryName"),
                 Price = row.Field<double>("Price"),
                 InventoryNumber = row.Field<int>("InventoryNumber"),

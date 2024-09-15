@@ -102,6 +102,13 @@ namespace Server.BLL
             }
 
         }
+        public string getUserFullName(string userName)
+        {
+            string query = "select FullName from Users where Username = '" + userName + "'";
+            DataTable dt = DAL.getDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row.Field<string>("FullName");
+        }
         public bool checkFieldData(string username)
         {
             if (DAL.checkField("Users", "UserName", username)) return true;

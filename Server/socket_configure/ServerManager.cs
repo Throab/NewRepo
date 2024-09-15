@@ -130,6 +130,7 @@ namespace Server.socket_configure
                                         {
                                             if (cli1.client == currentClient)
                                             {
+                                                cli1.memberName = lstMessage[1];
                                                 string groupClientName = ProcessClient.getGroupName(cli);
                                                 this.clientPrice = ProcessGroupClient.getClientPrice(groupClientName);
                                             }
@@ -137,7 +138,6 @@ namespace Server.socket_configure
                                         currentClient.Send(ConvertToByte("OkePlayGo|" + lstMessage[1] + "|" + totalMoney + "|" + clientPrice + "|"));
                                         ChangeStateClient(currentClient, "MEMBER USING", lstMessage[1]);
                                         sendMess = 1;
-                                        MessageBox.Show("send login");
                                     }
                                     else
                                     {
@@ -223,36 +223,43 @@ namespace Server.socket_configure
                     if(sendMess == 2)
                     {
                         arrClient = infoClients(lstMessage[1]);
-                        if (ProcessMessage.insertMessage(arrClient.ElementAt(0), userName, sendMessage ,"server"))
+                        foreach (InfoClient info in arrClient)
                         {
-                            sendMess = 1;
-                            currentClient.Send(ConvertToByte("Server send message|" + sendMessage));
-                            sendMessage = "";
-                        }
+                            if(info.client == currentClient && info.memberName == memberName) {
+                                if (ProcessMessage.insertMessage(info, userName, sendMessage, "server"))
+                                {
+                                    sendMess = 1;
+                                    memberName = "";
+                                    currentClient.Send(ConvertToByte("Server send message|" + sendMessage));
+                                    sendMessage = "";
+                                }
+                            }
+                        }                        
                     }
                     if (addMoney != 0 && addMoney != -1)
                     {
-
-                        if(addMoney == -2)
+                        foreach(InfoClient info in arrClient)
                         {
-                            currentClient.Send(ConvertToByte("AddMoneyDenied|"));
-                        }
-                        else
-                        {
-                            foreach (InfoClient info in arrClient)
+                            if(memberName.ToLower() ==  info.memberName.ToLower() && info.client == currentClient)
                             {
-                                if (info.client == currentClient)
+                                if (addMoney == -2)
                                 {
-                                    if (ProcessMember.addMoney(addMoney, info.memberName))
-                                    {
-                                        totalMoney = ProcessMember.getTotalMoney(info.memberName);
-                                    }
+                                    currentClient.Send(ConvertToByte("AddMoneyDenied|"));
                                 }
-                            }
-                            currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
-                        }                       
-                        addMoney = 0;
+                                else
+                                {
+                                    if (ProcessMember.addMoney(addMoney, memberName))
+                                    {
+                                        totalMoney = ProcessMember.getTotalMoney(memberName);
+                                    }
+                                    currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
+                                }
+                                addMoney = 0;
+                                memberName = "";
+                            }                                
+                        }                            
                     }
+                        
                     if (lstMessage[request].Equals("Send Order")){
                         DateTime createdAt = DateTime.Parse(lstMessage[1]);
                         for(int i = 2; i < lstMessage.Count; i+=2) {
@@ -284,7 +291,7 @@ namespace Server.socket_configure
                             if (ProcessBill.insertBillItem(ProcessBill.insertBill(bill), listItems))
                             {
                                 listItems.Clear();
-                                checkRequest = 1;
+                                checkRequest = 0;
                             }
                             
                         }
@@ -292,24 +299,39 @@ namespace Server.socket_configure
                         }
                         memberName = "";
                     }
-                    if(checkRequest != -1 && checkRequest != 1)
+                    if(checkRequest > 0)
                     {
-                        int id = checkRequest;                        
-                        foreach(InfoClient info in arrClient)
+                        int id = checkRequest;
+                        foreach (InfoClient info in arrClient)
                         {
-                            if(info.memberName == ProcessMember.getMemberName(id) && info.client == currentClient)
+                            if(info.memberName ==  ProcessMember.getMemberName(id).ToLower() && info.client == currentClient)
                             {
-                                checkRequest = 1;
-                                currentClient.Send(ConvertToByte("Order Success|" + userName));
+                                checkRequest = 0;
+                                currentClient.Send(ConvertToByte("Order Success|" + ProcessUser.getUserFullName(userName)));
                             }
+                            listProduct = ProcessProduct.getAllProducts();
+                            info.client.Send(ConvertToByte("Send Menu" + listProductsToString(listProduct)));
                         }
                         
+                    }
+                    if(checkRequest < -1)
+                    {
+                        int id = (checkRequest + 1) * (-1);
+                        foreach (InfoClient info in arrClient)
+                        {
+                            if (info.memberName == ProcessMember.getMemberName(id).ToLower() && info.client == currentClient)
+                            {
+                                checkRequest = 0;
+                                currentClient.Send(ConvertToByte("Order Denied|" + ProcessUser.getUserFullName(userName)));
+                            }
+                        }
                     }
                 }
 
             }
             catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 foreach (InfoClient cli in arrClient)
                 {
                     if (cli.client == currentClient)

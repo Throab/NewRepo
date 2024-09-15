@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillForm));
-            this.lblClose = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,35 +44,32 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ptbWaiting = new System.Windows.Forms.PictureBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ptbWaiting = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ptbSuccess = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.ptbDeny = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).BeginInit();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblClose
-            // 
-            this.lblClose.AutoSize = true;
-            this.lblClose.Location = new System.Drawing.Point(380, 9);
-            this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(21, 20);
-            this.lblClose.TabIndex = 0;
-            this.lblClose.Text = "X";
-            this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblClose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -208,6 +205,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
@@ -217,27 +215,14 @@
             this.panel4.Size = new System.Drawing.Size(413, 236);
             this.panel4.TabIndex = 5;
             // 
-            // label5
+            // panel7
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(413, 38);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Trạng thái";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ptbWaiting
-            // 
-            this.ptbWaiting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptbWaiting.Image = ((System.Drawing.Image)(resources.GetObject("ptbWaiting.Image")));
-            this.ptbWaiting.Location = new System.Drawing.Point(0, 0);
-            this.ptbWaiting.Name = "ptbWaiting";
-            this.ptbWaiting.Size = new System.Drawing.Size(413, 100);
-            this.ptbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbWaiting.TabIndex = 1;
-            this.ptbWaiting.TabStop = false;
+            this.panel7.Controls.Add(this.lblStatus);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 138);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(413, 27);
+            this.panel7.TabIndex = 5;
             // 
             // lblStatus
             // 
@@ -250,6 +235,28 @@
             this.lblStatus.Text = "Đang chờ";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.ptbDeny);
+            this.panel6.Controls.Add(this.ptbSuccess);
+            this.panel6.Controls.Add(this.ptbWaiting);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 38);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(413, 100);
+            this.panel6.TabIndex = 4;
+            // 
+            // ptbWaiting
+            // 
+            this.ptbWaiting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbWaiting.Image = ((System.Drawing.Image)(resources.GetObject("ptbWaiting.Image")));
+            this.ptbWaiting.Location = new System.Drawing.Point(0, 0);
+            this.ptbWaiting.Name = "ptbWaiting";
+            this.ptbWaiting.Size = new System.Drawing.Size(413, 100);
+            this.ptbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbWaiting.TabIndex = 1;
+            this.ptbWaiting.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label5);
@@ -259,23 +266,67 @@
             this.panel5.Size = new System.Drawing.Size(413, 38);
             this.panel5.TabIndex = 3;
             // 
-            // panel6
+            // label5
             // 
-            this.panel6.Controls.Add(this.ptbWaiting);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 38);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(413, 100);
-            this.panel6.TabIndex = 4;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(413, 38);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Trạng thái";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel7
+            // timer1
             // 
-            this.panel7.Controls.Add(this.lblStatus);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 138);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(413, 27);
-            this.panel7.TabIndex = 5;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // ptbSuccess
+            // 
+            this.ptbSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbSuccess.Image = ((System.Drawing.Image)(resources.GetObject("ptbSuccess.Image")));
+            this.ptbSuccess.Location = new System.Drawing.Point(0, 0);
+            this.ptbSuccess.Name = "ptbSuccess";
+            this.ptbSuccess.Size = new System.Drawing.Size(413, 100);
+            this.ptbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSuccess.TabIndex = 2;
+            this.ptbSuccess.TabStop = false;
+            this.ptbSuccess.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnAccept);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 165);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(413, 71);
+            this.panel8.TabIndex = 6;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Location = new System.Drawing.Point(140, 19);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(132, 34);
+            this.btnAccept.TabIndex = 0;
+            this.btnAccept.Text = "Xác nhận";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Visible = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // ptbDeny
+            // 
+            this.ptbDeny.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbDeny.Image = ((System.Drawing.Image)(resources.GetObject("ptbDeny.Image")));
+            this.ptbDeny.Location = new System.Drawing.Point(0, 0);
+            this.ptbDeny.Name = "ptbDeny";
+            this.ptbDeny.Size = new System.Drawing.Size(413, 100);
+            this.ptbDeny.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbDeny.TabIndex = 3;
+            this.ptbDeny.TabStop = false;
+            this.ptbDeny.Visible = false;
             // 
             // BillForm
             // 
@@ -295,24 +346,24 @@
             this.Name = "BillForm";
             this.Load += new System.EventHandler(this.BillForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
@@ -333,5 +384,10 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox ptbSuccess;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.PictureBox ptbDeny;
     }
 }

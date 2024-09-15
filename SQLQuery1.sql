@@ -94,7 +94,6 @@ create table Product
 (
 	ProductID int identity primary key,
 	ProductName nvarchar(30),
-	Type int,
 	CategoryName nvarchar(60) references Category(CategoryName),
 	Price float,
 	InventoryNumber int,
@@ -134,8 +133,8 @@ insert into Users values ('user2',N'Lê Văn Đại','Staff','097851364','daile1
 insert into Member values ('Seraphim','123','Member',50000, 'ALLOW')
 insert into Member values ('abc','123','Member',0, 'ALLOW')
 insert into Member values ('xyz','123','Member',60000, 'ALLOW')
-insert into Member values ('123','123','Member',1000, 'ALLOW')
-insert into Member values ('1237','123','Member',10, 'ALLOW')
+insert into Member values ('account1','123','Member',10000,'ALLOW')
+insert into Member values ('account2','123','Member',10000, 'ALLOW')
 --Nhom may tram
 insert into GroupClient values ('basic',N'Phòng máy thường',6000)
 insert into GroupClient values ('VIP',N'Phòng máy lạnh',10000)
@@ -163,14 +162,11 @@ insert into Category values(N'Rượu')
 --thức ăn
 drop table Product
 use QuanLyPhongMay
-insert into Product values (N'Mì xào trứng', 0, N'Mì gói',15000,15,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xexjfbwzd7bain4kcsp9.jpg')
-insert into Product values (N'Mì xào bò', 0, N'Mì gói',25000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xcqvhxfnb0nkp1zdadvk.jpg')
-insert into Product values (N'Cơm chiên trứng', 0, N'Cơm',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140647/uxyre1wyapzfcar56hsa.jpg')
-insert into Product values (N'Cơm chiên thịt heo', 0, N'Cơm',25000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141312/prxg4xhsr2nzhfkmqwuy.jpg')
-insert into Product values (N'Sting đỏ', 1, N'Nước Ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/zucj5urv7w4hd2pt29kn.jpg')
-insert into Product values (N'Sting vàng', 1, N'Nước ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/izwfivsbe8rncrmcdglg.jpg')
-insert into Product values (N'Bò húc', 1, N'Nước Ngọt',15000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/wsoozm11e7nsrd8jkzn9.jpg')
-insert into Product values (N'Aquafina', 1, N'Nước suối',10000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/bpl5aniijvddgsrg33ug.jpg')
-delete from Bill
-insert into Bill values(1,0,'19:20:30 10/07/2024',2000,'SUCCESS')
-select * from Bill
+insert into Product values (N'Mì xào trứng', N'Mì gói',15000,15,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xexjfbwzd7bain4kcsp9.jpg')
+insert into Product values (N'Mì xào bò', N'Mì gói',25000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xcqvhxfnb0nkp1zdadvk.jpg')
+insert into Product values (N'Cơm chiên trứng', N'Cơm',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140647/uxyre1wyapzfcar56hsa.jpg')
+insert into Product values (N'Cơm chiên thịt heo', N'Cơm',25000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141312/prxg4xhsr2nzhfkmqwuy.jpg')
+insert into Product values (N'Sting đỏ', N'Nước Ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/zucj5urv7w4hd2pt29kn.jpg')
+insert into Product values (N'Sting vàng', N'Nước Ngọt',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/izwfivsbe8rncrmcdglg.jpg')
+insert into Product values (N'Bò húc', N'Nước Ngọt',15000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/wsoozm11e7nsrd8jkzn9.jpg')
+insert into Product values (N'Aquafina', N'Nước suối',10000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726141302/bpl5aniijvddgsrg33ug.jpg')

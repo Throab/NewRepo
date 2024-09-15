@@ -58,7 +58,7 @@ namespace Server.GUI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(ServerManager.checkRequest == 1)
+            if(ServerManager.checkRequest == 0)
             {
                 ServerManager.checkRequest = -1;
                 loadBill();

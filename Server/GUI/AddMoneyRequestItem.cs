@@ -44,6 +44,7 @@ namespace Server.GUI
                 if (processAddMoney.checkDone(this.transaction))
                 {
                     ServerManager.addMoney = this.transaction.AddMoney;
+                    ServerManager.memberName = this.transaction.MemberName;
                 }
             }
             catch (Exception ex)
@@ -60,6 +61,7 @@ namespace Server.GUI
                 if (processAddMoney.deny(this.transaction))
                 {
                     ServerManager.addMoney = -2;
+                    ServerManager.memberName= this.transaction.MemberName;
                 }
             }
             catch(Exception ex)

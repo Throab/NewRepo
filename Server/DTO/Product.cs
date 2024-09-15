@@ -11,7 +11,6 @@ namespace Server.DTO
     {
         public int id;
         public string name;
-        public int type;
         public string category;
         public double price;
         public int iventory;
@@ -25,11 +24,6 @@ namespace Server.DTO
         {
             get { return name; }
             set { name = value; }
-        }
-        public int ProductType
-        {
-            get { return type; }
-            set { type = value; }
         }
         public string Category
         {

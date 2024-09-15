@@ -26,10 +26,15 @@ namespace Client
             InitializeComponent();
             this.clientForm = clientForm;
             this.clientManager = clientManager;
+            checkClick = -1;
+            listCart.Clear();
+            listId.Clear();
             products = clientManager.productList;
             listCategory = clientManager.categoryList;
-            listCategory.Insert(0, "Tất cả");
-            
+            cbCategory.DataSource = clientManager.categoryList;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Start();
         }
         public void loadAllDataProduct()
         {
@@ -56,9 +61,8 @@ namespace Client
         }
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            cbCategory.DataSource = clientManager.categoryList;
+            
         }
-
         private void lblClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,7 +104,8 @@ namespace Client
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            foreach(CartItem item in pnlCart.Controls)
+            this.Close();
+            foreach (CartItem item in pnlCart.Controls)
             {
                 foreach(Cart cart in listCart)
                 {
@@ -114,6 +119,7 @@ namespace Client
             clientManager.sendOrder(time, orderToString(listCart));
             BillForm billForm = new BillForm(clientManager, time);
             billForm.Show();
+            
         }
         private string orderToString(List<Cart> carts)
         {

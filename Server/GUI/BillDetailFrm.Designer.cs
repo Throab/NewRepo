@@ -165,6 +165,7 @@
             this.btnDeny.TabIndex = 3;
             this.btnDeny.Text = "Từ chối";
             this.btnDeny.UseVisualStyleBackColor = true;
+            this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click);
             // 
             // tableLayoutPanel1
             // 

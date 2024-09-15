@@ -39,6 +39,7 @@ namespace Server.GUI
             else
             {
                 ServerManager.addMoney = double.Parse(txtMoney.Text);
+                ServerManager.memberName = infoClient.memberName;
                 txtMoney.Enabled = false;
                 this.addMoney = new AddMoneyTransaction{
                     AddMoney = double.Parse(txtMoney.Text),

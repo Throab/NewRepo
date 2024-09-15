@@ -64,6 +64,7 @@ namespace Server.GUI
             if(txtMessage.Text != "")
             {
                 ServerManager.sendMess = 2;
+                ServerManager.memberName = infoClient.memberName;
                 ServerManager.sendMessage = txtMessage.Text;    
             }
         }

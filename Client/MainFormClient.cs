@@ -16,12 +16,10 @@ namespace Client
     public partial class ClientForm : Form
     {
         private ClientManager clientManager;
-        private AddMoneyForm addMoneyForm;
-        private MenuForm menuForm;
+        private AddMoneyForm addMoneyForm;        
         private 
         const int LOGOUT = 103;
         const int MEMBERLOGIN = 102;
-
         int hour = 0;
         int min = 0;
         int sec = 0;
@@ -31,6 +29,7 @@ namespace Client
         TimeSpan remain;
         string userName = "";
         public static int check = -1;
+        public static int checkOrderStatus = -1;
         ChatForm chatForm;
         public ClientForm()
         {
@@ -45,7 +44,6 @@ namespace Client
             this.Enabled = false;
             addMoneyForm = new AddMoneyForm(this, clientManager);
             chatForm = new ChatForm(this, clientManager);
-            menuForm = new MenuForm(this, clientManager);
 
         }
         public ClientForm(ClientManager x)
@@ -73,6 +71,15 @@ namespace Client
         {
             try
             {
+                if(checkOrderStatus == 1)
+                {
+                    checkOrderStatus = -1;
+                    menu.Enabled = false;
+                }
+                if(checkOrderStatus == 0) {
+                    checkOrderStatus= -1;
+                    menu.Enabled = true;
+                }
                 if (ClientManager.requestServer != -1)
                 {
                     
@@ -84,6 +91,7 @@ namespace Client
                         userName = clientManager.userName;
                         ClientManager.requestServer = -2;
                         min = 0;
+                        ClientManager.serviceFee = 0;
                         ResetTime();
                     }
                     TimeCount();
@@ -94,7 +102,9 @@ namespace Client
                         txtRemainingMoney.Text = currencyFormat(remainingMoney);
                         txtUseTimeFee.Text = "0";
                         clientManager.updateMoney(userName, Math.Round(remainingMoney, 0, MidpointRounding.AwayFromZero), use);
-                    }else if(ClientManager.checkAddMoney == 1)
+                        txtServiceFee.Text = currencyFormat(ClientManager.serviceFee);
+                    }
+                    else if(ClientManager.checkAddMoney == 1)
                     {
                         ClientManager.checkAddMoney = -1;
                         txtCurrentMoney.Text = currencyFormat(clientManager.totalMoney);
@@ -104,6 +114,7 @@ namespace Client
                     if (ClientManager.requestServer == LOGOUT)
                     {
                         ClientManager.requestServer = -1;
+                        ClientManager.serviceFee = 0;
                         timerProgram.Start();
                         txtCurrentMoney.Clear();
                         txtRemainingMoney.Clear();
@@ -218,6 +229,7 @@ namespace Client
 
         private void menu_Click(object sender, EventArgs e)
         {
+            MenuForm menuForm = new MenuForm(this, clientManager);
             menuForm.ShowDialog();
         }
 

@@ -20,6 +20,9 @@ namespace Client
             InitializeComponent();
             this.clientForm = mainFormClient;
             this.clientManager = clientManager;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Start();
         }
 
         
@@ -75,12 +78,22 @@ namespace Client
                 ClientManager.message = "";
                 ptbWaiting.Visible=false;
                 ptbDone.Visible = true;
-                btnAddMoney.Text = "Hoàn thành";
-                btnAddMoney.ForeColor = Color.White;
-                btnAddMoney.Enabled = true;
-                btnClose.Visible = false;
+                try
+                {
+                    btnAddMoney.Text = "Hoàn thành";
+                    btnAddMoney.ForeColor = Color.White;
+                    btnAddMoney.Enabled = true;
+                    btnClose.Visible = false;
+                    ClientManager.serviceFee += double.Parse(txtMoney.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
+                
             }
-            if(ClientManager.message == "Add money denied")
+            if (ClientManager.message == "Add money denied")
             {
                 ClientManager.message = "";
                 ptbWaiting.Visible=false;

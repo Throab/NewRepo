@@ -20,6 +20,7 @@ namespace Server.GUI
         AddMoneyControl addMoneyControl;
         ChatControl chatControl;
         RequestControl requestControl;
+        MemberHomePageControl memberHomePageControl;
         public HomePageFrm()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace Server.GUI
             addMoneyControl = new AddMoneyControl(serverManager);
             chatControl = new ChatControl(serverManager);
             requestControl = new RequestControl(serverManager);
+            memberHomePageControl = new MemberHomePageControl();
             clientControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(clientControl);
             addMoneyControl.Dock = DockStyle.Fill;
@@ -57,6 +59,8 @@ namespace Server.GUI
             pnlContainer.Controls.Add(chatControl);
             requestControl.Dock = DockStyle .Fill;
             pnlContainer.Controls .Add(requestControl);
+            memberHomePageControl.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(memberHomePageControl);
 
         }
 
@@ -83,7 +87,7 @@ namespace Server.GUI
 
         private void MemberManage_Click(object sender, EventArgs e)
         {
-            
+            memberHomePageControl.BringToFront();
         }
 
         private void Request_Click(object sender, EventArgs e)
