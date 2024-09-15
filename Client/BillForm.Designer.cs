@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,28 +43,28 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ptbDeny = new System.Windows.Forms.PictureBox();
+            this.ptbSuccess = new System.Windows.Forms.PictureBox();
             this.ptbWaiting = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ptbSuccess = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.ptbDeny = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -215,6 +214,27 @@
             this.panel4.Size = new System.Drawing.Size(413, 236);
             this.panel4.TabIndex = 5;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnAccept);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 165);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(413, 71);
+            this.panel8.TabIndex = 6;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Location = new System.Drawing.Point(140, 19);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(132, 34);
+            this.btnAccept.TabIndex = 0;
+            this.btnAccept.Text = "Xác nhận";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Visible = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.lblStatus);
@@ -245,6 +265,30 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(413, 100);
             this.panel6.TabIndex = 4;
+            // 
+            // ptbDeny
+            // 
+            this.ptbDeny.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbDeny.Image = ((System.Drawing.Image)(resources.GetObject("ptbDeny.Image")));
+            this.ptbDeny.Location = new System.Drawing.Point(0, 0);
+            this.ptbDeny.Name = "ptbDeny";
+            this.ptbDeny.Size = new System.Drawing.Size(413, 100);
+            this.ptbDeny.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbDeny.TabIndex = 3;
+            this.ptbDeny.TabStop = false;
+            this.ptbDeny.Visible = false;
+            // 
+            // ptbSuccess
+            // 
+            this.ptbSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbSuccess.Image = ((System.Drawing.Image)(resources.GetObject("ptbSuccess.Image")));
+            this.ptbSuccess.Location = new System.Drawing.Point(0, 0);
+            this.ptbSuccess.Name = "ptbSuccess";
+            this.ptbSuccess.Size = new System.Drawing.Size(413, 100);
+            this.ptbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSuccess.TabIndex = 2;
+            this.ptbSuccess.TabStop = false;
+            this.ptbSuccess.Visible = false;
             // 
             // ptbWaiting
             // 
@@ -283,51 +327,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ptbSuccess
-            // 
-            this.ptbSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptbSuccess.Image = ((System.Drawing.Image)(resources.GetObject("ptbSuccess.Image")));
-            this.ptbSuccess.Location = new System.Drawing.Point(0, 0);
-            this.ptbSuccess.Name = "ptbSuccess";
-            this.ptbSuccess.Size = new System.Drawing.Size(413, 100);
-            this.ptbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSuccess.TabIndex = 2;
-            this.ptbSuccess.TabStop = false;
-            this.ptbSuccess.Visible = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnAccept);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 165);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(413, 71);
-            this.panel8.TabIndex = 6;
-            // 
-            // btnAccept
-            // 
-            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(140, 19);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(132, 34);
-            this.btnAccept.TabIndex = 0;
-            this.btnAccept.Text = "Xác nhận";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Visible = false;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // ptbDeny
-            // 
-            this.ptbDeny.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptbDeny.Image = ((System.Drawing.Image)(resources.GetObject("ptbDeny.Image")));
-            this.ptbDeny.Location = new System.Drawing.Point(0, 0);
-            this.ptbDeny.Name = "ptbDeny";
-            this.ptbDeny.Size = new System.Drawing.Size(413, 100);
-            this.ptbDeny.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbDeny.TabIndex = 3;
-            this.ptbDeny.TabStop = false;
-            this.ptbDeny.Visible = false;
-            // 
             // BillForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -343,7 +342,9 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BillForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Load += new System.EventHandler(this.BillForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -351,13 +352,13 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbWaiting)).EndInit();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSuccess)).EndInit();
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbDeny)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

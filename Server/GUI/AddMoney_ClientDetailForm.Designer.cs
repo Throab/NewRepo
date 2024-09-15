@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMoney_ClientDetailForm));
             this.gbMember = new System.Windows.Forms.GroupBox();
+            this.txtMoney = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddMoney = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.txtMoney = new System.Windows.Forms.NumericUpDown();
             this.gbMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoney)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,23 @@
             this.gbMember.TabIndex = 0;
             this.gbMember.TabStop = false;
             this.gbMember.Text = "usename";
+            // 
+            // txtMoney
+            // 
+            this.txtMoney.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtMoney.Location = new System.Drawing.Point(163, 37);
+            this.txtMoney.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(120, 26);
+            this.txtMoney.TabIndex = 2;
             // 
             // label1
             // 
@@ -77,23 +95,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // txtMoney
-            // 
-            this.txtMoney.Increment = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.txtMoney.Location = new System.Drawing.Point(163, 37);
-            this.txtMoney.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(120, 26);
-            this.txtMoney.TabIndex = 2;
-            // 
             // AddMoney_ClientDetailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -104,7 +105,9 @@
             this.Controls.Add(this.gbMember);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddMoney_ClientDetailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AddMoney_ClientDetailForm_Load);
             this.gbMember.ResumeLayout(false);
             this.gbMember.PerformLayout();

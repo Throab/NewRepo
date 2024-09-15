@@ -91,20 +91,12 @@ namespace Server.BLL
         }
         public void deleteMember(Member member)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                string sqlQuery = "Delete from Member where MemberID ='" + member.Id + "'";
+            string sqlQuery = "Delete from Member where AccountName ='" + member.AccountName + "'";
 
-                if (DAL.runQuery(sqlQuery))
-                {
-                    MessageBox.Show("Xóa thành công", "Thông báo");
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi", "Thông báo");
-                }
+            if (DAL.runQuery(sqlQuery))
+            {
+
             }
-                
         }
         public bool checkFieldData(string accountName)
         {
@@ -153,6 +145,11 @@ namespace Server.BLL
             DataTable dt = DAL.getDataTable(query);
             DataRow row = dt.Rows[0];
             return row.Field<string>("AccountName");
+        }
+        public DataTable searchMember(string memberName)
+        {
+            string query = "select * from Member where AccountName LIKE '%" + memberName + "%'";
+            return DAL.getDataTable(query);
         }
     }
 }

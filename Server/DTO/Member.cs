@@ -12,7 +12,7 @@ namespace Server.DTO
         private string accountName;
         private string password;
         private string groupUser;
-        private float currentMoney;
+        private double currentMoney;
         private string statusAccount;
 
         public int Id
@@ -36,7 +36,7 @@ namespace Server.DTO
             set { groupUser = value; }
         }
         
-        public float CurrentMoney
+        public double CurrentMoney
         {
             get { return currentMoney; }
             set { currentMoney = value; }

@@ -61,7 +61,8 @@ namespace Client
         }
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width - clientForm.Width, 0);
         }
         private void lblClose_Click(object sender, EventArgs e)
         {

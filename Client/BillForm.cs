@@ -22,11 +22,11 @@ namespace Client
             this.clientManager = clientManager;
             this.time = time;
             listCart = MenuForm.listCart;
-
         }
 
         private void BillForm_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(0,0);
             ClientForm.checkOrderStatus = 1;
             lblMemberName.Text = clientManager.userName; 
             lblTime.Text = time.ToString();

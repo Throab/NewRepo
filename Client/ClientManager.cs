@@ -156,6 +156,11 @@ namespace Client
                         message = "Order Denied";
                         staffName = lstMessage[1];
                     }
+                    if (lstMessage[request].Equals("Force Logout"))
+                    {
+                        message = "Force Logout";
+                        MessageBox.Show("Tài khoản của bạn đã bị buộc đăng xuất.\nVui lòng liên hệ nhân viên để biết thêm chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch(Exception e) 

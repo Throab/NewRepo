@@ -50,7 +50,7 @@ namespace Server.GUI
             addMoneyControl = new AddMoneyControl(serverManager);
             chatControl = new ChatControl(serverManager);
             requestControl = new RequestControl(serverManager);
-            memberHomePageControl = new MemberHomePageControl();
+            memberHomePageControl = new MemberHomePageControl(serverManager);
             clientControl.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(clientControl);
             addMoneyControl.Dock = DockStyle.Fill;

@@ -19,13 +19,12 @@ namespace Server.BLL
             if(DAL.runQuery(query)) return true;
             return false;
         }
-        public bool addMoney(AddMoneyTransaction x)
+        public bool insertAddMoneyWithoutClient(AddMoneyTransaction x)
         {
-            string query = "insert into AddMoneyTransaction values('" + x.ClientIP + "', '" + x.UserName + "', '" + x.MemberName + "','" + x.TransacDate + "', " + x.AddMoney + ",'"+x.Status+"')";
-            if(DAL.runQuery(query)) return true;
+            string query = "insert into AddMoneyTransaction values(NULL, '" + x.UserName + "', '" + x.MemberName + "','" + x.TransacDate + "', " + x.AddMoney + ",'" + x.Status + "')";
+            if (DAL.runQuery(query)) return true;
             return false;
         }
-
         public DataTable getRequest()
         {
             string query = "select * from AddMoneyTransaction where TransacStatus = 'WAITING' ORDER BY TransacDate DESC";
@@ -60,6 +59,11 @@ namespace Server.BLL
             string query = "update AddMoneyTransaction set TransacStatus = 'DENIED' where AddMoneyTransactionId = '" + x.TransactionID + "'";
             if (DAL.runQuery(query)) return true;
             return false;
+        }
+        public void deleteTransaction(string memberName)
+        {
+            string query = "delete from AddMoneyTransaction where MemberName = '" + memberName + "'";
+            if (DAL.runQuery(query)) { }
         }
     }
 }

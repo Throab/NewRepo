@@ -13,6 +13,7 @@ namespace Server.BLL
     public class ProcessBill
     {
         private DataAccessLayer DAL = new DataAccessLayer();
+        ProcessMember ProcessMember = new ProcessMember();
         public int insertBill(Bill bill)
         {
             string query = "insert into Bill values('" + bill.UserID.ToString() + "','" + bill.MemberID.ToString() + "','" + bill.CreatedAt.ToString() + "','" + bill.TotalPrice.ToString() + "','WAITING');" +
@@ -36,7 +37,23 @@ namespace Server.BLL
             }
             return true;
         }
-
+        public List<Bill> getBillListByMemberName(string memberName)
+        {
+            int id = ProcessMember.getMemberID(memberName);
+            string query = "select * from Bill where MemberID = '" + id + "'";
+            DataTable dt = DAL.getDataTable(query);
+            List<DTO.Bill> billList = dt.AsEnumerable()
+                .Select(row => new Bill
+                {
+                    BillID = row.Field<int>("BillID"),
+                    UserID = row.Field<int>("UserID"),
+                    MemberID = row.Field<int>("MemberID"),
+                    Status = row.Field<string>("Status"),
+                    CreatedAt = row.Field<DateTime>("CreatedAt"),
+                    TotalPrice = row.Field<double>("TotalPrice")
+                }).ToList();
+            return billList;
+        }
         public List<Bill> getBillList()
         {
             string query = "select * from Bill where Status = 'WAITING'";
@@ -65,6 +82,27 @@ namespace Server.BLL
                     Quantity = row.Field<int>("Quantity")
                 }).ToList();
             return billItemsList;
+        }
+
+        public void deleteBillItem(int billId)
+        {
+            string query = "delete from Bill_Item where BillID = '" + billId + "'";
+            if (DAL.runQuery(query))
+            {
+
+            }
+        }
+
+        public void deleteBill(string memberName)
+        {
+            int memberId = ProcessMember.getMemberID(memberName);
+            List<Bill> billList = getBillListByMemberName(memberName);
+            foreach (Bill bill in billList)
+            {
+                deleteBillItem(bill.BillID);
+            }
+            string query = "delete from Bill where MemberID = '" + memberId + "'";
+            if (DAL.runQuery(query)) { }
         }
     }
 }

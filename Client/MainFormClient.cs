@@ -125,6 +125,19 @@ namespace Client
                         MessageBox.Show("Số tiền trong tài khoản quý khách đã hết.\nVui lòng nạp thêm tiền để tiếp tục", "Thông báo" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         clientManager.LogoutMember(userName);
                     }
+                    if(ClientManager.message == "Force Logout")
+                    {
+                        ClientManager.message = "";
+                        timerProgram.Start();
+                        txtCurrentMoney.Clear();
+                        txtRemainingMoney.Clear();
+                        txtServiceFee.Clear();
+                        txtUsedTime.Clear();
+                        txtUseTimeFee.Clear();
+                        grbUser.Text = "Username";
+                        ClientManager.requestServer = -1;
+                        clientManager.LogoutMember(userName);
+                    }
                 }
             }catch{
                 Application.Exit();

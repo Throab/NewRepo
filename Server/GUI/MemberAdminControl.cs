@@ -1,5 +1,6 @@
 ﻿using Server.BLL;
 using Server.DTO;
+using Server.socket_configure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,9 @@ namespace Server.GUI
         Member member = new Member();
         bool addMember = false;
         ProcessMember pcMember = new ProcessMember();
+        ProcessAddMoney ProcessAddMoney = new ProcessAddMoney();
+        ProcessBill ProcessBill = new ProcessBill();
+        ProcessMessage ProcessMessage = new ProcessMessage();
         public void getDataMember()
         {
             
@@ -28,7 +32,7 @@ namespace Server.GUI
             member.AccountName = txtAccountName.Text; 
             member.Password = txtPassword.Text;
             member.GroupUser = "Member";
-            member.CurrentMoney = float.Parse(nbMoney.Value.ToString());
+            member.CurrentMoney = double.Parse(nbMoney.Value.ToString());
             member.StatusAccount = cbStatus.SelectedItem.ToString();
 
         }
@@ -86,7 +90,15 @@ namespace Server.GUI
         private void btnXoaHV_Click(object sender, EventArgs e)
         {
             getDataMember();
-            pcMember.deleteMember(member);
+            if(MessageBox.Show("Bạn có chắc chắn xóa","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ServerManager.memberName = txtAccountName.Text;
+                ServerManager.forceLogout = 1;
+                ProcessAddMoney.deleteTransaction(txtAccountName.Text);
+                ProcessBill.deleteBill(txtAccountName.Text);
+                ProcessMessage.deleteMessage(txtAccountName.Text);
+                pcMember.deleteMember(member);
+            }            
             MemberAdminControl_Load(sender, e);
         }
 
@@ -103,6 +115,8 @@ namespace Server.GUI
                 addMember = false;
                 btnSuaHV.Enabled = true;
                 btnXoaHV.Enabled = true;
+                ServerManager.forceLogout =1;
+                ServerManager.memberName = txtAccountName.Text;
 
             }
             else
@@ -112,6 +126,8 @@ namespace Server.GUI
                 btnXoaHV.Enabled = true;
                 txtAccountName.Enabled = true;
                 txtMemberID.Enabled = true;
+                ServerManager.forceLogout=1;
+                ServerManager.memberName = txtAccountName.Text;
             }
             MemberAdminControl_Load(sender, e);
         }

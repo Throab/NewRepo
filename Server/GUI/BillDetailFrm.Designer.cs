@@ -242,6 +242,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BillDetailFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.BillDetailFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

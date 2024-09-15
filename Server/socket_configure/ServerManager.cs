@@ -50,6 +50,7 @@ namespace Server.socket_configure
         public List<Bill_Item> listItems = new List<Bill_Item>();
         public static string memberName = "";
         public static int checkRequest = -1;
+        public static int forceLogout = -1;
         public ServerManager()
         {
             arrClient = new List<InfoClient>();
@@ -229,12 +230,14 @@ namespace Server.socket_configure
                                 if (ProcessMessage.insertMessage(info, userName, sendMessage, "server"))
                                 {
                                     sendMess = 1;
-                                    memberName = "";
+                                    
                                     currentClient.Send(ConvertToByte("Server send message|" + sendMessage));
-                                    sendMessage = "";
+                                    
                                 }
                             }
-                        }                        
+                        }
+                        memberName = "";
+                        sendMessage = "";
                     }
                     if (addMoney != 0 && addMoney != -1)
                     {
@@ -254,10 +257,11 @@ namespace Server.socket_configure
                                     }
                                     currentClient.Send(ConvertToByte("AddMoneySuccess|" + totalMoney.ToString() + "|"));
                                 }
-                                addMoney = 0;
-                                memberName = "";
+                                
                             }                                
-                        }                            
+                        }
+                        addMoney = 0;
+                        memberName = "";
                     }
                         
                     if (lstMessage[request].Equals("Send Order")){
@@ -323,6 +327,18 @@ namespace Server.socket_configure
                             {
                                 checkRequest = 0;
                                 currentClient.Send(ConvertToByte("Order Denied|" + ProcessUser.getUserFullName(userName)));
+                            }
+                        }
+                    }
+                    if(forceLogout == 1)
+                    {
+                        foreach (InfoClient info in arrClient)
+                        {
+                            if(info.memberName == memberName && info.client == currentClient)
+                            {
+                                forceLogout = 0;
+                                currentClient.Send(ConvertToByte("Force Logout"));
+                                memberName = "";
                             }
                         }
                     }

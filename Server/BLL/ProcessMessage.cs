@@ -59,5 +59,10 @@ namespace Server.BLL
             if (DAL.runQuery(query)) return true;
             return false;
         }
+        public void deleteMessage(string memberName)
+        {
+            string query = "delete from Chat where MemberName = '" + memberName + "'";
+            if (DAL.runQuery(query)) { }
+        }
     }
 }
