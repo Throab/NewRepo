@@ -44,9 +44,7 @@ namespace Server
 
         private void AdminMainForm_Load(object sender, EventArgs e)
         {
-            pnlMainPage.BackColor = blackGreenColor;
-            ptbMainPage.BackColor = blackGreenColor;
-            lblMainPage.BackColor = blackGreenColor;
+            
         }
 
         private void controlContainer_Paint(object sender, PaintEventArgs e)
@@ -81,24 +79,8 @@ namespace Server
             adminForm.Visible = true;
         }
 
-        private void lblMainPage_Click(object sender, EventArgs e)
-        {
-            resetColor();
-            dashBoardControl.BringToFront();
-            pnlMainPage.BackColor = blackGreenColor;
-            lblMainPage.BackColor = blackGreenColor;
-            ptbMainPage.BackColor = blackGreenColor;
-        }
-
-        private void lblClientPage_Click(object sender, EventArgs e)
-        {
-            resetColor ();
-            clientControl.BringToFront();
-            pnlClient.BackColor = blackGreenColor;
-            lblClientPage.BackColor = blackGreenColor;
-            ptbClient.BackColor = blackGreenColor;
-        }
-
+        
+        
         private void lblMember_Click(object sender, EventArgs e)
         {
             resetColor ();
@@ -108,31 +90,16 @@ namespace Server
             ptbMember.BackColor = blackGreenColor;
         }
 
-        private void lblMenu_Click(object sender, EventArgs e)
-        {
-            resetColor();
-            menuControl.BringToFront();
-            pnlMenu.BackColor = blackGreenColor;
-            lblMenu.BackColor = blackGreenColor;
-            ptbMenu.BackColor = blackGreenColor;
-        }
+        
         private void resetColor()
         {
-            pnlMainPage.BackColor = Color.Transparent;
-            pnlClient.BackColor = Color.Transparent;
             pnlMember.BackColor = Color.Transparent;
-            pnlMenu.BackColor = Color.Transparent;
             pnlUserCtr.BackColor = Color.Transparent;
-            lblMainPage.BackColor = Color.Transparent;
-            lblClientPage.BackColor = Color.Transparent;
             lblMember.BackColor = Color.Transparent;
-            lblMenu.BackColor = Color.Transparent;
             lblUserCtr.BackColor = Color.Transparent;
-            ptbMainPage.BackColor = Color.Transparent;
+
             ptbUserCtr.BackColor = Color.Transparent;
-            ptbClient.BackColor = Color.Transparent;
             ptbMember.BackColor = Color.Transparent;
-            ptbMenu.BackColor = Color.Transparent;
 
         }
 

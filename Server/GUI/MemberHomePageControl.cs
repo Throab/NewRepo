@@ -47,6 +47,7 @@ namespace Server.GUI
             dgvMember.DataSource = ProcessMember.getMember();
             dgvMember.Columns["CurrentMoney"].Visible = false;
             dgvMember.Columns["MemberStatus"].Visible = false;
+            dgvMember.Columns["GroupUser"].Visible = false;
             dgvMember.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMember.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }

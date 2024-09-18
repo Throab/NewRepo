@@ -137,6 +137,7 @@ namespace Client
                         grbUser.Text = "Username";
                         ClientManager.requestServer = -1;
                         clientManager.LogoutMember(userName);
+                        
                     }
                 }
             }catch{

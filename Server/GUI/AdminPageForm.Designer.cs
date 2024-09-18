@@ -35,36 +35,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbUserCtr = new System.Windows.Forms.PictureBox();
-            this.ptbMenu = new System.Windows.Forms.PictureBox();
             this.ptbMember = new System.Windows.Forms.PictureBox();
-            this.ptbClient = new System.Windows.Forms.PictureBox();
-            this.ptbMainPage = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblUserCtr = new System.Windows.Forms.Label();
-            this.lblMainPage = new System.Windows.Forms.Label();
-            this.lblMenu = new System.Windows.Forms.Label();
-            this.lblClientPage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlMainPage = new System.Windows.Forms.Panel();
-            this.pnlClient = new System.Windows.Forms.Panel();
             this.pnlMember = new System.Windows.Forms.Panel();
             this.lblMember = new System.Windows.Forms.Label();
-            this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlUserCtr = new System.Windows.Forms.Panel();
             this.controlContainer = new System.Windows.Forms.Panel();
-            this.dashBoardControl1 = new Server.GUI.DashBoardControl();
-            this.dashBoardControl = new Server.GUI.DashBoardControl();
-            this.menuControl = new Server.GUI.MenuControl();
-            this.memberControl = new Server.GUI.MemberAdminControl();
-            this.clientControl = new Server.GUI.ClientAdminControl();
             this.userAdminPageControl1 = new Server.GUI.UserAdminPageControl();
+            this.memberControl = new Server.GUI.MemberAdminControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbUserCtr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMember)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMainPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMember.SuspendLayout();
             this.controlContainer.SuspendLayout();
@@ -91,7 +75,7 @@
             this.lblBack.ForeColor = System.Drawing.SystemColors.Control;
             this.lblBack.Location = new System.Drawing.Point(29, 9);
             this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(58, 54);
+            this.lblBack.Size = new System.Drawing.Size(44, 42);
             this.lblBack.TabIndex = 3;
             this.lblBack.Text = "◀";
             this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
@@ -105,7 +89,7 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
             this.btnClose.Location = new System.Drawing.Point(1045, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 31);
+            this.btnClose.Size = new System.Drawing.Size(27, 25);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -117,7 +101,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(422, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 45);
+            this.label1.Size = new System.Drawing.Size(273, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý phòng net";
             // 
@@ -126,20 +110,11 @@
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(104)))), ((int)(((byte)(54)))));
             this.panel2.Controls.Add(this.ptbUserCtr);
-            this.panel2.Controls.Add(this.ptbMenu);
             this.panel2.Controls.Add(this.ptbMember);
-            this.panel2.Controls.Add(this.ptbClient);
-            this.panel2.Controls.Add(this.ptbMainPage);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.lblUserCtr);
-            this.panel2.Controls.Add(this.lblMainPage);
-            this.panel2.Controls.Add(this.lblMenu);
-            this.panel2.Controls.Add(this.lblClientPage);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pnlMainPage);
-            this.panel2.Controls.Add(this.pnlClient);
             this.panel2.Controls.Add(this.pnlMember);
-            this.panel2.Controls.Add(this.pnlMenu);
             this.panel2.Controls.Add(this.pnlUserCtr);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 78);
@@ -157,16 +132,6 @@
             this.ptbUserCtr.TabIndex = 15;
             this.ptbUserCtr.TabStop = false;
             // 
-            // ptbMenu
-            // 
-            this.ptbMenu.Image = global::Server.Properties.Resources.menu;
-            this.ptbMenu.Location = new System.Drawing.Point(38, 304);
-            this.ptbMenu.Name = "ptbMenu";
-            this.ptbMenu.Size = new System.Drawing.Size(30, 30);
-            this.ptbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMenu.TabIndex = 14;
-            this.ptbMenu.TabStop = false;
-            // 
             // ptbMember
             // 
             this.ptbMember.Image = global::Server.Properties.Resources.user;
@@ -176,26 +141,6 @@
             this.ptbMember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbMember.TabIndex = 13;
             this.ptbMember.TabStop = false;
-            // 
-            // ptbClient
-            // 
-            this.ptbClient.Image = global::Server.Properties.Resources.computer;
-            this.ptbClient.Location = new System.Drawing.Point(38, 204);
-            this.ptbClient.Name = "ptbClient";
-            this.ptbClient.Size = new System.Drawing.Size(30, 30);
-            this.ptbClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbClient.TabIndex = 12;
-            this.ptbClient.TabStop = false;
-            // 
-            // ptbMainPage
-            // 
-            this.ptbMainPage.Image = global::Server.Properties.Resources.home;
-            this.ptbMainPage.Location = new System.Drawing.Point(38, 154);
-            this.ptbMainPage.Name = "ptbMainPage";
-            this.ptbMainPage.Size = new System.Drawing.Size(30, 30);
-            this.ptbMainPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMainPage.TabIndex = 0;
-            this.ptbMainPage.TabStop = false;
             // 
             // btnLogout
             // 
@@ -220,52 +165,10 @@
             this.lblUserCtr.ForeColor = System.Drawing.Color.White;
             this.lblUserCtr.Location = new System.Drawing.Point(74, 363);
             this.lblUserCtr.Name = "lblUserCtr";
-            this.lblUserCtr.Size = new System.Drawing.Size(214, 31);
+            this.lblUserCtr.Size = new System.Drawing.Size(159, 23);
             this.lblUserCtr.TabIndex = 8;
             this.lblUserCtr.Text = "Quản lý nhân viên";
             this.lblUserCtr.Click += new System.EventHandler(this.lblPayment_Click);
-            // 
-            // lblMainPage
-            // 
-            this.lblMainPage.AutoSize = true;
-            this.lblMainPage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMainPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMainPage.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMainPage.ForeColor = System.Drawing.Color.White;
-            this.lblMainPage.Location = new System.Drawing.Point(74, 161);
-            this.lblMainPage.Name = "lblMainPage";
-            this.lblMainPage.Size = new System.Drawing.Size(174, 31);
-            this.lblMainPage.TabIndex = 7;
-            this.lblMainPage.Text = "Quản lý chung";
-            this.lblMainPage.Click += new System.EventHandler(this.lblMainPage_Click);
-            // 
-            // lblMenu
-            // 
-            this.lblMenu.AutoSize = true;
-            this.lblMenu.BackColor = System.Drawing.Color.Transparent;
-            this.lblMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMenu.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.ForeColor = System.Drawing.Color.White;
-            this.lblMenu.Location = new System.Drawing.Point(74, 311);
-            this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(206, 31);
-            this.lblMenu.TabIndex = 6;
-            this.lblMenu.Text = "Quản lý thực đơn";
-            this.lblMenu.Click += new System.EventHandler(this.lblMenu_Click);
-            // 
-            // lblClientPage
-            // 
-            this.lblClientPage.AutoSize = true;
-            this.lblClientPage.BackColor = System.Drawing.Color.Transparent;
-            this.lblClientPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblClientPage.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientPage.ForeColor = System.Drawing.Color.White;
-            this.lblClientPage.Location = new System.Drawing.Point(74, 211);
-            this.lblClientPage.Name = "lblClientPage";
-            this.lblClientPage.Size = new System.Drawing.Size(153, 31);
-            this.lblClientPage.TabIndex = 5;
-            this.lblClientPage.Text = "Quản lý máy";
-            this.lblClientPage.Click += new System.EventHandler(this.lblClientPage_Click);
             // 
             // pictureBox1
             // 
@@ -276,20 +179,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // pnlMainPage
-            // 
-            this.pnlMainPage.Location = new System.Drawing.Point(0, 146);
-            this.pnlMainPage.Name = "pnlMainPage";
-            this.pnlMainPage.Size = new System.Drawing.Size(268, 51);
-            this.pnlMainPage.TabIndex = 16;
-            // 
-            // pnlClient
-            // 
-            this.pnlClient.Location = new System.Drawing.Point(0, 196);
-            this.pnlClient.Name = "pnlClient";
-            this.pnlClient.Size = new System.Drawing.Size(268, 51);
-            this.pnlClient.TabIndex = 17;
             // 
             // pnlMember
             // 
@@ -308,17 +197,10 @@
             this.lblMember.ForeColor = System.Drawing.Color.White;
             this.lblMember.Location = new System.Drawing.Point(73, 8);
             this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(195, 31);
+            this.lblMember.Size = new System.Drawing.Size(147, 23);
             this.lblMember.TabIndex = 3;
             this.lblMember.Text = "Quản lý hội viên";
             this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
-            // 
-            // pnlMenu
-            // 
-            this.pnlMenu.Location = new System.Drawing.Point(0, 296);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(268, 51);
-            this.pnlMenu.TabIndex = 19;
             // 
             // pnlUserCtr
             // 
@@ -329,11 +211,7 @@
             // 
             // controlContainer
             // 
-            this.controlContainer.Controls.Add(this.dashBoardControl1);
-            this.controlContainer.Controls.Add(this.dashBoardControl);
-            this.controlContainer.Controls.Add(this.menuControl);
             this.controlContainer.Controls.Add(this.memberControl);
-            this.controlContainer.Controls.Add(this.clientControl);
             this.controlContainer.Controls.Add(this.userAdminPageControl1);
             this.controlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlContainer.Location = new System.Drawing.Point(268, 78);
@@ -341,54 +219,6 @@
             this.controlContainer.Size = new System.Drawing.Size(810, 561);
             this.controlContainer.TabIndex = 3;
             this.controlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.controlContainer_Paint);
-            // 
-            // dashBoardControl1
-            // 
-            this.dashBoardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashBoardControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashBoardControl1.Location = new System.Drawing.Point(0, 0);
-            this.dashBoardControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dashBoardControl1.Name = "dashBoardControl1";
-            this.dashBoardControl1.Size = new System.Drawing.Size(810, 561);
-            this.dashBoardControl1.TabIndex = 4;
-            this.dashBoardControl1.Load += new System.EventHandler(this.dashBoardControl1_Load_1);
-            // 
-            // dashBoardControl
-            // 
-            this.dashBoardControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashBoardControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashBoardControl.Location = new System.Drawing.Point(0, 0);
-            this.dashBoardControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dashBoardControl.Name = "dashBoardControl";
-            this.dashBoardControl.Size = new System.Drawing.Size(810, 561);
-            this.dashBoardControl.TabIndex = 0;
-            // 
-            // menuControl
-            // 
-            this.menuControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuControl.Location = new System.Drawing.Point(0, 0);
-            this.menuControl.Name = "menuControl";
-            this.menuControl.Size = new System.Drawing.Size(810, 561);
-            this.menuControl.TabIndex = 3;
-            // 
-            // memberControl
-            // 
-            this.memberControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memberControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberControl.Location = new System.Drawing.Point(0, 0);
-            this.memberControl.Name = "memberControl";
-            this.memberControl.Size = new System.Drawing.Size(810, 561);
-            this.memberControl.TabIndex = 2;
-            // 
-            // clientControl
-            // 
-            this.clientControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientControl.Location = new System.Drawing.Point(0, 0);
-            this.clientControl.Name = "clientControl";
-            this.clientControl.Size = new System.Drawing.Size(810, 561);
-            this.clientControl.TabIndex = 1;
             // 
             // userAdminPageControl1
             // 
@@ -398,6 +228,15 @@
             this.userAdminPageControl1.Name = "userAdminPageControl1";
             this.userAdminPageControl1.Size = new System.Drawing.Size(810, 561);
             this.userAdminPageControl1.TabIndex = 5;
+            // 
+            // memberControl
+            // 
+            this.memberControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memberControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberControl.Location = new System.Drawing.Point(0, 0);
+            this.memberControl.Name = "memberControl";
+            this.memberControl.Size = new System.Drawing.Size(810, 561);
+            this.memberControl.TabIndex = 2;
             // 
             // AdminPageForm
             // 
@@ -418,10 +257,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbUserCtr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMember)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMainPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlMember.ResumeLayout(false);
             this.pnlMember.PerformLayout();
@@ -439,28 +275,15 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblMember;
         private System.Windows.Forms.Panel controlContainer;
-        private System.Windows.Forms.Label lblMenu;
-        private System.Windows.Forms.Label lblClientPage;
         private System.Windows.Forms.Label lblUserCtr;
-        private System.Windows.Forms.Label lblMainPage;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.PictureBox ptbMainPage;
         private System.Windows.Forms.PictureBox ptbUserCtr;
-        private System.Windows.Forms.PictureBox ptbMenu;
         private System.Windows.Forms.PictureBox ptbMember;
-        private System.Windows.Forms.PictureBox ptbClient;
         private System.Windows.Forms.Label lblBack;
-        private GUI.ClientAdminControl clientControl;
-        private GUI.DashBoardControl dashBoardControl;
-        private GUI.MenuControl menuControl;
         private GUI.MemberAdminControl memberControl;
         private GUI.UserAdminPageControl userControl;
-        private System.Windows.Forms.Panel pnlMainPage;
-        private System.Windows.Forms.Panel pnlClient;
         private System.Windows.Forms.Panel pnlMember;
-        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlUserCtr;
-        private GUI.DashBoardControl dashBoardControl1;
         private GUI.UserAdminPageControl userAdminPageControl1;
     }
 }

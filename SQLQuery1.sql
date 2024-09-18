@@ -159,8 +159,6 @@ insert into Category values(N'Trà')
 insert into Category values(N'Bia')
 insert into Category values(N'Rượu')
 --thức ăn
-drop table Product
-use QuanLyPhongMay
 insert into Product values (N'Mì xào trứng', N'Mì gói',15000,15,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xexjfbwzd7bain4kcsp9.jpg')
 insert into Product values (N'Mì xào bò', N'Mì gói',25000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140648/xcqvhxfnb0nkp1zdadvk.jpg')
 insert into Product values (N'Cơm chiên trứng', N'Cơm',20000,20,'https://res.cloudinary.com/dale7wvyi/image/upload/v1726140647/uxyre1wyapzfcar56hsa.jpg')
