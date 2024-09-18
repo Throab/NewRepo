@@ -165,7 +165,6 @@ namespace Client
             }
             catch(Exception e) 
             {
-                MessageBox.Show(e.Message);
                 if(MessageBox.Show("Mất kết nối với máy chủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     Application.Exit();
@@ -224,6 +223,5 @@ namespace Client
             Bitmap bitmap = new Bitmap(stream);
             return bitmap;
         }
-
     }
 }

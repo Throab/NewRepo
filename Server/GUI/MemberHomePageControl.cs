@@ -41,6 +41,9 @@ namespace Server.GUI
             txtPassword.Enabled = false;
             txtUserName.Enabled = false;
             nudMoney.Enabled = false;
+            txtPassword.Clear();
+            txtUserName.Clear();
+            nudMoney.Value = 0;
         }
         private void loadDataMember()
         {

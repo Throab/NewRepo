@@ -24,8 +24,11 @@ namespace Server.BLL
             double totalMoney = 0;
             string query = "select CurrentMoney from Member where AccountName = '" + username + "'";
             DataTable dt = DAL.getDataTable(query);
-            DataRow row = dt.Rows[0];
-            totalMoney = row.Field<double>("CurrentMoney");
+            if(dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                totalMoney = row.Field<double>("CurrentMoney");
+            }            
             return totalMoney;
         }
         public void updateCurrentMoney(string username, double money)

@@ -347,7 +347,6 @@ namespace Server.socket_configure
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 foreach (InfoClient cli in arrClient)
                 {
                     if (cli.client == currentClient)
